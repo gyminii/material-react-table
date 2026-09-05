@@ -37,7 +37,6 @@ export const MRT_TablePagination = <TData extends MRT_RowData>({
   const isMobile = useMediaQuery('(max-width: 720px)');
 
   const {
-    getState,
     options: {
       enableToolbarInternalActions,
       icons: { ChevronLeftIcon, ChevronRightIcon, FirstPageIcon, LastPageIcon },
@@ -46,10 +45,11 @@ export const MRT_TablePagination = <TData extends MRT_RowData>({
       muiPaginationProps,
       paginationDisplayMode,
     },
+    state,
   } = table;
   const {
     pagination: { pageIndex = 0, pageSize = 10 },
-  } = getState();
+  } = state;
 
   const paginationProps = {
     ...parseFromValuesOrFunc(muiPaginationProps, {

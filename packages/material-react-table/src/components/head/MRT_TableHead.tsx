@@ -20,7 +20,6 @@ export const MRT_TableHead = <TData extends MRT_RowData>({
   ...rest
 }: MRT_TableHeadProps<TData>) => {
   const {
-    getState,
     options: {
       enableStickyHeader,
       layoutMode,
@@ -28,8 +27,9 @@ export const MRT_TableHead = <TData extends MRT_RowData>({
       positionToolbarAlertBanner,
     },
     refs: { tableHeadRef },
+    state,
   } = table;
-  const { isFullScreen, showAlertBanner } = getState();
+  const { isFullScreen, showAlertBanner } = state;
 
   const tableHeadProps = {
     ...parseFromValuesOrFunc(muiTableHeadProps, { table }),

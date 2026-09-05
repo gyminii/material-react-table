@@ -13,14 +13,14 @@ export const MRT_ToggleFullScreenButton = <TData extends MRT_RowData>({
   ...rest
 }: MRT_ToggleFullScreenButtonProps<TData>) => {
   const {
-    getState,
     options: {
       icons: { FullscreenExitIcon, FullscreenIcon },
       localization,
     },
     setIsFullScreen,
+    state,
   } = table;
-  const { isFullScreen } = getState();
+  const { isFullScreen } = state;
 
   const [tooltipOpened, setTooltipOpened] = useState(false);
 

@@ -24,7 +24,6 @@ export const MRT_EditRowModal = <TData extends MRT_RowData>({
   ...rest
 }: MRT_EditRowModalProps<TData>) => {
   const {
-    getState,
     options: {
       localization,
       muiCreateRowModalProps,
@@ -36,8 +35,9 @@ export const MRT_EditRowModal = <TData extends MRT_RowData>({
     },
     setCreatingRow,
     setEditingRow,
+    state,
   } = table;
-  const { creatingRow, editingRow } = getState();
+  const { creatingRow, editingRow } = state;
   const row = (creatingRow ?? editingRow) as MRT_Row<TData>;
 
   const dialogProps = {

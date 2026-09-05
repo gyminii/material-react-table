@@ -36,7 +36,6 @@ export const MRT_TableHeadCell = <TData extends MRT_RowData>({
 }: MRT_TableHeadCellProps<TData>) => {
   const theme = useTheme();
   const {
-    getState,
     options: {
       columnFilterDisplayMode,
       columnResizeDirection,
@@ -54,15 +53,16 @@ export const MRT_TableHeadCell = <TData extends MRT_RowData>({
     },
     refs: { tableHeadCellRefs },
     setHoveredColumn,
+    state,
   } = table;
   const {
-    columnSizingInfo,
+    columnResizing,
     density,
     draggingColumn,
     grouping,
     hoveredColumn,
     showColumnFilters,
-  } = getState();
+  } = state;
   const { column } = header;
   const { columnDef } = column;
   const { columnDefType } = columnDef;
@@ -104,7 +104,7 @@ export const MRT_TableHeadCell = <TData extends MRT_RowData>({
 
   const draggingBorders = useMemo(() => {
     const showResizeBorder =
-      columnSizingInfo.isResizingColumn === column.id &&
+      columnResizing.isResizingColumn === column.id &&
       columnResizeMode === 'onChange' &&
       !header.subHeaders.length;
 
@@ -130,7 +130,7 @@ export const MRT_TableHeadCell = <TData extends MRT_RowData>({
       : undefined;
 
     return draggingBorders;
-  }, [draggingColumn, hoveredColumn, columnSizingInfo.isResizingColumn]);
+  }, [draggingColumn, hoveredColumn, columnResizing.isResizingColumn]);
 
   const handleDragEnter = (_e: DragEvent) => {
     if (enableGrouping && hoveredColumn?.id === 'drop-zone') {

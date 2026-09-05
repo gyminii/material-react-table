@@ -124,7 +124,6 @@ export const MRT_FilterOptionMenu = <TData extends MRT_RowData>({
   ...rest
 }: MRT_FilterOptionMenuProps<TData>) => {
   const {
-    getState,
     options: {
       columnFilterModeOptions,
       globalFilterModeOptions,
@@ -135,8 +134,9 @@ export const MRT_FilterOptionMenu = <TData extends MRT_RowData>({
     },
     setColumnFilterFns,
     setGlobalFilterFn,
+    state,
   } = table;
-  const { density, globalFilterFn } = getState();
+  const { density, globalFilterFn } = state;
   const { column } = header ?? {};
   const { columnDef } = column ?? {};
   const currentFilterValue = column?.getFilterValue();

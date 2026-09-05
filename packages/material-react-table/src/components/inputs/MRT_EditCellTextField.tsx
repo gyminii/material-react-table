@@ -30,16 +30,16 @@ export const MRT_EditCellTextField = <TData extends MRT_RowData>({
   ...rest
 }: MRT_EditCellTextFieldProps<TData>) => {
   const {
-    getState,
     options: { createDisplayMode, editDisplayMode, muiEditTextFieldProps },
     refs: { editInputRefs },
     setCreatingRow,
     setEditingCell,
     setEditingRow,
+    state,
   } = table;
   const { column, row } = cell;
   const { columnDef } = column;
-  const { creatingRow, editingRow } = getState();
+  const { creatingRow, editingRow } = state;
   const { editSelectOptions, editVariant } = columnDef;
 
   const isCreating = creatingRow?.id === row.id;

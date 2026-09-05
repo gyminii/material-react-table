@@ -42,7 +42,6 @@ export const MRT_ShowHideColumnsMenuItems = <TData extends MRT_RowData>({
   ...rest
 }: MRT_ShowHideColumnsMenuItemsProps<TData>) => {
   const {
-    getState,
     options: {
       enableColumnOrdering,
       enableColumnPinning,
@@ -52,8 +51,9 @@ export const MRT_ShowHideColumnsMenuItems = <TData extends MRT_RowData>({
     },
     setColumnOrder,
     setColumnPinning,
+    state,
   } = table;
-  const { columnOrder } = getState();
+  const { columnOrder } = state;
   const { columnDef } = column;
   const { columnDefType } = columnDef;
 
@@ -92,9 +92,9 @@ export const MRT_ShowHideColumnsMenuItems = <TData extends MRT_RowData>({
         columnOrder,
       );
       setColumnOrder(reorderedColumns);
-      setColumnPinning(({ left = [], right = [] }) => ({
-        left: reorderedColumns.filter((header) => left.includes(header)),
-        right: reorderedColumns.filter((header) => right.includes(header)),
+      setColumnPinning(({ end = [], start = [] }) => ({
+        end: reorderedColumns.filter((header) => end.includes(header)),
+        start: reorderedColumns.filter((header) => start.includes(header)),
       }));
     }
   };

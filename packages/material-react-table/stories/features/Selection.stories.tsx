@@ -7,6 +7,7 @@ import {
   getMRT_RowSelectionHandler,
   MaterialReactTable,
   type MRT_ColumnDef,
+  type MRT_RowSelectionState,
   MRT_SelectCheckbox,
   useMaterialReactTable,
 } from '../../src';
@@ -136,7 +137,7 @@ export const SelectionEnabledWithRowClick = () => (
 );
 
 export const ManualSelection = () => {
-  const [rowSelection, setRowSelection] = useState<Record<string, boolean>>({});
+  const [rowSelection, setRowSelection] = useState<MRT_RowSelectionState>({});
 
   console.info(rowSelection);
 
@@ -146,10 +147,12 @@ export const ManualSelection = () => {
       data={data}
       muiTableBodyRowProps={({ row }) => ({
         onClick: () =>
-          setRowSelection((prev) => ({
-            ...prev,
-            [row.id]: !prev[row.id],
-          })),
+          setRowSelection((prev) => {
+            const next = { ...prev };
+            if (next[row.id]) delete next[row.id];
+            else next[row.id] = true;
+            return next;
+          }),
         selected: rowSelection[row.id],
         sx: {
           cursor: 'pointer',
@@ -356,7 +359,7 @@ export const MultiSelectRowWithHoldShift = () => {
     (opts: { end: number; start: number }) => {
       const { end, start } = opts;
       const rows = table.getRowModel().rows;
-      const res: Record<string, boolean> = {};
+      const res: MRT_RowSelectionState = {};
       for (let i = end; i >= start; i--) {
         if (!rows[i]?.getCanSelect()) {
           continue;

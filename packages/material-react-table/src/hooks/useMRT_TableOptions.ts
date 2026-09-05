@@ -1,15 +1,4 @@
 import { useId, useMemo } from 'react';
-import {
-  getCoreRowModel,
-  getExpandedRowModel,
-  getFacetedMinMaxValues,
-  getFacetedRowModel,
-  getFacetedUniqueValues,
-  getFilteredRowModel,
-  getGroupedRowModel,
-  getPaginationRowModel,
-  getSortedRowModel,
-} from '@tanstack/react-table';
 import { useTheme } from '@mui/material/styles';
 import { MRT_AggregationFns } from '../fns/aggregationFns';
 import { MRT_FilterFns } from '../fns/filterFns';
@@ -108,10 +97,11 @@ export const useMRT_TableOptions: <TData extends MRT_RowData>(
   positionPagination = 'bottom',
   positionToolbarAlertBanner = 'top',
   positionToolbarDropZone = 'top',
+  renderDetailPanel,
   rowNumberDisplayMode = 'static',
   rowPinningDisplayMode = 'sticky',
   selectAllMode = 'page',
-  sortingFns,
+  sortFns,
   ...rest
 }: MRT_TableOptions<TData>) => {
   const theme = useTheme();
@@ -130,7 +120,7 @@ export const useMRT_TableOptions: <TData extends MRT_RowData>(
     [],
   );
   filterFns = useMemo(() => ({ ...MRT_FilterFns, ...filterFns }), []);
-  sortingFns = useMemo(() => ({ ...MRT_SortingFns, ...sortingFns }), []);
+  sortFns = useMemo(() => ({ ...MRT_SortingFns, ...sortFns }), []);
   defaultColumn = useMemo(
     () => ({ ...MRT_DefaultColumn, ...defaultColumn }),
     [defaultColumn],
@@ -220,30 +210,10 @@ export const useMRT_TableOptions: <TData extends MRT_RowData>(
     enableToolbarInternalActions,
     enableTopToolbar,
     filterFns,
-    getCoreRowModel: getCoreRowModel(),
-    getExpandedRowModel:
-      enableExpanding || enableGrouping ? getExpandedRowModel() : undefined,
-    getFacetedMinMaxValues: enableFacetedValues
-      ? getFacetedMinMaxValues()
-      : undefined,
-    getFacetedRowModel: enableFacetedValues ? getFacetedRowModel() : undefined,
-    getFacetedUniqueValues: enableFacetedValues
-      ? getFacetedUniqueValues()
-      : undefined,
-    getFilteredRowModel:
-      (enableColumnFilters || enableGlobalFilter || enableFilters) &&
-      !manualFiltering
-        ? getFilteredRowModel()
-        : undefined,
-    getGroupedRowModel:
-      enableGrouping && !manualGrouping ? getGroupedRowModel() : undefined,
-    getPaginationRowModel:
-      enablePagination && !manualPagination
-        ? getPaginationRowModel()
-        : undefined,
-    getSortedRowModel:
-      enableSorting && !manualSorting ? getSortedRowModel() : undefined,
-    getSubRows: (row) => row?.subRows,
+    //TanStack 9 refuses to toggle a row that cannot expand, so rows with a
+    //detail panel must report that they can
+    getRowCanExpand: renderDetailPanel ? () => true : undefined,
+    getSubRows: (row: TData) => row?.subRows,
     icons,
     id,
     layoutMode,
@@ -261,10 +231,11 @@ export const useMRT_TableOptions: <TData extends MRT_RowData>(
     positionPagination,
     positionToolbarAlertBanner,
     positionToolbarDropZone,
+    renderDetailPanel,
     rowNumberDisplayMode,
     rowPinningDisplayMode,
     selectAllMode,
-    sortingFns,
+    sortFns,
     ...rest,
   } as MRT_DefinedTableOptions<TData>;
 };

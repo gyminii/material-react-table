@@ -47,7 +47,6 @@ export const MRT_TableBodyCell = <TData extends MRT_RowData>({
 }: MRT_TableBodyCellProps<TData>) => {
   const theme = useTheme();
   const {
-    getState,
     options: {
       columnResizeDirection,
       columnResizeMode,
@@ -65,10 +64,11 @@ export const MRT_TableBodyCell = <TData extends MRT_RowData>({
       muiTableBodyCellProps,
     },
     setHoveredColumn,
+    state,
   } = table;
   const {
     actionCell,
-    columnSizingInfo,
+    columnResizing,
     creatingRow,
     density,
     draggingColumn,
@@ -79,7 +79,7 @@ export const MRT_TableBodyCell = <TData extends MRT_RowData>({
     hoveredRow,
     isLoading,
     showSkeletons,
-  } = getState();
+  } = state;
   const { column, row } = cell;
   const { columnDef } = column;
   const { columnDefType } = columnDef;
@@ -117,7 +117,7 @@ export const MRT_TableBodyCell = <TData extends MRT_RowData>({
     const isFirstColumn = column.getIsFirstColumn();
     const isLastColumn = column.getIsLastColumn();
     const isLastRow = numRows && staticRowIndex === numRows - 1;
-    const isResizingColumn = columnSizingInfo.isResizingColumn === column.id;
+    const isResizingColumn = columnResizing.isResizingColumn === column.id;
     const showResizeBorder =
       isResizingColumn && columnResizeMode === 'onChange';
 
@@ -157,7 +157,7 @@ export const MRT_TableBodyCell = <TData extends MRT_RowData>({
         }
       : undefined;
   }, [
-    columnSizingInfo.isResizingColumn,
+    columnResizing.isResizingColumn,
     draggingColumn,
     draggingRow,
     hoveredColumn,

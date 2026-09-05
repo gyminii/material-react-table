@@ -13,9 +13,8 @@ export const getMRT_Rows = <TData extends MRT_RowData>(
 ): MRT_Row<TData>[] => {
   const {
     getCenterRows,
-    getPrePaginationRowModel,
+    getPrePaginatedRowModel,
     getRowModel,
-    getState,
     getTopRows,
     options: {
       createDisplayMode,
@@ -25,8 +24,9 @@ export const getMRT_Rows = <TData extends MRT_RowData>(
       positionCreatingRow,
       rowPinningDisplayMode,
     },
+    state,
   } = table;
-  const { creatingRow, pagination } = getState();
+  const { creatingRow, pagination } = state;
 
   const isRankingRows = getIsRankingRows(table);
 
@@ -35,14 +35,12 @@ export const getMRT_Rows = <TData extends MRT_RowData>(
     rows =
       !enableRowPinning || rowPinningDisplayMode?.includes('sticky')
         ? all
-          ? getPrePaginationRowModel().rows
+          ? getPrePaginatedRowModel().rows
           : getRowModel().rows
         : getCenterRows();
   } else {
     // fuzzy ranking adjustments
-    rows = getPrePaginationRowModel().rows.sort((a, b) =>
-      rankGlobalFuzzy(a, b),
-    );
+    rows = getPrePaginatedRowModel().rows.sort((a, b) => rankGlobalFuzzy(a, b));
     if (enablePagination && !manualPagination && !all) {
       const start = pagination.pageIndex * pagination.pageSize;
       rows = rows.slice(start, start + pagination.pageSize);
@@ -88,7 +86,6 @@ export const getCanRankRows = <TData extends MRT_RowData>(
   table: MRT_TableInstance<TData>,
 ) => {
   const {
-    getState,
     options: {
       enableGlobalFilterRankedResults,
       manualExpanding,
@@ -96,8 +93,9 @@ export const getCanRankRows = <TData extends MRT_RowData>(
       manualGrouping,
       manualSorting,
     },
+    state,
   } = table;
-  const { expanded, globalFilterFn } = getState();
+  const { expanded, globalFilterFn } = state;
 
   return (
     !manualExpanding &&
@@ -157,7 +155,6 @@ export const getMRT_RowSelectionHandler =
     value?: boolean,
   ) => {
     const {
-      getState,
       options: {
         enableBatchRowSelection,
         enableMultiRowSelection,
@@ -166,10 +163,11 @@ export const getMRT_RowSelectionHandler =
         rowPinningDisplayMode,
       },
       refs: { lastSelectedRowId: lastSelectedRowId },
+      state,
     } = table;
     const {
       pagination: { pageIndex, pageSize },
-    } = getState();
+    } = state;
 
     const paginationOffset = manualPagination ? 0 : pageSize * pageIndex;
 

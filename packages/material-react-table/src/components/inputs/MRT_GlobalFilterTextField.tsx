@@ -26,7 +26,6 @@ export const MRT_GlobalFilterTextField = <TData extends MRT_RowData>({
   ...rest
 }: MRT_GlobalFilterTextFieldProps<TData>) => {
   const {
-    getState,
     options: {
       enableGlobalFilterModes,
       icons: { CloseIcon, SearchIcon },
@@ -36,8 +35,9 @@ export const MRT_GlobalFilterTextField = <TData extends MRT_RowData>({
     },
     refs: { searchInputRef },
     setGlobalFilter,
+    state,
   } = table;
-  const { globalFilter, showGlobalFilter } = getState();
+  const { globalFilter, showGlobalFilter } = state;
 
   const textFieldProps = {
     ...parseFromValuesOrFunc(muiSearchTextFieldProps, {

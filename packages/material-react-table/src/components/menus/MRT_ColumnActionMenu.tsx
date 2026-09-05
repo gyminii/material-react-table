@@ -25,7 +25,6 @@ export const MRT_ColumnActionMenu = <TData extends MRT_RowData>({
 }: MRT_ColumnActionMenuProps<TData>) => {
   const {
     getAllLeafColumns,
-    getState,
     options: {
       columnFilterDisplayMode,
       columnFilterModeOptions,
@@ -55,13 +54,14 @@ export const MRT_ColumnActionMenu = <TData extends MRT_RowData>({
     refs: { filterInputRefs },
     setColumnFilterFns,
     setColumnOrder,
-    setColumnSizingInfo,
+    setColumnResizing,
     setShowColumnFilters,
+    state,
   } = table;
   const { column } = header;
   const { columnDef } = column;
   const { columnSizing, columnVisibility, density, showColumnFilters } =
-    getState();
+    state;
   const columnFilterValue = column.getFilterValue();
 
   const [filterMenuAnchorEl, setFilterMenuAnchorEl] =
@@ -83,7 +83,7 @@ export const MRT_ColumnActionMenu = <TData extends MRT_RowData>({
   };
 
   const handleResetColumnSize = () => {
-    setColumnSizingInfo((old) => ({ ...old, isResizingColumn: false }));
+    setColumnResizing((old) => ({ ...old, isResizingColumn: false }));
     column.resetSize();
     setAnchorEl(null);
   };
@@ -93,7 +93,7 @@ export const MRT_ColumnActionMenu = <TData extends MRT_RowData>({
     setAnchorEl(null);
   };
 
-  const handlePinColumn = (pinDirection: 'left' | 'right' | false) => {
+  const handlePinColumn = (pinDirection: 'end' | 'start' | false) => {
     column.pin(pinDirection);
     setAnchorEl(null);
   };
@@ -249,19 +249,19 @@ export const MRT_ColumnActionMenu = <TData extends MRT_RowData>({
     ...(enableColumnPinning && column.getCanPin()
       ? [
           <MRT_ActionMenuItem
-            disabled={column.getIsPinned() === 'left' || !column.getCanPin()}
+            disabled={column.getIsPinned() === 'start' || !column.getCanPin()}
             icon={<PushPinIcon style={{ transform: 'rotate(90deg)' }} />}
             key={7}
             label={localization.pinToLeft}
-            onClick={() => handlePinColumn('left')}
+            onClick={() => handlePinColumn('start')}
             table={table}
           />,
           <MRT_ActionMenuItem
-            disabled={column.getIsPinned() === 'right' || !column.getCanPin()}
+            disabled={column.getIsPinned() === 'end' || !column.getCanPin()}
             icon={<PushPinIcon style={{ transform: 'rotate(-90deg)' }} />}
             key={8}
             label={localization.pinToRight}
-            onClick={() => handlePinColumn('right')}
+            onClick={() => handlePinColumn('end')}
             table={table}
           />,
           <MRT_ActionMenuItem

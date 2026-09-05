@@ -25,15 +25,15 @@ export const MRT_TableBodyCellValue = <TData extends MRT_RowData>({
   table,
 }: MRT_TableBodyCellValueProps<TData>) => {
   const {
-    getState,
     options: {
       enableFilterMatchHighlighting,
       mrtTheme: { matchHighlightColor },
     },
+    state,
   } = table;
   const { column, row } = cell;
   const { columnDef } = column;
-  const { globalFilter, globalFilterFn } = getState();
+  const { globalFilter, globalFilterFn } = state;
   const filterValue = column.getFilterValue();
 
   let renderedCellValue =

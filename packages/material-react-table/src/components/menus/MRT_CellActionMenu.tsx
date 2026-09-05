@@ -14,7 +14,6 @@ export const MRT_CellActionMenu = <TData extends MRT_RowData>({
   ...rest
 }: MRT_CellActionMenuProps<TData>) => {
   const {
-    getState,
     options: {
       editDisplayMode,
       enableClickToCopy,
@@ -25,8 +24,9 @@ export const MRT_CellActionMenu = <TData extends MRT_RowData>({
       renderCellActionMenuItems,
     },
     refs: { actionCellRef },
+    state,
   } = table;
-  const { actionCell, density } = getState();
+  const { actionCell, density } = state;
   const cell = actionCell!;
   const { row } = cell;
   const { column } = cell;

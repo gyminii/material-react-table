@@ -53,7 +53,7 @@ export const ColumnPinningInitial = () => (
     columns={columns}
     data={data}
     enableColumnPinning
-    initialState={{ columnPinning: { left: ['email'], right: ['state'] } }}
+    initialState={{ columnPinning: { end: ['state'], start: ['email'] } }}
   />
 );
 

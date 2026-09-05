@@ -1,5 +1,4 @@
 import { useMemo } from 'react';
-import { type Row } from '@tanstack/react-table';
 import {
   type DropdownOption,
   type MRT_Column,
@@ -46,7 +45,7 @@ export const prepareColumns = <TData extends MRT_RowData>({
     aggregationFns = {},
     defaultDisplayColumn,
     filterFns = {},
-    sortingFns = {},
+    sortFns = {},
     state: { columnFilterFns = {} } = {},
   } = tableOptions;
   return columnDefs.map((columnDef) => {
@@ -65,14 +64,10 @@ export const prepareColumns = <TData extends MRT_RowData>({
       //assign aggregationFns if multiple aggregationFns are provided
       if (Array.isArray(columnDef.aggregationFn)) {
         const aggFns = columnDef.aggregationFn as string[];
-        columnDef.aggregationFn = (
-          columnId: string,
-          leafRows: Row<TData>[],
-          childRows: Row<TData>[],
-        ) =>
-          aggFns.map((fn) =>
-            aggregationFns[fn]?.(columnId, leafRows, childRows),
-          );
+        columnDef.aggregationFn = {
+          aggregate: (context) =>
+            aggFns.map((fn) => aggregationFns[fn]?.aggregate(context)),
+        };
       }
 
       //assign filterFns
@@ -83,10 +78,10 @@ export const prepareColumns = <TData extends MRT_RowData>({
           columnFilterFns[columnDef.id];
       }
 
-      //assign sortingFns
-      if (Object.keys(sortingFns).includes(columnDef.sortingFn as string)) {
+      //assign sortFns
+      if (Object.keys(sortFns).includes(columnDef.sortFn as string)) {
         // @ts-expect-error
-        columnDef.sortingFn = sortingFns[columnDef.sortingFn];
+        columnDef.sortFn = sortFns[columnDef.sortFn];
       }
     } else if (columnDef.columnDefType === 'display') {
       columnDef = {

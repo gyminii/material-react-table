@@ -73,9 +73,9 @@ export const getCommonPinnedCellStyles = <TData extends MRT_RowData>({
           0.97,
         ),
         boxShadow: column
-          ? isPinned === 'left' && column.getIsLastColumn(isPinned)
+          ? isPinned === 'start' && column.getIsLastColumn(isPinned)
             ? `-4px 0 4px -4px ${alpha(theme.palette.grey[700], 0.5)} inset`
-            : isPinned === 'right' && column.getIsFirstColumn(isPinned)
+            : isPinned === 'end' && column.getIsFirstColumn(isPinned)
               ? `4px 0 4px -4px ${alpha(theme.palette.grey[700], 0.5)} inset`
               : undefined
           : undefined,
@@ -99,10 +99,10 @@ export const getCommonMRTCellStyles = <TData extends MRT_RowData>({
   theme: Theme;
 }) => {
   const {
-    getState,
     options: { enableColumnVirtualization, layoutMode },
+    state,
   } = table;
-  const { draggingColumn } = getState();
+  const { draggingColumn } = state;
   const { columnDef } = column;
   const { columnDefType } = columnDef;
 
@@ -133,16 +133,14 @@ export const getCommonMRTCellStyles = <TData extends MRT_RowData>({
   const pinnedStyles = isColumnPinned
     ? {
         ...getCommonPinnedCellStyles({ column, table, theme }),
-        left:
-          isColumnPinned === 'left'
-            ? `${column.getStart('left')}px`
+        insetInlineEnd:
+          isColumnPinned === 'end' ? `${column.getAfter('end')}px` : undefined,
+        insetInlineStart:
+          isColumnPinned === 'start'
+            ? `${column.getStart('start')}px`
             : undefined,
         opacity: 0.97,
         position: 'sticky',
-        right:
-          isColumnPinned === 'right'
-            ? `${column.getAfter('right')}px`
-            : undefined,
       }
     : {};
 
@@ -161,8 +159,8 @@ export const getCommonMRTCellStyles = <TData extends MRT_RowData>({
           ? tableCellProps.align
           : undefined,
     opacity:
-      table.getState().draggingColumn?.id === column.id ||
-      table.getState().hoveredColumn?.id === column.id
+      table.state.draggingColumn?.id === column.id ||
+      table.state.hoveredColumn?.id === column.id
         ? 0.5
         : 1,
     position: 'relative',

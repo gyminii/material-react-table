@@ -24,7 +24,6 @@ export const MRT_EditActionButtons = <TData extends MRT_RowData>({
   ...rest
 }: MRT_EditActionButtonsProps<TData>) => {
   const {
-    getState,
     options: {
       icons: { CancelIcon, SaveIcon },
       localization,
@@ -36,8 +35,9 @@ export const MRT_EditActionButtons = <TData extends MRT_RowData>({
     refs: { editInputRefs },
     setCreatingRow,
     setEditingRow,
+    state,
   } = table;
-  const { creatingRow, editingRow, isSaving } = getState();
+  const { creatingRow, editingRow, isSaving } = state;
 
   const isCreating = creatingRow?.id === row.id;
   const isEditing = editingRow?.id === row.id;

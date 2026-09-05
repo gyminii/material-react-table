@@ -39,7 +39,6 @@ export const MRT_ToggleRowActionMenuButton = <TData extends MRT_RowData>({
   ...rest
 }: MRT_ToggleRowActionMenuButtonProps<TData>) => {
   const {
-    getState,
     options: {
       createDisplayMode,
       editDisplayMode,
@@ -50,9 +49,10 @@ export const MRT_ToggleRowActionMenuButton = <TData extends MRT_RowData>({
       renderRowActions,
     },
     setEditingRow,
+    state,
   } = table;
 
-  const { creatingRow, editingRow } = getState();
+  const { creatingRow, editingRow } = state;
 
   const isCreating = creatingRow?.id === row.id;
   const isEditing = editingRow?.id === row.id;

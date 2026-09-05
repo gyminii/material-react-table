@@ -16,14 +16,14 @@ export const MRT_ToolbarDropZone = <TData extends MRT_RowData>({
   ...rest
 }: MRT_ToolbarDropZoneProps<TData>) => {
   const {
-    getState,
     options: { enableGrouping, localization },
     setHoveredColumn,
     setShowToolbarDropZone,
+    state,
   } = table;
 
   const { draggingColumn, grouping, hoveredColumn, showToolbarDropZone } =
-    getState();
+    state;
 
   const handleDragEnter = (_event: DragEvent<HTMLDivElement>) => {
     setHoveredColumn({ id: 'drop-zone' });
@@ -34,14 +34,12 @@ export const MRT_ToolbarDropZone = <TData extends MRT_RowData>({
   };
 
   useEffect(() => {
-    if (table.options.state?.showToolbarDropZone !== undefined) {
-      setShowToolbarDropZone(
-        !!enableGrouping &&
-          !!draggingColumn &&
-          draggingColumn.columnDef.enableGrouping !== false &&
-          !grouping.includes(draggingColumn.id),
-      );
-    }
+    setShowToolbarDropZone(
+      !!enableGrouping &&
+        !!draggingColumn &&
+        draggingColumn.columnDef.enableGrouping !== false &&
+        !grouping.includes(draggingColumn.id),
+    );
   }, [enableGrouping, draggingColumn, grouping]);
 
   return (

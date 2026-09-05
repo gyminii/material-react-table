@@ -23,10 +23,10 @@ export const MRT_TableHeadCellFilterContainer = <TData extends MRT_RowData>({
   ...rest
 }: MRT_TableHeadCellFilterContainerProps<TData>) => {
   const {
-    getState,
     options: { columnFilterDisplayMode },
+    state,
   } = table;
-  const { showColumnFilters } = getState();
+  const { showColumnFilters } = state;
   const { column } = header;
   const { columnDef } = column;
   const { isRangeFilter } = getColumnFilterInfo({ header, table });

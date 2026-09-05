@@ -30,12 +30,11 @@ export const MRT_ShowHideColumnsMenu = <TData extends MRT_RowData>({
     getAllColumns,
     getAllLeafColumns,
     getCenterLeafColumns,
+    getEndLeafColumns,
     getIsAllColumnsVisible,
     getIsSomeColumnsPinned,
     getIsSomeColumnsVisible,
-    getLeftLeafColumns,
-    getRightLeafColumns,
-    getState,
+    getStartLeafColumns,
     initialState,
     options: {
       enableColumnOrdering,
@@ -44,8 +43,9 @@ export const MRT_ShowHideColumnsMenu = <TData extends MRT_RowData>({
       localization,
       mrtTheme: { menuBackgroundColor },
     },
+    state,
   } = table;
-  const { columnOrder, columnPinning, density } = getState();
+  const { columnOrder, columnPinning, density } = state;
 
   const handleToggleAllColumns = (value?: boolean) => {
     const updates = getAllLeafColumns()
@@ -65,11 +65,11 @@ export const MRT_ShowHideColumnsMenu = <TData extends MRT_RowData>({
       !columns.some((col) => col.columnDef.columnDefType === 'group')
     ) {
       return [
-        ...getLeftLeafColumns(),
+        ...getStartLeafColumns(),
         ...Array.from(new Set(columnOrder)).map((colId) =>
           getCenterLeafColumns().find((col) => col?.id === colId),
         ),
-        ...getRightLeafColumns(),
+        ...getEndLeafColumns(),
       ].filter(Boolean);
     }
     return columns;
@@ -78,8 +78,8 @@ export const MRT_ShowHideColumnsMenu = <TData extends MRT_RowData>({
     columnPinning,
     getAllColumns(),
     getCenterLeafColumns(),
-    getLeftLeafColumns(),
-    getRightLeafColumns(),
+    getStartLeafColumns(),
+    getEndLeafColumns(),
   ]) as MRT_Column<TData>[];
 
   const isNestedColumns = allColumns.some(
@@ -137,7 +137,10 @@ export const MRT_ShowHideColumnsMenu = <TData extends MRT_RowData>({
             disabled={!hasColumnOrderChanged}
             onClick={() =>
               table.setColumnOrder(
-                getDefaultColumnOrderIds(table.options, true),
+                getDefaultColumnOrderIds(
+                  { ...table.options, state: table.state },
+                  true,
+                ),
               )
             }
           >

@@ -12,9 +12,9 @@ export const useMRT_Effects = <TData extends MRT_RowData>(
 ) => {
   const {
     getIsSomeRowsPinned,
-    getPrePaginationRowModel,
-    getState,
+    getPrePaginatedRowModel,
     options: { enablePagination, enableRowPinning, rowCount },
+    state,
   } = table;
   const {
     columnOrder,
@@ -25,10 +25,10 @@ export const useMRT_Effects = <TData extends MRT_RowData>(
     pagination,
     showSkeletons,
     sorting,
-  } = getState();
+  } = state;
 
   const totalColumnCount = table.options.columns.length;
-  const totalRowCount = rowCount ?? getPrePaginationRowModel().rows.length;
+  const totalRowCount = rowCount ?? getPrePaginatedRowModel().rows.length;
 
   const rerender = useReducer(() => ({}), {})[1];
   const initialBodyHeight = useRef<string>(null);
@@ -61,7 +61,9 @@ export const useMRT_Effects = <TData extends MRT_RowData>(
   //recalculate column order when columns change or features are toggled on/off
   useEffect(() => {
     if (totalColumnCount !== columnOrder.length) {
-      table.setColumnOrder(getDefaultColumnOrderIds(table.options));
+      table.setColumnOrder(
+        getDefaultColumnOrderIds({ ...table.options, state: table.state }),
+      );
     }
   }, [totalColumnCount]);
 

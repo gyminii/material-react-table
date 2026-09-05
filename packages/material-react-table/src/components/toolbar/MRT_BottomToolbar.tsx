@@ -19,7 +19,6 @@ export const MRT_BottomToolbar = <TData extends MRT_RowData>({
   ...rest
 }: MRT_BottomToolbarProps<TData>) => {
   const {
-    getState,
     options: {
       enablePagination,
       muiBottomToolbarProps,
@@ -29,8 +28,9 @@ export const MRT_BottomToolbar = <TData extends MRT_RowData>({
       renderBottomToolbarCustomActions,
     },
     refs: { bottomToolbarRef },
+    state,
   } = table;
-  const { isFullScreen } = getState();
+  const { isFullScreen } = state;
 
   const isMobile = useMediaQuery('(max-width:720px)');
 

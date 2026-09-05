@@ -30,7 +30,6 @@ export const MRT_SelectCheckbox = <TData extends MRT_RowData>({
   ...rest
 }: MRT_SelectCheckboxProps<TData>) => {
   const {
-    getState,
     options: {
       enableMultiRowSelection,
       localization,
@@ -38,8 +37,9 @@ export const MRT_SelectCheckbox = <TData extends MRT_RowData>({
       muiSelectCheckboxProps,
       selectAllMode,
     },
+    state,
   } = table;
-  const { density, isLoading } = getState();
+  const { density, isLoading } = state;
 
   const selectAll = !row;
 
@@ -124,7 +124,7 @@ export const MRT_SelectCheckbox = <TData extends MRT_RowData>({
         <Checkbox
           indeterminate={
             !isChecked && selectAll
-              ? table.getIsSomeRowsSelected()
+              ? table.getIsSomeRowsSelected() && !table.getIsAllRowsSelected()
               : row?.getIsSomeSelected() && row.getCanSelectSubRows()
           }
           {...commonProps}
