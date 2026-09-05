@@ -1,28 +1,23 @@
-# Material React Table V3
+# Material React Table V4
+
+A maintained fork of [KevinVandy/material-react-table](https://github.com/KevinVandy/material-react-table), published as `@mini_7/material-react-table`, that tracks the latest Material UI and TanStack Table releases.
 
 View [Documentation](https://www.material-react-table.com/)
 
-<a href="https://npmjs.com/package/material-react-table" target="_blank">
-  <img alt="" src="https://badgen.net/npm/v/material-react-table?color=blue" />
+<a href="https://npmjs.com/package/@mini_7/material-react-table" target="_blank">
+  <img alt="" src="https://badgen.net/npm/v/@mini_7/material-react-table?color=blue" />
 </a>
-<a href="https://npmtrends.com/material-react-table" target="_blank">
-  <img alt="" src="https://badgen.net/npm/dt/material-react-table?label=installs&icon=npm&color=blue" />
+<a href="https://npmtrends.com/@mini_7/material-react-table" target="_blank">
+  <img alt="" src="https://badgen.net/npm/dt/@mini_7/material-react-table?label=installs&icon=npm&color=blue" />
 </a>
-<a href="https://bundlephobia.com/result?p=material-react-table" target="_blank">
-  <img alt="" src="https://badgen.net/bundlephobia/minzip/material-react-table@latest?color=blue" />
+<a href="https://bundlephobia.com/result?p=@mini_7/material-react-table" target="_blank">
+  <img alt="" src="https://badgen.net/bundlephobia/minzip/@mini_7/material-react-table@latest?color=blue" />
 </a>
-<a href="https://star-history.com/#kevinvandy/material-react-table&Date" target="_blank">
-  <img alt="" src="https://badgen.net/github/stars/KevinVandy/material-react-table?color=blue" />
+<a href="https://star-history.com/#gyminii/material-react-table&Date" target="_blank">
+  <img alt="" src="https://badgen.net/github/stars/gyminii/material-react-table?color=blue" />
 </a>
-<a href="https://github.com/KevinVandy/material-react-table/blob/v3/LICENSE" target="_blank">
-  <img alt="" src="https://badgen.net/github/license/KevinVandy/material-react-table?color=blue" />
-</a>
- <a
-  href="https://github.com/sponsors/kevinvandy"
-  target="_blank"
-  rel="noopener"
->
-  <img alt="" src="https://img.shields.io/badge/sponsor-violet" />
+<a href="https://github.com/gyminii/material-react-table/blob/v4/LICENSE" target="_blank">
+  <img alt="" src="https://badgen.net/github/license/gyminii/material-react-table?color=blue" />
 </a>
 <a
   href="https://discord.gg/5wqyRx6fnm"
@@ -36,7 +31,7 @@ View [Documentation](https://www.material-react-table.com/)
 
 ### _Quickly Create React Data Tables with Material Design_
 
-### **Built with [Material UI <sup>V6</sup>](https://mui.com) and [TanStack Table <sup>V8</sup>](https://tanstack.com/table/v8)**
+### **Built with [Material UI <sup>V9</sup>](https://mui.com) and [TanStack Table <sup>V8</sup>](https://tanstack.com/table/v8)**
 
 <img src="https://material-react-table.com/banner.png" alt="MRT" height="50" />
 
@@ -72,7 +67,7 @@ _All features can easily be enabled/disabled_
 
 _**Fully Fleshed out [Docs](https://www.material-react-table.com/docs/guides#guides) are available for all features**_
 
-- [x] 30-56kb gzipped - [Bundlephobia](https://bundlephobia.com/package/material-react-table)
+- [x] 30-56kb gzipped - [Bundlephobia](https://bundlephobia.com/package/@mini_7/material-react-table)
 - [x] Advanced TypeScript Generics Support (TypeScript Optional)
 - [x] Aggregation and Grouping (Sum, Average, Count, etc.)
 - [x] Cell Actions (Right-click Context Menu)
@@ -116,16 +111,16 @@ View the full [Installation Docs](https://www.material-react-table.com/docs/gett
 
 1. Ensure that you have React 18 or later installed
 
-2. Install Peer Dependencies (Material UI V6)
+2. Install Peer Dependencies (Material UI V9)
 
 ```bash
 npm install @mui/material @mui/x-date-pickers @mui/icons-material @emotion/react @emotion/styled
 ```
 
-3. Install material-react-table
+3. Install @mini_7/material-react-table
 
 ```bash
-npm install material-react-table
+npm install @mini_7/material-react-table
 ```
 
 > _`@tanstack/react-table`, `@tanstack/react-virtual`, and `@tanstack/match-sorter-utils`_ are internal dependencies, so you do NOT need to install them yourself.
@@ -139,7 +134,7 @@ import { useMemo, useState, useEffect } from 'react';
 import {
   MaterialReactTable,
   useMaterialReactTable,
-} from 'material-react-table';
+} from '@mini_7/material-react-table';
 
 //data must be stable reference (useState, useMemo, useQuery, defined outside of component, etc.)
 const data = [
@@ -204,12 +199,12 @@ _Open in [Code Sandbox](https://codesandbox.io/s/simple-material-react-table-exa
 
 ## Contributors
 
-<a href="https://github.com/kevinvandy/material-react-table/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=kevinvandy/material-react-table" />
+<a href="https://github.com/gyminii/material-react-table/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=gyminii/material-react-table" />
 </a>
 
-PRs are Welcome, but please discuss in [GitHub Discussions](https://github.com/KevinVandy/material-react-table/discussions) or the [Discord Server](https://discord.gg/5wqyRx6fnm) first if it is a large change!
+PRs are Welcome, but please discuss in [GitHub Issues](https://github.com/gyminii/material-react-table/issues) or the [Discord Server](https://discord.gg/5wqyRx6fnm) first if it is a large change!
 
-Read the [Contributing Guide](https://github.com/KevinVandy/material-react-table/blob/v3/CONTRIBUTING.md) to learn how to run this project locally.
+Read the [Contributing Guide](https://github.com/gyminii/material-react-table/blob/v4/CONTRIBUTING.md) to learn how to run this project locally.
 
 <!-- Use the FORCE, Luke! -->
