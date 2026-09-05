@@ -132,4 +132,5 @@ Behaviour changes to check:
 - `table.getState()` still works and returns the full current state. Inside render code `table.state` is the reactive equivalent.
 - Pinned cells are positioned with `insetInlineStart` and `insetInlineEnd`, so right-to-left layouts pin to the logical start and end of the row.
 
-The V9 packages ship agent skills for AI coding assistants; run `npx @tanstack/intent@latest list` in your project to see them.
+Both this package and the TanStack V9 packages ship agent skills for AI coding assistants; run `npx @tanstack/intent@latest list` in your project to see them.
+The `migrate-v3-to-v4` skill covers everything on this page, and the `@mini_7/material-react-table-mcp` server answers exact option lookups.

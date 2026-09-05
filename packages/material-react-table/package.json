@@ -12,7 +12,8 @@
     "material-ui",
     "material-table",
     "tanstack table",
-    "data table"
+    "data table",
+    "tanstack-intent"
   ],
   "repository": {
     "type": "git",
@@ -52,7 +53,8 @@
   "files": [
     "dist",
     "locales",
-    "src"
+    "src",
+    "skills"
   ],
   "size-limit": [
     {
@@ -100,6 +102,7 @@
     "@storybook/preview-api": "^8.4.7",
     "@storybook/react": "^8.4.7",
     "@storybook/react-vite": "^8.4.7",
+    "@tanstack/intent": "^0.4.0",
     "@types/node": "^22.10.2",
     "@types/react": "^19.0.2",
     "@types/react-dom": "^19.0.2",

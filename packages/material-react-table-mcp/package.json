@@ -1,0 +1,50 @@
+{
+  "name": "@mini_7/material-react-table-mcp",
+  "version": "4.0.0",
+  "description": "MCP server that lets AI coding agents look up Material React Table V4 table options, column options, state, instance APIs, the V3 to V4 migration guide, and the bundled agent skills.",
+  "license": "MIT",
+  "author": "Tyler Lee",
+  "type": "module",
+  "bin": {
+    "material-react-table-mcp": "./dist/index.js"
+  },
+  "files": [
+    "dist",
+    "data"
+  ],
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "material-react-table",
+    "tanstack table",
+    "material-ui"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gyminii/material-react-table",
+    "directory": "packages/material-react-table-mcp"
+  },
+  "homepage": "https://github.com/gyminii/material-react-table/tree/v4/packages/material-react-table-mcp",
+  "bugs": {
+    "url": "https://github.com/gyminii/material-react-table/issues"
+  },
+  "engines": {
+    "node": ">=22.12"
+  },
+  "scripts": {
+    "build": "pnpm generate-data && tsc -p tsconfig.json",
+    "generate-data": "tsx scripts/generate-data.ts",
+    "lint": "tsc --noEmit -p tsconfig.json",
+    "start": "node dist/index.js",
+    "test": "tsx scripts/smoke-test.ts"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.30.0",
+    "zod": "^4.5.4"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.2",
+    "tsx": "^4.23.13",
+    "typescript": "5.7.2"
+  }
+}

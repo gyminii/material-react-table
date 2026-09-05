@@ -197,6 +197,22 @@ export default function App() {
 
 _Open in [Code Sandbox](https://codesandbox.io/s/simple-material-react-table-example-t5c3ji)_
 
+## AI Agents
+
+The package ships [TanStack Intent](https://www.npmjs.com/package/@tanstack/intent) skills that teach coding agents the MRT API, the `table` prop pattern, state management, and the V3 to V4 migration.
+In a project with `@mini_7/material-react-table` installed:
+
+```bash
+npx @tanstack/intent@latest list
+npx @tanstack/intent@latest load @mini_7/material-react-table#getting-started
+```
+
+For exact option lookups, add the MCP server [`@mini_7/material-react-table-mcp`](https://github.com/gyminii/material-react-table/tree/v4/packages/material-react-table-mcp):
+
+```bash
+claude mcp add material-react-table -- npx -y @mini_7/material-react-table-mcp
+```
+
 ## Contributors
 
 <a href="https://github.com/gyminii/material-react-table/graphs/contributors">
