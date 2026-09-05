@@ -1,9 +1,12 @@
 {
   "version": "3.2.1",
   "license": "MIT",
-  "name": "material-react-table",
+  "name": "@mini_7/material-react-table",
   "description": "A fully featured Material UI V6 implementation of TanStack React Table V8, written from the ground up in TypeScript.",
-  "author": "KevinVandy",
+  "author": "Tyler Lee",
+  "contributors": [
+    "Kevin Vandy (https://github.com/KevinVandy)"
+  ],
   "keywords": [
     "react-table",
     "material-ui",
@@ -13,15 +16,11 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/KevinVandy/material-react-table"
+    "url": "https://github.com/gyminii/material-react-table"
   },
-  "funding": {
-    "type": "github",
-    "url": "https://github.com/sponsors/kevinvandy"
-  },
-  "homepage": "https://www.material-react-table.com/",
+  "homepage": "https://github.com/gyminii/material-react-table",
   "bugs": {
-    "url": "https://github.com/KevinVandy/material-react-table/issues"
+    "url": "https://github.com/gyminii/material-react-table/issues"
   },
   "sideEffects": false,
   "main": "dist/index.js",
@@ -43,7 +42,7 @@
     }
   ],
   "engines": {
-    "node": ">=16"
+    "node": ">=20.10"
   },
   "scripts": {
     "build": "pnpm lib:build",
