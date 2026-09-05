@@ -71,7 +71,13 @@ const Example = () => {
       },
     },
     renderTopToolbarCustomActions: () => (
-      <Typography color="success.main" component="span" variant="h4">
+      <Typography
+        component="span"
+        variant="h4"
+        sx={{
+          color: 'success.main',
+        }}
+      >
         Nice List
       </Typography>
     ),
@@ -100,7 +106,13 @@ const Example = () => {
       },
     },
     renderTopToolbarCustomActions: () => (
-      <Typography color="error.main" component="span" variant="h4">
+      <Typography
+        component="span"
+        variant="h4"
+        sx={{
+          color: 'error.main',
+        }}
+      >
         Naughty List
       </Typography>
     ),

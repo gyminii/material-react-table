@@ -84,20 +84,22 @@ const HomePage = () => {
           </Box>
         </Typography>
         <Typography
-          color="text.secondary"
+          variant="h2"
           sx={{
+            color: 'text.secondary',
+
             fontSize: {
               xs: '1.2rem',
               sm: '1.5rem',
               md: '2.2rem',
               lg: '2.25rem',
             },
+
             mb: '1rem',
             textAlign: 'center',
             lineHeight: '2.25rem',
             fontWeight: 'normal',
           }}
-          variant="h2"
         >
           Built with{' '}
           <Link href="https://mui.com/" passHref legacyBehavior>
@@ -116,13 +118,13 @@ const HomePage = () => {
           and&nbsp;
           <Link href="https://tanstack.com/table/v8" passHref legacyBehavior>
             <MuiLink
-              color="secondary.main"
+              target="_blank"
+              rel="noopener"
               sx={{
+                color: 'secondary.main',
                 textDecoration: 'none',
                 '&:hover': { textDecoration: 'underline' },
               }}
-              target="_blank"
-              rel="noopener"
             >
               TanStack&nbsp;Table<sup>V8</sup>
             </MuiLink>
@@ -223,7 +225,13 @@ const HomePage = () => {
           <InstallCommand centered variant="fullWidth" />
         </Box>
         <HomeCards />
-        <Typography my="2rem" textAlign="center" variant="h3">
+        <Typography
+          variant="h3"
+          sx={{
+            my: '2rem',
+            textAlign: 'center',
+          }}
+        >
           Popular Docs
         </Typography>
         <Box
@@ -255,7 +263,13 @@ const HomePage = () => {
           <GuideCard title="Selection" href="docs/guides/row-selection" />
         </Box>
       </Stack>
-      <Typography my="2rem" textAlign="center" variant="h3">
+      <Typography
+        variant="h3"
+        sx={{
+          my: '2rem',
+          textAlign: 'center',
+        }}
+      >
         Examples To Get You Started
       </Typography>
       <BasicExamples />
@@ -305,7 +319,7 @@ const HomePage = () => {
       <Typography component="p" variant="subtitle2" sx={{ mt: '1rem' }}>
         *If you see any inaccuracies in this table, PRs are welcome!
       </Typography>
-      <LinkHeading mt="4rem" textAlign="center" variant="h3">
+      <LinkHeading sx={{ mt: '4rem', textAlign: 'center' }} variant="h3">
         Maintainers and Contributors
       </LinkHeading>
       <Contributors />

@@ -25,17 +25,22 @@ export const BlogAuthor = ({
           alignItems: 'center',
         }}
       >
-        <Typography fontSize="14pt" variant="caption">
+        <Typography
+          variant="caption"
+          sx={{
+            fontSize: '14pt',
+          }}
+        >
           By{' '}
           <Link
-            color="text.primary"
-            sx={{
-              textDecoration: 'none',
-              '&:hover': { textDecoration: 'underline' },
-            }}
             target="_blank"
             rel="noopener noreferrer"
             href={authorLink}
+            sx={{
+              color: 'text.primary',
+              textDecoration: 'none',
+              '&:hover': { textDecoration: 'underline' },
+            }}
           >
             {author}
           </Link>
@@ -48,7 +53,11 @@ export const BlogAuthor = ({
           style={{ borderRadius: '50%' }}
         />
       </Box>
-      <Typography color="text.secondary">
+      <Typography
+        sx={{
+          color: 'text.secondary',
+        }}
+      >
         Published: <i>{new Date(publishDate).toLocaleDateString()}</i>
       </Typography>
     </Stack>

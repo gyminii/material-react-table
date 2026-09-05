@@ -2,7 +2,7 @@
 import { MaterialReactTable, type MRT_ColumnDef } from 'material-react-table';
 
 //Import Material React Table Translations
-import { MRT_Localization_AR } from 'material-react-table/src/locales/ar';
+import { MRT_Localization_AR } from 'material-react-table/locales/ar';
 
 //mock data
 import { data, type Person } from './makeData';

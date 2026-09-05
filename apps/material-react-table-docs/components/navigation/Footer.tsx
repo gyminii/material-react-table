@@ -120,7 +120,12 @@ export const Footer = () => {
           p: '1.5rem',
         }}
       >
-        <Typography color="text.secondary" textAlign="center">
+        <Typography
+          sx={{
+            color: 'text.secondary',
+            textAlign: 'center',
+          }}
+        >
           © {new Date().getFullYear()} Kevin&nbsp;Van&nbsp;Cott
         </Typography>
         <Box
@@ -132,42 +137,52 @@ export const Footer = () => {
           }}
         >
           <MuiLink
-            color="text.secondary"
             href="https://www.npmjs.com/package/material-react-table"
             target="_blank"
             rel="noopener"
+            sx={{
+              color: 'text.secondary',
+            }}
           >
             NPM
           </MuiLink>
           <MuiLink
-            color="text.secondary"
             href="https://github.com/KevinVandy/material-react-table"
             target="_blank"
             rel="noopener"
+            sx={{
+              color: 'text.secondary',
+            }}
           >
             Source Code
           </MuiLink>
           <MuiLink
-            color="text.secondary"
             href="https://github.com/KevinVandy/material-react-table/issues"
             target="_blank"
             rel="noopener"
+            sx={{
+              color: 'text.secondary',
+            }}
           >
             Submit a Bug Report
           </MuiLink>
           <MuiLink
-            color="text.secondary"
             href="https://discord.gg/5wqyRx6fnm"
             target="_blank"
             rel="noopener"
+            sx={{
+              color: 'text.secondary',
+            }}
           >
             Join&nbsp;the&nbsp;Discord!
           </MuiLink>
           <MuiLink
-            color="text.secondary"
             href="https://twitter.com/kevinvancott"
             target="_blank"
             rel="noopener"
+            sx={{
+              color: 'text.secondary',
+            }}
           >
             Twitter
           </MuiLink>

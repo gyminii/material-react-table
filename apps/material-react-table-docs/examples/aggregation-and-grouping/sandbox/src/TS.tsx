@@ -48,7 +48,13 @@ const Example = () => {
         Footer: () => (
           <Stack>
             Max Age:
-            <Box color="warning.main">{Math.round(maxAge)}</Box>
+            <Box
+              sx={{
+                color: 'warning.main',
+              }}
+            >
+              {Math.round(maxAge)}
+            </Box>
           </Stack>
         ),
       },
@@ -99,7 +105,11 @@ const Example = () => {
         Footer: () => (
           <Stack>
             Average Salary:
-            <Box color="warning.main">
+            <Box
+              sx={{
+                color: 'warning.main',
+              }}
+            >
               {averageSalary?.toLocaleString?.('en-US', {
                 style: 'currency',
                 currency: 'USD',
