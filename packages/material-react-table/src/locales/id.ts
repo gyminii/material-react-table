@@ -1,7 +1,6 @@
 import { type MRT_Localization } from '..';
 
 export const MRT_Localization_ID: MRT_Localization = {
-  language: 'id',
   actions: 'Aksi',
   and: 'dan',
   cancel: 'Batal',
@@ -12,11 +11,11 @@ export const MRT_Localization_ID: MRT_Localization = {
   clearSelection: 'Hapus pilihan',
   clearSort: 'Hapus urutan',
   clickToCopy: 'Klik untuk menyalin',
-  copy: 'Salin',
   collapse: 'Ciutkan',
   collapseAll: 'Ciutkan semua',
   columnActions: 'Aksi Kolom',
   copiedToClipboard: 'Disalin ke papan klip',
+  copy: 'Salin',
   dropToGroupBy: 'Jatuhkan untuk mengelompokkan berdasarkan {column}',
   edit: 'Ubah',
   expand: 'Bentangkan',
@@ -35,9 +34,11 @@ export const MRT_Localization_ID: MRT_Localization = {
   filterFuzzy: 'Fuzzy',
   filterGreaterThan: 'Lebih Dari',
   filterGreaterThanOrEqualTo: 'Lebih Dari Atau Sama Dengan',
-  filterInNumberRange: 'Antara',
   filterIncludesString: 'Berisi',
   filterIncludesStringSensitive: 'Berisi',
+  filteringByColumn:
+    'Memfilter berdasarkan {column} - {filterType} {filterValue}',
+  filterInNumberRange: 'Antara',
   filterLessThan: 'Kurang Dari',
   filterLessThanOrEqualTo: 'Kurang Dari Atau Sama Dengan',
   filterMode: 'Mode Filter: {filterType}',
@@ -45,8 +46,6 @@ export const MRT_Localization_ID: MRT_Localization = {
   filterNotEquals: 'Tidak Sama Dengan',
   filterStartsWith: 'Dimulai Dengan',
   filterWeakEquals: 'Sama Dengan',
-  filteringByColumn:
-    'Memfilter berdasarkan {column} - {filterType} {filterValue}',
   goToFirstPage: 'Pergi ke halaman pertama',
   goToLastPage: 'Pergi ke halaman terakhir',
   goToNextPage: 'Pergi ke halaman berikutnya',
@@ -56,6 +55,7 @@ export const MRT_Localization_ID: MRT_Localization = {
   groupedBy: 'Dikelompokkan berdasarkan ',
   hideAll: 'Sembunyikan semua',
   hideColumn: 'Sembunyikan kolom {column}',
+  language: 'id',
   max: 'Maks',
   min: 'Min',
   move: 'Pindah',
@@ -74,9 +74,9 @@ export const MRT_Localization_ID: MRT_Localization = {
   rowsPerPage: 'Baris per halaman',
   save: 'Simpan',
   search: 'Cari',
+  select: 'Pilih',
   selectedCountOfRowCountRowsSelected:
     '{selectedCount} dari {rowCount} baris dipilih',
-  select: 'Pilih',
   showAll: 'Tampilkan semua',
   showAllColumns: 'Tampilkan semua kolom',
   showHideColumns: 'Tampilkan/Sembunyikan kolom',

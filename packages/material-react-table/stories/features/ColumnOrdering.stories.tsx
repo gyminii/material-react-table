@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import {
+  MaterialReactTable,
   type MRT_ColumnDef,
   type MRT_ColumnOrderState,
-  MaterialReactTable,
 } from '../../src';
 import { faker } from '@faker-js/faker';
 import { type Meta } from '@storybook/react';
@@ -40,8 +40,8 @@ const columns: MRT_ColumnDef<(typeof data)[0]>[] = [
   },
   {
     accessorKey: 'phone',
-    header: 'Phone',
     enablePinning: false,
+    header: 'Phone',
   },
 ];
 
@@ -51,8 +51,8 @@ const data = [...Array(100)].map(() => ({
   email: faker.internet.email(),
   firstName: faker.person.firstName(),
   lastName: faker.person.lastName(),
-  state: faker.location.state(),
   phone: faker.phone.number(),
+  state: faker.location.state(),
 }));
 
 export const ColumnOrderingEnabled = () => (
@@ -171,10 +171,10 @@ export const ColumnOrderingStateManagedCustom = () => {
 
 export const ColumnOrderingEnabledWithColumnVirtualization = () => (
   <MaterialReactTable
+    columns={columns}
     columnVirtualizerOptions={{
       overscan: 0,
     }}
-    columns={columns}
     data={data}
     enableColumnOrdering
     enableColumnVirtualization

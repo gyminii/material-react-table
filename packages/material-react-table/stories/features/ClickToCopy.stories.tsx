@@ -1,6 +1,6 @@
 import {
-  type MRT_ColumnDef,
   MaterialReactTable,
+  type MRT_ColumnDef,
   useMaterialReactTable,
 } from '../../src';
 import { faker } from '@faker-js/faker';

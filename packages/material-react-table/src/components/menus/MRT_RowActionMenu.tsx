@@ -1,4 +1,4 @@
-import { ReactNode, useMemo, type MouseEvent } from 'react';
+import { type MouseEvent, type ReactNode, useMemo } from 'react';
 import Menu, { type MenuProps } from '@mui/material/Menu';
 import { MRT_ActionMenuItem } from './MRT_ActionMenuItem';
 import {
@@ -45,8 +45,8 @@ export const MRT_RowActionMenu = <TData extends MRT_RowData>({
     const editItem = parseFromValuesOrFunc(enableEditing, row) &&
       ['modal', 'row'].includes(editDisplayMode!) && (
         <MRT_ActionMenuItem
-          key={'edit'}
           icon={<EditIcon />}
+          key={'edit'}
           label={localization.edit}
           onClick={handleEdit}
           table={table}
@@ -67,14 +67,14 @@ export const MRT_RowActionMenu = <TData extends MRT_RowData>({
 
   return (
     <Menu
+      anchorEl={anchorEl}
+      disableScrollLock
       MenuListProps={{
         dense: density === 'compact',
         sx: {
           backgroundColor: menuBackgroundColor,
         },
       }}
-      anchorEl={anchorEl}
-      disableScrollLock
       onClick={(event) => event.stopPropagation()}
       onClose={() => setAnchorEl(null)}
       open={!!anchorEl}

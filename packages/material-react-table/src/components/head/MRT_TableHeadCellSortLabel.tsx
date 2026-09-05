@@ -59,6 +59,9 @@ export const MRT_TableHeadCellSortLabel = <TData extends MRT_RowData>({
         overlap="circular"
       >
         <TableSortLabel
+          active
+          aria-label={sortTooltip}
+          direction={direction}
           IconComponent={
             !isSorted
               ? (props) => (
@@ -72,9 +75,6 @@ export const MRT_TableHeadCellSortLabel = <TData extends MRT_RowData>({
                 )
               : ArrowDownwardIcon
           }
-          active
-          aria-label={sortTooltip}
-          direction={direction}
           onClick={(e) => {
             e.stopPropagation();
             header.column.getToggleSortingHandler()?.(e);

@@ -1,4 +1,4 @@
-import { type MRT_ColumnDef, MaterialReactTable } from '../../src';
+import { MaterialReactTable, type MRT_ColumnDef } from '../../src';
 import { faker } from '@faker-js/faker';
 import { type Meta } from '@storybook/react';
 
@@ -40,8 +40,8 @@ const columns: MRT_ColumnDef<Person>[] = [
     header: 'State',
   },
   {
-    Cell: ({ cell }) => cell.getValue<string[]>().join(', '),
     accessorKey: 'states',
+    Cell: ({ cell }) => cell.getValue<string[]>().join(', '),
     header: 'States',
   },
 ];

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { type MRT_ColumnDef, MaterialReactTable } from '../../src';
+import { MaterialReactTable, type MRT_ColumnDef } from '../../src';
 import { faker } from '@faker-js/faker';
 import { type Meta } from '@storybook/react';
 

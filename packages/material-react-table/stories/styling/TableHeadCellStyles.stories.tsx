@@ -1,5 +1,5 @@
 import Box from '@mui/material/Box';
-import { type MRT_ColumnDef, MaterialReactTable } from '../../src';
+import { MaterialReactTable, type MRT_ColumnDef } from '../../src';
 import { faker } from '@faker-js/faker';
 import { type Meta } from '@storybook/react';
 
@@ -102,20 +102,20 @@ export const CustomHeadCellRenders = () => (
   <MaterialReactTable
     columns={[
       {
-        Header: <em>First Name</em>,
         accessorKey: 'firstName',
+        Header: <em>First Name</em>,
         header: 'First Name',
       },
       {
-        Header: () => <em>Last Name</em>,
         accessorKey: 'lastName',
+        Header: () => <em>Last Name</em>,
         header: 'Last Name',
       },
       {
+        accessorKey: 'age',
         Header: ({ column }) => (
           <Box color="primary.main">{column.columnDef.header}</Box>
         ),
-        accessorKey: 'age',
         header: 'Current Age',
       },
       {

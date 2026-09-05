@@ -42,9 +42,9 @@ export const MRT_TableBodyCellValue = <TData extends MRT_RowData>({
           cell,
           column,
           row,
-          table,
           staticColumnIndex,
           staticRowIndex,
+          table,
         })
       : row.getIsGrouped() && !cell.getIsGrouped()
         ? null
@@ -53,16 +53,16 @@ export const MRT_TableBodyCellValue = <TData extends MRT_RowData>({
               cell,
               column,
               row,
-              table,
               staticColumnIndex,
               staticRowIndex,
+              table,
             })
           : undefined;
 
   const isGroupedValue = renderedCellValue !== undefined;
 
   if (!isGroupedValue) {
-    renderedCellValue = cell.renderValue() as ReactNode | number | string;
+    renderedCellValue = cell.renderValue() as number | ReactNode | string;
   }
 
   if (

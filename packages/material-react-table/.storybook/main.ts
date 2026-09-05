@@ -1,6 +1,5 @@
 import type { StorybookConfig } from '@storybook/react-vite';
-
-import { join, dirname } from 'path';
+import { dirname, join } from 'path';
 
 /**
  * This function is used to resolve the absolute path of a package.
@@ -10,10 +9,6 @@ function getAbsolutePath(value: string): any {
   return dirname(require.resolve(join(value, 'package.json')));
 }
 const config: StorybookConfig = {
-  stories: [
-    '../stories/**/*.mdx',
-    '../stories/**/*.stories.@(js|jsx|mjs|ts|tsx)',
-  ],
   addons: [
     getAbsolutePath('@storybook/addon-links'),
     getAbsolutePath('@storybook/addon-essentials'),
@@ -21,13 +16,17 @@ const config: StorybookConfig = {
     getAbsolutePath('@storybook/addon-storysource'),
     getAbsolutePath('storybook-dark-mode'),
   ],
+  docs: {
+    autodocs: 'tag',
+  },
   framework: {
     name: getAbsolutePath('@storybook/react-vite'),
     options: {},
   },
-  docs: {
-    autodocs: 'tag',
-  },
+  stories: [
+    '../stories/**/*.mdx',
+    '../stories/**/*.stories.@(js|jsx|mjs|ts|tsx)',
+  ],
   typescript: {
     reactDocgen: 'react-docgen-typescript',
   },

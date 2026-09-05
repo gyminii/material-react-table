@@ -1,7 +1,6 @@
 import { type MRT_Localization } from '..';
 
 export const MRT_Localization_SK: MRT_Localization = {
-  language: 'sk',
   actions: 'Akcie',
   and: 'a',
   cancel: 'Zrušiť',
@@ -12,11 +11,11 @@ export const MRT_Localization_SK: MRT_Localization = {
   clearSelection: 'Vyčistiť výber',
   clearSort: 'Vyčistiť zoradenie',
   clickToCopy: 'Kliknutím skopírovať',
-  copy: 'Kopírovať',
   collapse: 'Zbaliť',
   collapseAll: 'Zbaliť všetko',
   columnActions: 'Akcie stĺpca',
   copiedToClipboard: 'Skopírovať do schránky',
+  copy: 'Kopírovať',
   dropToGroupBy: 'Upustiť pre zoskupenie podľa stĺpca {column}',
   edit: 'Upraviť',
   expand: 'Otvoriť',
@@ -35,9 +34,11 @@ export const MRT_Localization_SK: MRT_Localization = {
   filterFuzzy: 'Podobné',
   filterGreaterThan: 'Väčšie ako',
   filterGreaterThanOrEqualTo: 'Väčšie alebo rovné',
-  filterInNumberRange: 'Medzi',
   filterIncludesString: 'Obsahuje',
   filterIncludesStringSensitive: 'Obsahuje',
+  filteringByColumn:
+    'Filtrované podľa stĺpca {column} - {filterType} {filterValue}',
+  filterInNumberRange: 'Medzi',
   filterLessThan: 'Menšie ako',
   filterLessThanOrEqualTo: 'Menšie alebo rovné',
   filterMode: 'Režim filtra: {filterType}',
@@ -45,8 +46,6 @@ export const MRT_Localization_SK: MRT_Localization = {
   filterNotEquals: 'Nerovná sa',
   filterStartsWith: 'Začína na',
   filterWeakEquals: 'Rovná sa',
-  filteringByColumn:
-    'Filtrované podľa stĺpca {column} - {filterType} {filterValue}',
   goToFirstPage: 'Prvá strana',
   goToLastPage: 'Posledná strana',
   goToNextPage: 'Ďalšia strana',
@@ -56,6 +55,7 @@ export const MRT_Localization_SK: MRT_Localization = {
   groupedBy: 'Zoskupené podľa ',
   hideAll: 'Skryť všetko',
   hideColumn: 'Skryť stĺpec {column}',
+  language: 'sk',
   max: 'Max.',
   min: 'Min.',
   move: 'Presunúť',
@@ -74,9 +74,9 @@ export const MRT_Localization_SK: MRT_Localization = {
   rowsPerPage: 'Počet riadkov na stránke',
   save: 'Uložiť',
   search: 'Hľadať',
+  select: 'Vybrať',
   selectedCountOfRowCountRowsSelected:
     'Vybrané {selectedCount} z {rowCount} riadkov',
-  select: 'Vybrať',
   showAll: 'Zobraziť všetko',
   showAllColumns: 'Zobraziť všetky stĺpce',
   showHideColumns: 'Zobraziť/Skryť stĺpce',

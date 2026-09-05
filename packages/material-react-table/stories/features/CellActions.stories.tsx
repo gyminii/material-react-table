@@ -1,7 +1,7 @@
 import Email from '@mui/icons-material/Email';
 import PersonOffOutlined from '@mui/icons-material/PersonOffOutlined';
 import Divider from '@mui/material/Divider';
-import { type MRT_ColumnDef, MaterialReactTable } from '../../src';
+import { MaterialReactTable, type MRT_ColumnDef } from '../../src';
 import { MRT_ActionMenuItem } from '../../src/components/menus/MRT_ActionMenuItem';
 import { faker } from '@faker-js/faker';
 import { type Meta } from '@storybook/react';

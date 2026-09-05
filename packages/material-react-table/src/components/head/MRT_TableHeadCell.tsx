@@ -1,8 +1,8 @@
-import { type DragEvent, useMemo, useCallback } from 'react';
+import { type DragEvent, useCallback, useMemo } from 'react';
 import Box from '@mui/material/Box';
-import TableCell, { type TableCellProps } from '@mui/material/TableCell';
 import { useTheme } from '@mui/material/styles';
 import { type Theme } from '@mui/material/styles';
+import TableCell, { type TableCellProps } from '@mui/material/TableCell';
 import { MRT_TableHeadCellColumnActionsButton } from './MRT_TableHeadCellColumnActionsButton';
 import { MRT_TableHeadCellFilterContainer } from './MRT_TableHeadCellFilterContainer';
 import { MRT_TableHeadCellFilterLabel } from './MRT_TableHeadCellFilterLabel';
@@ -15,9 +15,9 @@ import {
   type MRT_RowData,
   type MRT_TableInstance,
 } from '../../types';
+import { cellKeyboardShortcuts } from '../../utils/cell.utils';
 import { getCommonMRTCellStyles } from '../../utils/style.utils';
 import { parseFromValuesOrFunc } from '../../utils/utils';
-import { cellKeyboardShortcuts } from '../../utils/cell.utils';
 
 export interface MRT_TableHeadCellProps<TData extends MRT_RowData>
   extends TableCellProps {
@@ -41,12 +41,12 @@ export const MRT_TableHeadCell = <TData extends MRT_RowData>({
       columnFilterDisplayMode,
       columnResizeDirection,
       columnResizeMode,
-      enableKeyboardShortcuts,
       enableColumnActions,
       enableColumnDragging,
       enableColumnOrdering,
       enableColumnPinning,
       enableGrouping,
+      enableKeyboardShortcuts,
       enableMultiSort,
       layoutMode,
       mrtTheme: { draggingBorderColor },
@@ -152,10 +152,10 @@ export const MRT_TableHeadCell = <TData extends MRT_RowData>({
   const handleKeyDown = (event: React.KeyboardEvent<HTMLTableCellElement>) => {
     tableCellProps?.onKeyDown?.(event);
     cellKeyboardShortcuts({
-      event,
       cellValue: header.column.columnDef.header,
-      table,
+      event,
       header,
+      table,
     });
   };
 
@@ -326,7 +326,7 @@ export const MRT_TableHeadCell = <TData extends MRT_RowData>({
                       column={column}
                       table={table}
                       tableHeadCellRef={{
-                        current: tableHeadCellRefs.current?.[column.id]!,
+                        current: tableHeadCellRefs.current?.[column.id] ?? null,
                       }}
                     />
                   )}

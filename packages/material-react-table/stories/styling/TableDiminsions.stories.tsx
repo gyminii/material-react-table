@@ -1,4 +1,4 @@
-import { type MRT_ColumnDef, MaterialReactTable } from '../../src';
+import { MaterialReactTable, type MRT_ColumnDef } from '../../src';
 import { faker } from '@faker-js/faker';
 import { type Meta } from '@storybook/react';
 
@@ -52,7 +52,7 @@ export const MaxWidthAndCentered = () => (
   />
 );
 
-export const maxHeight = () => (
+export const MaxHeight = () => (
   <MaterialReactTable
     columns={columns}
     data={data}
@@ -64,7 +64,7 @@ export const maxHeight = () => (
   />
 );
 
-export const minHeight = () => (
+export const MinHeight = () => (
   <MaterialReactTable
     columns={columns}
     data={data.slice(0, 5)}
@@ -76,7 +76,7 @@ export const minHeight = () => (
   />
 );
 
-export const minHeightParent = () => (
+export const MinHeightParent = () => (
   <div style={{ height: '700px' }}>
     <MaterialReactTable
       columns={columns}

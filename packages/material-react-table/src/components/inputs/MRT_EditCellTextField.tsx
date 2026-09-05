@@ -152,10 +152,6 @@ export const MRT_EditCellTextField = <TData extends MRT_RowData>({
           ) as any),
         }),
       }}
-      SelectProps={{
-        MenuProps: { disableScrollLock: true },
-        ...textFieldProps.SelectProps,
-      }}
       inputProps={{
         autoComplete: 'off',
         ...textFieldProps.inputProps,
@@ -166,9 +162,13 @@ export const MRT_EditCellTextField = <TData extends MRT_RowData>({
         e.stopPropagation();
         textFieldProps?.onClick?.(e);
       }}
-      onKeyDown={handleEnterKeyDown}
-      onCompositionStart={() => setCompletesComposition(false)}
       onCompositionEnd={() => setCompletesComposition(true)}
+      onCompositionStart={() => setCompletesComposition(false)}
+      onKeyDown={handleEnterKeyDown}
+      SelectProps={{
+        MenuProps: { disableScrollLock: true },
+        ...textFieldProps.SelectProps,
+      }}
     >
       {textFieldProps.children ??
         selectOptions?.map((option) => {

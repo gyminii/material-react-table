@@ -1,9 +1,10 @@
-import { type ReactNode, type JSX } from 'react';
+import { type JSX, type ReactNode } from 'react';
 import {
   createRow as _createRow,
   flexRender as _flexRender,
   type Renderable,
 } from '@tanstack/react-table';
+import { getAllLeafColumnDefs, getColumnId } from './column.utils';
 import {
   type MRT_ColumnHelper,
   type MRT_DisplayColumnDef,
@@ -12,7 +13,6 @@ import {
   type MRT_RowData,
   type MRT_TableInstance,
 } from '../types';
-import { getAllLeafColumnDefs, getColumnId } from './column.utils';
 
 export const flexRender = _flexRender as (
   Comp: Renderable<any>,

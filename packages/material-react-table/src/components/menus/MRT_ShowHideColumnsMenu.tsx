@@ -103,14 +103,14 @@ export const MRT_ShowHideColumnsMenu = <TData extends MRT_RowData>({
 
   return (
     <Menu
+      anchorEl={anchorEl}
+      disableScrollLock
       MenuListProps={{
         dense: density === 'compact',
         sx: {
           backgroundColor: menuBackgroundColor,
         },
       }}
-      anchorEl={anchorEl}
-      disableScrollLock
       onClose={() => setAnchorEl(null)}
       open={!!anchorEl}
       {...rest}
@@ -133,12 +133,12 @@ export const MRT_ShowHideColumnsMenu = <TData extends MRT_RowData>({
         )}
         {enableColumnOrdering && (
           <Button
+            disabled={!hasColumnOrderChanged}
             onClick={() =>
               table.setColumnOrder(
                 getDefaultColumnOrderIds(table.options, true),
               )
             }
-            disabled={!hasColumnOrderChanged}
           >
             {localization.resetOrder}
           </Button>

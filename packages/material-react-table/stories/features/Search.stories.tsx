@@ -1,7 +1,7 @@
-import { type MRT_ColumnDef, MaterialReactTable } from '../../src';
+import { useState } from 'react';
+import { MaterialReactTable, type MRT_ColumnDef } from '../../src';
 import { faker } from '@faker-js/faker';
 import { type Meta } from '@storybook/react';
-import { useState } from 'react';
 
 const meta: Meta = {
   title: 'Features/Search Examples',
@@ -64,8 +64,8 @@ export const SearchInitializedState = () => {
     <MaterialReactTable
       columns={columns}
       data={data}
-      state={{ globalFilter }}
       onGlobalFilterChange={setGlobalFilter}
+      state={{ globalFilter }}
     />
   );
 };

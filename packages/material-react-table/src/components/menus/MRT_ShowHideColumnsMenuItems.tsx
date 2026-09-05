@@ -11,6 +11,8 @@ import MenuItem, { type MenuItemProps } from '@mui/material/MenuItem';
 import Switch from '@mui/material/Switch';
 import Tooltip from '@mui/material/Tooltip';
 import Typography from '@mui/material/Typography';
+import { MRT_ColumnPinningButtons } from '../buttons/MRT_ColumnPinningButtons';
+import { MRT_GrabHandleButton } from '../buttons/MRT_GrabHandleButton';
 import {
   type MRT_Column,
   type MRT_RowData,
@@ -19,8 +21,6 @@ import {
 import { reorderColumn } from '../../utils/column.utils';
 import { getCommonTooltipProps } from '../../utils/style.utils';
 import { parseFromValuesOrFunc } from '../../utils/utils';
-import { MRT_ColumnPinningButtons } from '../buttons/MRT_ColumnPinningButtons';
-import { MRT_GrabHandleButton } from '../buttons/MRT_GrabHandleButton';
 
 export interface MRT_ShowHideColumnsMenuItemsProps<TData extends MRT_RowData>
   extends MenuItemProps {

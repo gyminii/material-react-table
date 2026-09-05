@@ -1,14 +1,14 @@
 import {
   type ChangeEvent,
   type MouseEvent,
-  SyntheticEvent,
+  type SyntheticEvent,
   useCallback,
   useEffect,
   useRef,
   useState,
 } from 'react';
 import Autocomplete, {
-  AutocompleteInputChangeReason,
+  type AutocompleteInputChangeReason,
 } from '@mui/material/Autocomplete';
 import Box from '@mui/material/Box';
 import Checkbox from '@mui/material/Checkbox';
@@ -22,6 +22,7 @@ import { debounce } from '@mui/material/utils';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import { DateTimePicker } from '@mui/x-date-pickers/DateTimePicker';
 import { TimePicker } from '@mui/x-date-pickers/TimePicker';
+import { MRT_FilterOptionMenu } from '../menus/MRT_FilterOptionMenu';
 import {
   type DropdownOption,
   type MRT_Header,
@@ -33,7 +34,6 @@ import {
   useDropdownOptions,
 } from '../../utils/column.utils';
 import { getValueAndLabel, parseFromValuesOrFunc } from '../../utils/utils';
-import { MRT_FilterOptionMenu } from '../menus/MRT_FilterOptionMenu';
 
 export interface MRT_FilterTextFieldProps<TData extends MRT_RowData>
   extends TextFieldProps<'standard'> {
@@ -342,6 +342,10 @@ export const MRT_FilterTextField = <TData extends MRT_RowData>({
         : filterPlaceholder,
     variant: 'standard',
     ...textFieldProps,
+    onKeyDown: (e) => {
+      e.stopPropagation();
+      textFieldProps.onKeyDown?.(e);
+    },
     slotProps: {
       ...textFieldProps.slotProps,
       formHelperText: {
@@ -352,9 +356,6 @@ export const MRT_FilterTextField = <TData extends MRT_RowData>({
         },
         ...textFieldProps.slotProps?.formHelperText,
       },
-      input: endAdornment //hack because mui looks for presence of endAdornment key instead of undefined
-        ? { endAdornment, startAdornment, ...textFieldProps.slotProps?.input }
-        : { startAdornment, ...textFieldProps.slotProps?.input },
       htmlInput: {
         'aria-label': filterPlaceholder,
         autoComplete: 'off',
@@ -366,10 +367,9 @@ export const MRT_FilterTextField = <TData extends MRT_RowData>({
         title: filterPlaceholder,
         ...textFieldProps.slotProps?.htmlInput,
       },
-    },
-    onKeyDown: (e) => {
-      e.stopPropagation();
-      textFieldProps.onKeyDown?.(e);
+      input: endAdornment //hack because mui looks for presence of endAdornment key instead of undefined
+        ? { endAdornment, startAdornment, ...textFieldProps.slotProps?.input }
+        : { startAdornment, ...textFieldProps.slotProps?.input },
     },
     sx: (theme) => ({
       minWidth: isDateFilter
@@ -454,22 +454,28 @@ export const MRT_FilterTextField = <TData extends MRT_RowData>({
           getOptionLabel={(option: DropdownOption) =>
             getValueAndLabel(option).label
           }
+          inputValue={filterValue as string}
           onChange={(_e, newValue) =>
             handleAutocompleteChange(newValue as DropdownOption | null)
           }
+          onInputChange={handleAutocompleteInputChange}
           options={
             dropdownOptions?.map((option) => getValueAndLabel(option)) ?? []
           }
-          inputValue={filterValue as string}
-          onInputChange={handleAutocompleteInputChange}
           {...autocompleteProps}
           renderInput={(builtinTextFieldProps: TextFieldProps) => (
             <TextField
               {...commonTextFieldProps}
               {...builtinTextFieldProps}
+              onClick={(e: MouseEvent<HTMLInputElement>) => e.stopPropagation()}
               slotProps={{
                 ...builtinTextFieldProps.slotProps,
                 ...commonTextFieldProps.slotProps,
+                htmlInput: {
+                  ...builtinTextFieldProps.inputProps,
+                  ...builtinTextFieldProps.slotProps?.htmlInput,
+                  ...commonTextFieldProps?.slotProps?.htmlInput,
+                },
                 input: {
                   ...builtinTextFieldProps.InputProps,
                   ...builtinTextFieldProps.slotProps?.input,
@@ -477,13 +483,7 @@ export const MRT_FilterTextField = <TData extends MRT_RowData>({
                     //@ts-expect-error
                     commonTextFieldProps?.slotProps?.input?.startAdornment,
                 },
-                htmlInput: {
-                  ...builtinTextFieldProps.inputProps,
-                  ...builtinTextFieldProps.slotProps?.htmlInput,
-                  ...commonTextFieldProps?.slotProps?.htmlInput,
-                },
               }}
-              onClick={(e: MouseEvent<HTMLInputElement>) => e.stopPropagation()}
             />
           )}
           value={autocompleteValue}
@@ -492,6 +492,8 @@ export const MRT_FilterTextField = <TData extends MRT_RowData>({
         <TextField
           select={isSelectFilter || isMultiSelectFilter}
           {...commonTextFieldProps}
+          onChange={handleTextFieldChange}
+          onClick={(e: MouseEvent<HTMLInputElement>) => e.stopPropagation()}
           slotProps={{
             ...commonTextFieldProps.slotProps,
             inputLabel: {
@@ -499,8 +501,8 @@ export const MRT_FilterTextField = <TData extends MRT_RowData>({
               ...(commonTextFieldProps.slotProps?.inputLabel as any),
             },
             select: {
-              MenuProps: { disableScrollLock: true },
               displayEmpty: true,
+              MenuProps: { disableScrollLock: true },
               multiple: isMultiSelectFilter,
               renderValue: isMultiSelectFilter
                 ? (selected: any) =>
@@ -528,8 +530,6 @@ export const MRT_FilterTextField = <TData extends MRT_RowData>({
               ...commonTextFieldProps.slotProps?.select,
             },
           }}
-          onChange={handleTextFieldChange}
-          onClick={(e: MouseEvent<HTMLInputElement>) => e.stopPropagation()}
           value={
             isMultiSelectFilter
               ? Array.isArray(filterValue)

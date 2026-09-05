@@ -1,12 +1,12 @@
 import Box from '@mui/material/Box';
 import { type IconButtonProps } from '@mui/material/IconButton';
+import { MRT_RowPinButton } from '../buttons/MRT_RowPinButton';
 import {
   type MRT_Row,
   type MRT_RowData,
   type MRT_TableInstance,
 } from '../../types';
 import { parseFromValuesOrFunc } from '../../utils/utils';
-import { MRT_RowPinButton } from '../buttons/MRT_RowPinButton';
 
 export interface MRT_TableBodyRowPinButtonProps<TData extends MRT_RowData>
   extends IconButtonProps {

@@ -3,14 +3,14 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogTitle from '@mui/material/DialogTitle';
 import Stack from '@mui/material/Stack';
+import { MRT_EditActionButtons } from '../buttons/MRT_EditActionButtons';
+import { MRT_EditCellTextField } from '../inputs/MRT_EditCellTextField';
 import {
   type MRT_Row,
   type MRT_RowData,
   type MRT_TableInstance,
 } from '../../types';
 import { parseFromValuesOrFunc } from '../../utils/utils';
-import { MRT_EditActionButtons } from '../buttons/MRT_EditActionButtons';
-import { MRT_EditCellTextField } from '../inputs/MRT_EditCellTextField';
 
 export interface MRT_EditRowModalProps<TData extends MRT_RowData>
   extends Partial<DialogProps> {

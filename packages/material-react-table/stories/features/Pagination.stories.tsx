@@ -1,4 +1,4 @@
-import { type MRT_ColumnDef, MaterialReactTable } from '../../src';
+import { MaterialReactTable, type MRT_ColumnDef } from '../../src';
 import { faker } from '@faker-js/faker';
 import { type Meta } from '@storybook/react';
 
@@ -82,12 +82,12 @@ export const PaginationEnabledDefaultBigDataLanguage = () => (
   <MaterialReactTable
     columns={columns}
     data={bigData}
+    enableRowSelection
     enableRowVirtualization
+    initialState={{ pagination: { pageIndex: 0, pageSize: 1000 } }}
     localization={{
       language: navigator.language.startsWith('de') ? 'en' : 'de',
     }}
-    enableRowSelection
-    initialState={{ pagination: { pageIndex: 0, pageSize: 1000 } }}
     muiPaginationProps={{ rowsPerPageOptions: [100, 1000] }}
     muiTableContainerProps={{
       sx: {

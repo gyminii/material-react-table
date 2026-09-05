@@ -1,4 +1,4 @@
-import { type MRT_ColumnDef, MaterialReactTable } from '../../src';
+import { MaterialReactTable, type MRT_ColumnDef } from '../../src';
 import { faker } from '@faker-js/faker';
 import { type Meta } from '@storybook/react';
 
@@ -80,7 +80,6 @@ export const RightCellsGrid = () => (
   <MaterialReactTable
     columns={columns}
     data={data}
-    layoutMode="grid"
     defaultColumn={{
       muiTableBodyCellProps: {
         align: 'right',
@@ -92,6 +91,7 @@ export const RightCellsGrid = () => (
         align: 'right',
       },
     }}
+    layoutMode="grid"
   />
 );
 
@@ -117,7 +117,6 @@ export const CenterCellsGrid = () => (
   <MaterialReactTable
     columns={columns}
     data={data}
-    layoutMode="grid"
     defaultColumn={{
       muiTableBodyCellProps: {
         align: 'center',
@@ -129,6 +128,7 @@ export const CenterCellsGrid = () => (
         align: 'center',
       },
     }}
+    layoutMode="grid"
   />
 );
 
@@ -136,7 +136,6 @@ export const CenterCellsWithGrabHandle = () => (
   <MaterialReactTable
     columns={columns}
     data={data}
-    enableColumnDragging
     defaultColumn={{
       muiTableBodyCellProps: {
         align: 'center',
@@ -148,6 +147,7 @@ export const CenterCellsWithGrabHandle = () => (
         align: 'center',
       },
     }}
+    enableColumnDragging
   />
 );
 
@@ -155,8 +155,6 @@ export const CenterCellsWithGrabHandleNoSorting = () => (
   <MaterialReactTable
     columns={columns}
     data={data}
-    enableColumnDragging
-    enableSorting={false}
     defaultColumn={{
       muiTableBodyCellProps: {
         align: 'center',
@@ -168,6 +166,8 @@ export const CenterCellsWithGrabHandleNoSorting = () => (
         align: 'center',
       },
     }}
+    enableColumnDragging
+    enableSorting={false}
   />
 );
 
@@ -175,7 +175,6 @@ export const CenterCellsNoColumnActions = () => (
   <MaterialReactTable
     columns={columns}
     data={data}
-    enableColumnActions={false}
     defaultColumn={{
       muiTableBodyCellProps: {
         align: 'center',
@@ -187,6 +186,7 @@ export const CenterCellsNoColumnActions = () => (
         align: 'center',
       },
     }}
+    enableColumnActions={false}
   />
 );
 

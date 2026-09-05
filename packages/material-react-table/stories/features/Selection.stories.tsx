@@ -4,10 +4,10 @@ import Send from '@mui/icons-material/Send';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import {
+  getMRT_RowSelectionHandler,
+  MaterialReactTable,
   type MRT_ColumnDef,
   MRT_SelectCheckbox,
-  MaterialReactTable,
-  getMRT_RowSelectionHandler,
   useMaterialReactTable,
 } from '../../src';
 import { faker } from '@faker-js/faker';
@@ -58,8 +58,8 @@ export const DisableSelectAll = () => (
   <MaterialReactTable
     columns={columns}
     data={data}
-    enableSelectAll={false}
     enableRowSelection
+    enableSelectAll={false}
   />
 );
 

@@ -6,9 +6,9 @@ import IconButton from '@mui/material/IconButton';
 import Tooltip from '@mui/material/Tooltip';
 import Typography from '@mui/material/Typography';
 import {
+  MaterialReactTable,
   type MRT_ColumnDef,
   MRT_ToggleFullScreenButton,
-  MaterialReactTable,
 } from '../../src';
 import { faker } from '@faker-js/faker';
 import { type Meta } from '@storybook/react';
@@ -350,7 +350,7 @@ export const ToolbarAlertBannerBottomWithActionsAlsoBottom = () => (
   />
 );
 
-export const renderCustomTopToolbar = () => (
+export const RenderCustomTopToolbar = () => (
   <MaterialReactTable
     columns={columns}
     data={data}
@@ -358,7 +358,7 @@ export const renderCustomTopToolbar = () => (
   />
 );
 
-export const renderCustomBottomToolbar = () => (
+export const RenderCustomBottomToolbar = () => (
   <MaterialReactTable
     columns={columns}
     data={data}

@@ -1,7 +1,6 @@
 import { type MRT_Localization } from '..';
 
 export const MRT_Localization_NP: MRT_Localization = {
-  language: 'np',
   actions: 'कार्यहरू',
   and: 'तथा',
   cancel: 'रद्द गर्नुहोस्',
@@ -12,11 +11,11 @@ export const MRT_Localization_NP: MRT_Localization = {
   clearSelection: 'चयन हटाउनुहोस्',
   clearSort: 'क्रम हटाउनुहोस्',
   clickToCopy: 'प्रतिलिपि बनाउन क्लिक गर्नुहोस्',
-  copy: 'प्रतिलिपि बनाउनुहोस्',
   collapse: 'संकुचित गर्नुहोस्',
   collapseAll: 'सबै संकुचित गर्नुहोस्',
   columnActions: 'यस स्तम्भका कार्यहरू',
   copiedToClipboard: 'क्लिपबोर्डमा प्रतिलिपि गरियो',
+  copy: 'प्रतिलिपि बनाउनुहोस्',
   dropToGroupBy: '{column} का आधारमा समूह बनाउनुहोस्',
   edit: 'सम्पादन गर्नुहोस्',
   expand: 'विस्तार गर्नुहोस्',
@@ -35,9 +34,11 @@ export const MRT_Localization_NP: MRT_Localization = {
   filterFuzzy: 'अस्पष्ट',
   filterGreaterThan: 'ठुलो भएको',
   filterGreaterThanOrEqualTo: 'ठुलो वा समान',
-  filterInNumberRange: 'संख्या दायरामा',
   filterIncludesString: 'समावेश गरिएको',
   filterIncludesStringSensitive: 'समावेश गरिएको (संवेदनशील)',
+  filteringByColumn:
+    '{column} द्वारा फिल्टर गर्दै - {filterType} {filterValue}',
+  filterInNumberRange: 'संख्या दायरामा',
   filterLessThan: 'सानो भएको',
   filterLessThanOrEqualTo: 'सानो वा समान',
   filterMode: 'फिल्टर प्रणाली: {filterType}',
@@ -45,8 +46,6 @@ export const MRT_Localization_NP: MRT_Localization = {
   filterNotEquals: 'असमान',
   filterStartsWith: 'सुरुमा समावेश गरिएको',
   filterWeakEquals: 'असमान',
-  filteringByColumn:
-    '{column} द्वारा फिल्टर गर्दै - {filterType} {filterValue}',
   goToFirstPage: 'पहिलो पृष्ठमा जानुहोस्',
   goToLastPage: 'अन्तिम पृष्ठमा जानुहोस्',
   goToNextPage: 'अर्को पृष्ठमा जानुहोस्',
@@ -56,6 +55,7 @@ export const MRT_Localization_NP: MRT_Localization = {
   groupedBy: 'समूह बनाईएको आधार',
   hideAll: 'सबै लुकाउनुहोस्',
   hideColumn: '{column} स्तम्भ लुकाउनुहोस्',
+  language: 'np',
   max: 'अधिकतम',
   min: 'न्यूनतम',
   move: 'सार्नुहोस्',
@@ -74,9 +74,9 @@ export const MRT_Localization_NP: MRT_Localization = {
   rowsPerPage: 'प्रति पृष्ठ',
   save: 'सुरक्षित गर्नुहोस्',
   search: 'खोज्नुहोस्',
+  select: 'चयन गर्नुहोस्',
   selectedCountOfRowCountRowsSelected:
     '{rowCount} पंक्ति(हरू)बाट {selectedCount} चयनित',
-  select: 'चयन गर्नुहोस्',
   showAll: 'सबै देखाउनुहोस्',
   showAllColumns: 'सबै स्तम्भ देखाउनुहोस्',
   showHideColumns: 'स्तम्भ देखाउनुहोस्/लुकाउनुहोस्',

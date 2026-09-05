@@ -6,10 +6,10 @@ import Button from '@mui/material/Button';
 import Chip from '@mui/material/Chip';
 import Collapse from '@mui/material/Collapse';
 import Stack from '@mui/material/Stack';
+import { MRT_SelectCheckbox } from '../inputs/MRT_SelectCheckbox';
 import { type MRT_RowData, type MRT_TableInstance } from '../../types';
 import { getMRT_SelectAllHandler } from '../../utils/row.utils';
 import { parseFromValuesOrFunc } from '../../utils/utils';
-import { MRT_SelectCheckbox } from '../inputs/MRT_SelectCheckbox';
 
 export interface MRT_ToolbarAlertBannerProps<TData extends MRT_RowData>
   extends AlertProps {
@@ -23,8 +23,8 @@ export const MRT_ToolbarAlertBanner = <TData extends MRT_RowData>({
   ...rest
 }: MRT_ToolbarAlertBannerProps<TData>) => {
   const {
-    getFilteredSelectedRowModel,
     getCoreRowModel,
+    getFilteredSelectedRowModel,
     getState,
     options: {
       enableRowSelection,

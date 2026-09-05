@@ -1,16 +1,16 @@
 import { useEffect, useMemo, useState } from 'react';
+import { type Updater } from '@tanstack/react-table';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
 import {
+  MaterialReactTable,
   type MRT_ColumnDef,
   type MRT_ColumnFiltersState,
-  MRT_PaginationState,
-  MaterialReactTable,
+  type MRT_PaginationState,
 } from '../../src';
 import { faker } from '@faker-js/faker';
 import { type Meta } from '@storybook/react';
-import { Updater } from '@tanstack/react-table';
 
 const meta: Meta = {
   title: 'Fixed Bugs/useEffects',
@@ -229,7 +229,7 @@ export const RenderRowActionsAsync = () => {
   );
 };
 
-export const renderRowActionMenuItemsAsync = () => {
+export const RenderRowActionMenuItemsAsync = () => {
   const [rowActions, setRowActions] = useState<string[]>([]);
 
   useEffect(() => {
@@ -356,10 +356,10 @@ export const PreventUnnecessaryPaginationChangeByOutOfBoundsCheck = () => {
     <MaterialReactTable
       columns={columns}
       data={[]}
-      manualPagination={true}
-      rowCount={0}
       enablePagination
+      manualPagination={true}
       onPaginationChange={handlePaginationChange}
+      rowCount={0}
       state={{ pagination }}
     />
   );

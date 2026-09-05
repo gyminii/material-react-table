@@ -1,5 +1,5 @@
-import { ThemeProvider, createTheme } from '@mui/material/styles';
-import { type MRT_ColumnDef, MaterialReactTable } from '../../src';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { MaterialReactTable, type MRT_ColumnDef } from '../../src';
 import { faker } from '@faker-js/faker';
 import { type Meta } from '@storybook/react';
 

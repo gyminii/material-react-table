@@ -1,8 +1,9 @@
 import { type CSSProperties } from 'react';
-import { type TableCellProps } from '@mui/material/TableCell';
-import { type TooltipProps } from '@mui/material/Tooltip';
 import { alpha, darken, lighten } from '@mui/material/styles';
 import { type Theme } from '@mui/material/styles';
+import { type TableCellProps } from '@mui/material/TableCell';
+import { type TooltipProps } from '@mui/material/Tooltip';
+import { parseFromValuesOrFunc } from './utils';
 import {
   type MRT_Column,
   type MRT_Header,
@@ -11,7 +12,6 @@ import {
   type MRT_TableOptions,
   type MRT_Theme,
 } from '../types';
-import { parseFromValuesOrFunc } from './utils';
 
 export const parseCSSVarId = (id: string) => id.replace(/[^a-zA-Z0-9]/g, '_');
 
@@ -147,6 +147,10 @@ export const getCommonMRTCellStyles = <TData extends MRT_RowData>({
     : {};
 
   return {
+    '&:focus-visible': {
+      outline: `2px solid ${table.options.mrtTheme.cellNavigationOutlineColor}`,
+      outlineOffset: '-2px',
+    },
     backgroundColor: 'inherit',
     backgroundImage: 'inherit',
     display: layoutMode?.startsWith('grid') ? 'flex' : undefined,
@@ -171,10 +175,6 @@ export const getCommonMRTCellStyles = <TData extends MRT_RowData>({
         : columnDefType !== 'group' && isColumnPinned
           ? 1
           : 0,
-    '&:focus-visible': {
-      outline: `2px solid ${table.options.mrtTheme.cellNavigationOutlineColor}`,
-      outlineOffset: '-2px',
-    },
     ...pinnedStyles,
     ...widthStyles,
     ...(parseFromValuesOrFunc(tableCellProps?.sx, theme) as any),

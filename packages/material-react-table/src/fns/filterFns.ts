@@ -1,9 +1,9 @@
 import {
   type RankingInfo,
-  rankItem,
   rankings,
+  rankItem,
 } from '@tanstack/match-sorter-utils';
-import { type Row, filterFns } from '@tanstack/react-table';
+import { filterFns, type Row } from '@tanstack/react-table';
 import { type MRT_RowData } from '../types';
 
 const fuzzy = <TData extends MRT_RowData>(
@@ -13,7 +13,7 @@ const fuzzy = <TData extends MRT_RowData>(
   addMeta: (item: RankingInfo) => void,
 ): boolean => {
   const itemRank = rankItem(
-    row.getValue<string | number | null>(columnId),
+    row.getValue<null | number | string>(columnId),
     filterValue as string,
     {
       threshold: rankings.MATCHES,
@@ -31,7 +31,7 @@ const contains = <TData extends MRT_RowData>(
   filterValue: number | string,
 ): boolean =>
   !!row
-    .getValue<number | string | null>(id)
+    .getValue<null | number | string>(id)
     ?.toString()
     .toLowerCase()
     .trim()
@@ -45,7 +45,7 @@ const startsWith = <TData extends MRT_RowData>(
   filterValue: number | string,
 ): boolean =>
   !!row
-    .getValue<number | string | null>(id)
+    .getValue<null | number | string>(id)
     ?.toString()
     .toLowerCase()
     .trim()
@@ -59,7 +59,7 @@ const endsWith = <TData extends MRT_RowData>(
   filterValue: number | string,
 ): boolean =>
   !!row
-    .getValue<number | string | null>(id)
+    .getValue<null | number | string>(id)
     ?.toString()
     .toLowerCase()
     .trim()
@@ -72,7 +72,7 @@ const equals = <TData extends MRT_RowData>(
   id: string,
   filterValue: number | string,
 ): boolean =>
-  row.getValue<number | string | null>(id)?.toString().toLowerCase().trim() ===
+  row.getValue<null | number | string>(id)?.toString().toLowerCase().trim() ===
   filterValue.toString().toLowerCase().trim();
 
 equals.autoRemove = (val: any) => !val;
@@ -82,7 +82,7 @@ const notEquals = <TData extends MRT_RowData>(
   id: string,
   filterValue: number | string,
 ): boolean =>
-  row.getValue<number | string | null>(id)?.toString().toLowerCase().trim() !==
+  row.getValue<null | number | string>(id)?.toString().toLowerCase().trim() !==
   filterValue.toString().toLowerCase().trim();
 
 notEquals.autoRemove = (val: any) => !val;
@@ -93,8 +93,8 @@ const greaterThan = <TData extends MRT_RowData>(
   filterValue: number | string,
 ): boolean =>
   !isNaN(+filterValue) && !isNaN(+row.getValue<number | string>(id))
-    ? +(row.getValue<number | string | null>(id) ?? 0) > +filterValue
-    : (row.getValue<number | string | null>(id) ?? '')
+    ? +(row.getValue<null | number | string>(id) ?? 0) > +filterValue
+    : (row.getValue<null | number | string>(id) ?? '')
         ?.toString()
         .toLowerCase()
         .trim() > filterValue.toString().toLowerCase().trim();
@@ -115,8 +115,8 @@ const lessThan = <TData extends MRT_RowData>(
   filterValue: number | string,
 ): boolean =>
   !isNaN(+filterValue) && !isNaN(+row.getValue<number | string>(id))
-    ? +(row.getValue<number | string | null>(id) ?? 0) < +filterValue
-    : (row.getValue<number | string | null>(id) ?? '')
+    ? +(row.getValue<null | number | string>(id) ?? 0) < +filterValue
+    : (row.getValue<null | number | string>(id) ?? '')
         ?.toString()
         .toLowerCase()
         .trim() < filterValue.toString().toLowerCase().trim();
@@ -165,7 +165,7 @@ const empty = <TData extends MRT_RowData>(
   row: Row<TData>,
   id: string,
   _filterValue: number | string,
-): boolean => !row.getValue<number | string | null>(id)?.toString().trim();
+): boolean => !row.getValue<null | number | string>(id)?.toString().trim();
 
 empty.autoRemove = (val: any) => !val;
 
@@ -173,7 +173,7 @@ const notEmpty = <TData extends MRT_RowData>(
   row: Row<TData>,
   id: string,
   _filterValue: number | string,
-): boolean => !!row.getValue<number | string | null>(id)?.toString().trim();
+): boolean => !!row.getValue<null | number | string>(id)?.toString().trim();
 
 notEmpty.autoRemove = (val: any) => !val;
 
