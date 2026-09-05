@@ -9,6 +9,7 @@ import {
 } from 'react';
 import Autocomplete, {
   type AutocompleteInputChangeReason,
+  type AutocompleteRenderInputParams,
 } from '@mui/material/Autocomplete';
 import Box from '@mui/material/Box';
 import Checkbox from '@mui/material/Checkbox';
@@ -33,7 +34,11 @@ import {
   getColumnFilterInfo,
   useDropdownOptions,
 } from '../../utils/column.utils';
-import { getValueAndLabel, parseFromValuesOrFunc } from '../../utils/utils';
+import {
+  getValueAndLabel,
+  parseFromValuesOrFunc,
+  parseSlotProps,
+} from '../../utils/utils';
 
 export interface MRT_FilterTextFieldProps<TData extends MRT_RowData>
   extends TextFieldProps<'standard'> {
@@ -463,7 +468,9 @@ export const MRT_FilterTextField = <TData extends MRT_RowData>({
             dropdownOptions?.map((option) => getValueAndLabel(option)) ?? []
           }
           {...autocompleteProps}
-          renderInput={(builtinTextFieldProps: TextFieldProps) => (
+          renderInput={(
+            builtinTextFieldProps: AutocompleteRenderInputParams,
+          ) => (
             <TextField
               {...commonTextFieldProps}
               {...builtinTextFieldProps}
@@ -472,16 +479,14 @@ export const MRT_FilterTextField = <TData extends MRT_RowData>({
                 ...builtinTextFieldProps.slotProps,
                 ...commonTextFieldProps.slotProps,
                 htmlInput: {
-                  ...builtinTextFieldProps.inputProps,
-                  ...builtinTextFieldProps.slotProps?.htmlInput,
-                  ...commonTextFieldProps?.slotProps?.htmlInput,
+                  ...builtinTextFieldProps.slotProps.htmlInput,
+                  ...parseSlotProps(commonTextFieldProps.slotProps?.htmlInput),
                 },
                 input: {
-                  ...builtinTextFieldProps.InputProps,
-                  ...builtinTextFieldProps.slotProps?.input,
-                  startAdornment:
-                    //@ts-expect-error
-                    commonTextFieldProps?.slotProps?.input?.startAdornment,
+                  ...builtinTextFieldProps.slotProps.input,
+                  startAdornment: parseSlotProps(
+                    commonTextFieldProps.slotProps?.input,
+                  )?.startAdornment,
                 },
               }}
             />
