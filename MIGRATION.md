@@ -96,3 +96,40 @@ V3 loaded the CommonJS pickers build from its own bundle, which created a second
 
 All other `mui*Props` options pass straight through to the corresponding Material UI component, so Material UI's own V7 and V9 migration notes apply to whatever you pass there.
 Behaviour changes worth checking in your app come from Material UI itself, most notably: `ButtonBase` now bubbles a click to ancestors on Enter and Space, `Menu` keyboard navigation moves `tabindex`, `TextField select` renders its label as a `div`, and `Autocomplete` with `freeSolo` may pass a `string` to `getOptionLabel`.
+
+### 8. TanStack Table V9
+
+V4 is built on TanStack Table V9 (`@tanstack/react-table` 9.2.4), up from V8.
+The V9 packages are ESM-only, so the CommonJS build of this package now requires Node 22.12 or newer (`require()` of ES modules). The `engines` field says `>=22.12`.
+Most of your code keeps working unchanged. The table below lists everything that was renamed; each is a straight find and replace.
+
+| V3 (TanStack 8) | V4 (TanStack 9) |
+| --- | --- |
+| `initialState: { columnPinning: { left: [...], right: [...] } }` | `columnPinning: { start: [...], end: [...] }` |
+| `column.pin('left')` / `column.pin('right')` | `column.pin('start')` / `column.pin('end')` |
+| `column.getIsPinned() === 'left'` | `column.getIsPinned() === 'start'` |
+| `table.getLeftLeafColumns()` and the other `getLeft*` / `getRight*` methods | `table.getStartLeafColumns()` and `getStart*` / `getEnd*` |
+| `row.getLeftVisibleCells()` / `row.getRightVisibleCells()` | `row.getStartVisibleCells()` / `row.getEndVisibleCells()` |
+| `columnSizingInfo` state, `onColumnSizingInfoChange`, `table.setColumnSizingInfo()` | `columnResizing`, `onColumnResizingChange`, `table.setColumnResizing()` |
+| `sortingFn` column option | `sortFn` |
+| `sortingFns` table option | `sortFns` |
+| `column.getSortingFn()` / `column.getAutoSortingFn()` | `column.getSortFn()` / `column.getAutoSortFn()` |
+| `table.getPrePaginationRowModel()` / `table.getPaginationRowModel()` | `table.getPrePaginatedRowModel()` / `table.getPaginatedRowModel()` |
+| `column.getAggregationFn()` | `column.getAggregationFns()` |
+| `MRT_SortingFn` type | `MRT_SortFn` (the old name is kept as a deprecated alias) |
+| `MRT_ColumnSizingInfoState` type | `MRT_ColumnResizingState` (the old name is kept as a deprecated alias) |
+
+Behaviour changes to check:
+
+- `rowSelection` state values are typed `true` instead of `boolean`. Toggle a row by deleting its key rather than setting it to `false`.
+- `rowPinning` state requires both `top` and `bottom` arrays, and `columnPinning` requires both `start` and `end`, when you pass them in `initialState` or `state`.
+- `table.getIsSomeRowsSelected()` now returns `true` when all rows are selected. For an indeterminate checkbox use `getIsSomeRowsSelected() && !getIsAllRowsSelected()`.
+- A custom `aggregationFn` is an object `{ aggregate: (context) => result }` instead of a `(columnId, leafRows, childRows) => result` callable. The built-in names (`'sum'`, `'mean'`, ...) and arrays of names work as before.
+- The `getCoreRowModel`, `getFilteredRowModel`, `getSortedRowModel`, `getPaginationRowModel`, `getExpandedRowModel`, `getGroupedRowModel` and `getFaceted*` table options no longer exist. The row models are always registered; use the `manual*` options to take over a stage.
+- Rows with a detail panel now report `row.getCanExpand()` as `true`, because V9 refuses to toggle a row that cannot expand.
+  Pass your own `getRowCanExpand` to override this.
+- `onStateChange` and `table.setState()` no longer exist. Control individual slices with `state` plus the matching `onXChange` option.
+- `table.getState()` still works and returns the full current state. Inside render code `table.state` is the reactive equivalent.
+- Pinned cells are positioned with `insetInlineStart` and `insetInlineEnd`, so right-to-left layouts pin to the logical start and end of the row.
+
+The V9 packages ship agent skills for AI coding assistants; run `npx @tanstack/intent@latest list` in your project to see them.

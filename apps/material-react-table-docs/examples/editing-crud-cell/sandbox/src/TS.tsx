@@ -239,7 +239,8 @@ const Example = () => {
     ),
     initialState: {
       columnPinning: {
-        right: ['mrt-row-actions'],
+        end: ['mrt-row-actions'],
+        start: [],
       },
     },
     state: {

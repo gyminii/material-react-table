@@ -83,10 +83,13 @@ const Example = () => {
     muiTableBodyRowProps: ({ row }) => ({
       //implement row selection click events manually
       onClick: () =>
-        setRowSelection((prev) => ({
-          ...prev,
-          [row.id]: !prev[row.id], //this is a simple toggle implementation
-        })),
+        setRowSelection((prev) => {
+          //this is a simple toggle implementation
+          const next = { ...prev };
+          if (next[row.id]) delete next[row.id];
+          else next[row.id] = true;
+          return next;
+        }),
       selected: rowSelection[row.id],
       sx: {
         cursor: 'pointer',

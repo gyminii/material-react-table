@@ -53,7 +53,7 @@ const table = useMaterialReactTable({
   data,
   columns,
   enableColumnPinning: true,
-  initialState: { columnPinning: { left: ['email'] } }, //pin email column to left by default
+  initialState: { columnPinning: { start: ['email'] } }, //pin email column to the start by default
 });
 
 return <MaterialReactTable table={table} />;

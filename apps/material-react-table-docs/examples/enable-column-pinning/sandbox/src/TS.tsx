@@ -59,7 +59,7 @@ const Example = () => {
     layoutMode: 'grid-no-grow', //constant column widths
     renderRowActionMenuItems: () => [<MenuItem key="action">Action</MenuItem>],
     initialState: {
-      columnPinning: { left: ['mrt-row-actions', 'state'], right: ['city'] },
+      columnPinning: { end: ['city'], start: ['mrt-row-actions', 'state'] },
     },
   });
 

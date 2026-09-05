@@ -13,16 +13,6 @@ export type TableOption = {
 
 export const tableOptions: TableOption[] = [
   {
-    tableOption: '_features',
-    defaultValue: '',
-    description: `An array of extra features that you can add to the table instance.`,
-    link: 'https://tanstack.com/table/latest/docs/guide/custom-features',
-    linkText: 'TanStack Table Custom Features Docs',
-    required: false,
-    source: 'TanStack Table',
-    type: 'Array<TableFeature>',
-  },
-  {
     tableOption: 'aggregationFns',
     defaultValue: '',
     description: `This option allows you to define custom aggregation functions that can be referenced in a column's aggregationFn option by their key`,
@@ -786,81 +776,6 @@ export const tableOptions: TableOption[] = [
     type: '(column: Column<TData, unknown>) => boolean',
   },
   {
-    tableOption: 'getCoreRowModel',
-    defaultValue: '',
-    description: `Material React Table uses the default core row model function from TanStack Table, but you can override its implementation here. It is called once per table and should return a new function which will calculate and return the row model for the table.`,
-    link: 'https://tanstack.com/table/v8/docs/api/core/table#getcorerowmodel',
-    linkText: 'TanStack Table Core Table Docs',
-    required: false,
-    source: 'TanStack Table',
-    type: '(table: Table<TData>) => () => RowModel<TData>',
-  },
-  {
-    tableOption: 'getExpandedRowModel',
-    defaultValue: '',
-    description: '',
-    link: '',
-    linkText: '',
-    required: false,
-    source: 'MRT',
-    type: '() => MRT_RowModel<TData>',
-  },
-  {
-    tableOption: 'getFacetedMinMaxValues',
-    defaultValue: '',
-    description:
-      'A function that computes and returns a min/max tuple derived from column.getFacetedRowModel. Useful for displaying faceted result values.',
-    link: 'https://tanstack.com/table/v8/docs/api/features/filters#getfacetedminmaxvalues',
-    linkText: 'TanStack Table Filters Docs',
-    required: false,
-    source: 'TanStack Table',
-    type: '() => Map<any, number>',
-  },
-  {
-    tableOption: 'getFacetedRowModel',
-    defaultValue: '',
-    description:
-      'Returns the row model with all other column filters applied, excluding its own filter. Useful for displaying faceted result counts.',
-    link: 'https://tanstack.com/table/v8/docs/api/features/filters#getfacetedrowmodel',
-    linkText: 'TanStack Table Filters Docs',
-    required: false,
-    source: 'TanStack Table',
-    type: '() => RowModel<TData>',
-  },
-  {
-    tableOption: 'getFacetedUniqueValues',
-    defaultValue: '',
-    description:
-      'A function that computes and returns a Map of unique values and their occurrences derived from column.getFacetedRowModel. Useful for displaying faceted result values.',
-    link: 'https://tanstack.com/table/v8/docs/api/features/filters#getfaceteduniquevalues',
-    linkText: 'TanStack Table Filters Docs',
-    required: false,
-    source: 'TanStack Table',
-    type: '() => Map<any, number>',
-  },
-  {
-    tableOption: 'getFilteredRowModel',
-    defaultValue: '',
-    description:
-      'Returns the row model with all other column filters applied, excluding its own filter. Useful for displaying faceted result counts.',
-    link: 'https://tanstack.com/table/v8/docs/api/features/filters#getfilteredrowmodel',
-    linkText: 'TanStack Table Filters Docs',
-    required: false,
-    source: 'TanStack Table',
-    type: '() => RowModel<TData>',
-  },
-  {
-    tableOption: 'getGroupedRowModel',
-    defaultValue: '',
-    description:
-      'Returns the row model after grouping has taken place, but no further.',
-    link: 'https://tanstack.com/table/v8/docs/api/features/grouping#getgroupedrowmodel',
-    linkText: 'TanStack Table Grouping Docs',
-    required: false,
-    source: 'TanStack Table',
-    type: '(table: Table<TData>) => () => RowModel<TData>',
-  },
-  {
     tableOption: 'getIsRowExpanded',
     defaultValue: '',
     description:
@@ -870,16 +785,6 @@ export const tableOptions: TableOption[] = [
     required: false,
     source: 'TanStack Table',
     type: '(row: Row<TData>) => boolean',
-  },
-  {
-    tableOption: 'getPaginationRowModel',
-    defaultValue: '',
-    description: '',
-    link: '',
-    linkText: '',
-    required: false,
-    source: '',
-    type: '() => MRT_RowModel<TData>',
   },
   {
     tableOption: 'getRowCanExpand',
@@ -901,17 +806,6 @@ export const tableOptions: TableOption[] = [
     required: false,
     source: 'TanStack Table',
     type: `(originalRow: TData, index: number, parent?: MRT_Row<TData>) => string`,
-  },
-  {
-    tableOption: 'getSortedRowModel',
-    defaultValue: '',
-    description:
-      'This function is used to retrieve the sorted row model. If using server-side sorting, this function is not required. To use client-side sorting, pass the exported getSortedRowModel() from your adapter to your table or implement your own.',
-    link: 'https://tanstack.com/table/v8/docs/api/features/sorting#getsortedrowmodel',
-    linkText: 'TanStack Table Sorting Docs',
-    required: false,
-    source: 'TanStack Table',
-    type: '(table: Table<TData>) => () => RowModel<TData>',
   },
   {
     tableOption: 'getSubRows',
@@ -1034,7 +928,7 @@ export const tableOptions: TableOption[] = [
     tableOption: 'manualPagination',
     defaultValue: '',
     description:
-      'Enables manual pagination. If this option is set to true, the table will not automatically paginate rows using getPaginationRowModel() and instead will expect you to manually paginate the rows before passing them to the table. This is useful if you are doing server-side pagination and aggregation.',
+      'Enables manual pagination. If this option is set to true, the table will not automatically paginate rows and instead will expect you to manually paginate the rows before passing them to the table. This is useful if you are doing server-side pagination and aggregation.',
     link: 'https://tanstack.com/table/v8/docs/api/features/pagination#manualpagination',
     linkText: 'TanStack Table Pagination Docs',
     required: false,
@@ -1540,15 +1434,15 @@ export const tableOptions: TableOption[] = [
     type: 'OnChangeFn<ColumnSizingState>',
   },
   {
-    tableOption: 'onColumnSizingInfoChange',
+    tableOption: 'onColumnResizingChange',
     defaultValue: '',
     description:
-      'This optional function will be called when the columnSizingInfo state changes. If you provide this function, you will be responsible for maintaining its state yourself. You can pass this state back to the table via the state.columnSizingInfo table option.',
-    link: 'https://tanstack.com/table/v8/docs/api/features/column-sizing#oncolumnsizinginfochange',
+      'This optional function will be called when the columnResizing state changes. If you provide this function, you will be responsible for maintaining its state yourself. You can pass this state back to the table via the state.columnSizingInfo table option.',
+    link: 'https://tanstack.com/table/v9/docs/api/features/column-resizing',
     linkText: 'TanStack Table Column Sizing Docs',
     required: false,
     source: 'TanStack Table',
-    type: 'OnChangeFn<ColumnSizingInfoState>',
+    type: 'OnChangeFn<MRT_ColumnResizingState>',
   },
   {
     tableOption: 'onColumnVisibilityChange',
@@ -2134,15 +2028,15 @@ export const tableOptions: TableOption[] = [
     type: 'boolean',
   },
   {
-    tableOption: 'sortingFns',
+    tableOption: 'sortFns',
     defaultValue: '',
     description:
-      "This option allows you to define custom sorting functions that can be referenced in a column's sortingFn option by their key. Example:",
-    link: 'https://tanstack.com/table/v8/docs/api/features/sorting#sortingfns',
+      "This option allows you to define custom sorting functions that can be referenced in a column's sortFn option by their key. Example:",
+    link: 'https://tanstack.com/table/v9/docs/api/features/sorting',
     linkText: 'TanStack Table Sorting Docs',
     required: false,
     source: 'TanStack Table',
-    type: 'Record<string, SortingFn>',
+    type: 'Record<string, SortFn>',
   },
   {
     tableOption: 'state',

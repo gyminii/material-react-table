@@ -53,7 +53,9 @@ const Example = () => {
       expanded: true,
     },
     state: {
-      columnPinning: isMobile ? { right: ['mrt-row-expand'] } : {}, //alternative
+      columnPinning: isMobile
+        ? { end: ['mrt-row-expand'], start: [] }
+        : { end: [], start: [] }, //alternative
     },
     renderDetailPanel: ({ row }) => (
       <Box

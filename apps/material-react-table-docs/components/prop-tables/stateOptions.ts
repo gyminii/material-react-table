@@ -66,7 +66,7 @@ export const stateOptions: StateOption[] = [
     link: 'https://tanstack.com/table/v8/docs/api/features/column-sizing',
     linkText: 'TanStack Table Column Sizing Docs',
     source: 'TanStack Table',
-    stateOption: 'columnSizingInfo',
+    stateOption: 'columnResizing',
     type: 'See TanStack Docs',
   },
   {

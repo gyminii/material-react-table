@@ -3,6 +3,7 @@ import Link from 'next/link';
 import {
   MaterialReactTable,
   type MRT_ColumnDef,
+  type MRT_ColumnPinningState,
   type MRT_Column,
 } from 'material-react-table';
 import { Link as MuiLink, Typography, useMediaQuery } from '@mui/material';
@@ -74,17 +75,20 @@ const ColumnInstanceAPIsTable = ({ onlyOptions }: Props) => {
     [],
   );
 
-  const [columnPinning, setColumnPinning] = useState({});
+  const [columnPinning, setColumnPinning] = useState<MRT_ColumnPinningState>({
+    end: [],
+    start: [],
+  });
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
       if (isDesktop) {
         setColumnPinning({
-          left: ['mrt-row-expand', 'mrt-row-numbers', 'columnInstanceAPI'],
-          right: ['link'],
+          end: ['link'],
+          start: ['mrt-row-expand', 'mrt-row-numbers', 'columnInstanceAPI'],
         });
       } else {
-        setColumnPinning({});
+        setColumnPinning({ end: [], start: [] });
       }
     }
   }, [isDesktop]);

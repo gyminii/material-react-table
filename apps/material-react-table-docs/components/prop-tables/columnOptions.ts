@@ -591,7 +591,7 @@ export const columnOptions: ColumnOption[] = [
     type: 'boolean',
   },
   {
-    columnOption: 'sortingFn',
+    columnOption: 'sortFn',
     defaultValue: '',
     description: '',
     link: '',

@@ -1,6 +1,10 @@
 import { useEffect, useMemo, useState } from 'react';
 import Link from 'next/link';
-import { MaterialReactTable, type MRT_ColumnDef } from 'material-react-table';
+import {
+  MaterialReactTable,
+  type MRT_ColumnDef,
+  type MRT_ColumnPinningState,
+} from 'material-react-table';
 import {
   Link as MuiLink,
   Typography,
@@ -106,17 +110,20 @@ const ColumnOptionsTable = ({ onlyOptions }: Props) => {
     [theme],
   );
 
-  const [columnPinning, setColumnPinning] = useState({});
+  const [columnPinning, setColumnPinning] = useState<MRT_ColumnPinningState>({
+    end: [],
+    start: [],
+  });
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
       if (isDesktop) {
         setColumnPinning({
-          left: ['mrt-row-expand', 'mrt-row-numbers', 'columnOption'],
-          right: ['link'],
+          end: ['link'],
+          start: ['mrt-row-expand', 'mrt-row-numbers', 'columnOption'],
         });
       } else {
-        setColumnPinning({});
+        setColumnPinning({ end: [], start: [] });
       }
     }
   }, [isDesktop]);
