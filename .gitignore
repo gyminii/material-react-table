@@ -41,3 +41,6 @@ yarn-error.log*
 .turbo
 
 *storybook.log
+# AI agent config and generated planning docs, never committed
+.claude/
+CLAUDE.md
