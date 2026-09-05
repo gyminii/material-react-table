@@ -46,6 +46,12 @@ export default [
         targets: ['dist/types'],
       }),
       dts(),
+      copy({
+        hook: 'writeBundle',
+        targets: [
+          { dest: 'dist', rename: 'index.d.mts', src: 'dist/index.d.ts' },
+        ],
+      }),
     ],
   },
 ];

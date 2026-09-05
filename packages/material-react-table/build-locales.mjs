@@ -64,7 +64,7 @@ async function build(locale) {
   });
 
   await bundle.write({
-    file: `./locales/${locale}/index.esm.js`,
+    file: `./locales/${locale}/index.mjs`,
     format: 'esm',
     sourcemap: false,
   });
@@ -79,7 +79,7 @@ export declare const MRT_Localization_${locale
     if (err) console.log(err);
   });
 
-  await fs.writeFile(`./locales/${locale}/index.esm.d.ts`, typeFile, (err) => {
+  await fs.writeFile(`./locales/${locale}/index.d.mts`, typeFile, (err) => {
     if (err) console.log(err);
   });
 
@@ -88,7 +88,7 @@ export declare const MRT_Localization_${locale
     JSON.stringify(
       {
         main: 'index.js',
-        module: 'index.esm.js',
+        module: 'index.mjs',
         sideEffects: false,
         types: 'index.d.ts',
       },
