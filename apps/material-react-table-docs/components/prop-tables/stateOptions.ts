@@ -24,7 +24,7 @@ export const stateOptions: StateOption[] = [
     defaultValue: '{}',
     description:
       'an array of objects with id and value properties, representing the current filter values for each column',
-    link: 'https://tanstack.com/table/v8/docs/api/features/filters',
+    link: 'https://tanstack.com/table/v9/docs/framework/react/guide/column-filtering',
     linkText: 'TanStack Table Filters Docs',
     source: 'TanStack Table',
     stateOption: 'columnFilters',
@@ -34,7 +34,7 @@ export const stateOptions: StateOption[] = [
     defaultValue: '[]',
     description:
       'an array of strings representing the current order of the table columns',
-    link: 'https://tanstack.com/table/v8/docs/api/features/column-ordering',
+    link: 'https://tanstack.com/table/v9/docs/framework/react/guide/column-ordering',
     linkText: 'TanStack Table Column Ordering Docs',
     source: 'TanStack Table',
     stateOption: 'columnOrder',
@@ -44,7 +44,7 @@ export const stateOptions: StateOption[] = [
     defaultValue: '{ left: [], right: [] }',
     description:
       'an object with left and right properties, each of which is an array of strings representing the columns that are pinned to the left or right side of the table',
-    link: 'https://tanstack.com/table/v8/docs/api/features/column-pinning',
+    link: 'https://tanstack.com/table/v9/docs/framework/react/guide/column-pinning',
     linkText: 'TanStack Table Column Pinning Docs',
     source: 'TanStack Table',
     stateOption: 'columnPinning',
@@ -54,7 +54,7 @@ export const stateOptions: StateOption[] = [
     defaultValue: '{}',
     description:
       'an object mapping column IDs to their current width in pixels',
-    link: 'https://tanstack.com/table/v8/docs/api/features/column-sizing',
+    link: 'https://tanstack.com/table/v9/docs/framework/react/guide/column-sizing',
     linkText: 'TanStack Table Column Sizing Docs',
     source: 'TanStack Table',
     stateOption: 'columnSizing',
@@ -63,7 +63,7 @@ export const stateOptions: StateOption[] = [
   {
     defaultValue: '{}',
     description: 'an object containing information about column sizing',
-    link: 'https://tanstack.com/table/v8/docs/api/features/column-sizing',
+    link: 'https://tanstack.com/table/v9/docs/framework/react/guide/column-sizing',
     linkText: 'TanStack Table Column Sizing Docs',
     source: 'TanStack Table',
     stateOption: 'columnResizing',
@@ -73,7 +73,7 @@ export const stateOptions: StateOption[] = [
     defaultValue: '{}',
     description:
       'an object mapping column IDs to a boolean indicating whether the column is currently visible',
-    link: 'https://tanstack.com/table/v8/docs/api/features/column-visibility',
+    link: 'https://tanstack.com/table/v9/docs/framework/react/guide/column-visibility',
     linkText: 'TanStack Table Column Visibility Docs',
     source: 'TanStack Table',
     stateOption: 'columnVisibility',
@@ -154,7 +154,7 @@ export const stateOptions: StateOption[] = [
   {
     defaultValue: '{}',
     description: '',
-    link: 'https://tanstack.com/table/v8/docs/api/features/expanding',
+    link: 'https://tanstack.com/table/v9/docs/framework/react/guide/expanding',
     linkText: 'TanStack Table Expanding Docs',
     source: 'TanStack Table',
     stateOption: 'expanded',
@@ -163,7 +163,7 @@ export const stateOptions: StateOption[] = [
   {
     defaultValue: '',
     description: '',
-    link: 'https://tanstack.com/table/v8/docs/api/features/filters',
+    link: 'https://tanstack.com/table/v9/docs/framework/react/guide/column-filtering',
     linkText: 'TanStack Table Filtering Docs',
     source: 'TanStack Table',
     stateOption: 'globalFilter',
@@ -172,7 +172,7 @@ export const stateOptions: StateOption[] = [
   {
     defaultValue: '[]',
     description: '',
-    link: 'https://tanstack.com/table/v8/docs/api/features/grouping',
+    link: 'https://tanstack.com/table/v9/docs/framework/react/guide/grouping',
     linkText: 'TanStack Table Grouping Docs',
     source: 'TanStack Table',
     stateOption: 'grouping',
@@ -217,7 +217,7 @@ export const stateOptions: StateOption[] = [
   {
     defaultValue: '{ pageIndex: 0, pageSize: 10 }',
     description: '',
-    link: 'https://tanstack.com/table/v8/docs/api/features/pagination',
+    link: 'https://tanstack.com/table/v9/docs/framework/react/guide/pagination',
     linkText: 'TanStack Table Pagination Docs',
     source: 'TanStack Table',
     stateOption: 'pagination',
@@ -227,7 +227,7 @@ export const stateOptions: StateOption[] = [
     defaultValue: '{ top: [], bottom: [] }',
     description:
       'an object with top and bottom properties, each of which is an array of strings representing the rows that are pinned to the top or bottom of the table',
-    link: 'https://tanstack.com/table/v8/docs/api/features/column-pinning',
+    link: 'https://tanstack.com/table/v9/docs/framework/react/guide/column-pinning',
     linkText: 'TanStack Table Column Pinning Docs',
     source: 'TanStack Table',
     stateOption: 'rowPinning',
@@ -236,7 +236,7 @@ export const stateOptions: StateOption[] = [
   {
     defaultValue: '{}',
     description: '',
-    link: 'https://tanstack.com/table/v8/docs/api/features/row-selection',
+    link: 'https://tanstack.com/table/v9/docs/framework/react/guide/row-selection',
     linkText: 'TanStack Table Row Selection Docs',
     source: 'TanStack Table',
     stateOption: 'rowSelection',
@@ -308,7 +308,7 @@ export const stateOptions: StateOption[] = [
   {
     defaultValue: '[]',
     description: '',
-    link: 'https://tanstack.com/table/v8/docs/api/features/sorting',
+    link: 'https://tanstack.com/table/v9/docs/framework/react/guide/sorting',
     linkText: 'TanStack Table Sorting Docs',
     source: 'TanStack Table',
     stateOption: 'sorting',

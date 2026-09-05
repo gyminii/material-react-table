@@ -31,7 +31,7 @@ View [Documentation](https://www.material-react-table.com/)
 
 ### _Quickly Create React Data Tables with Material Design_
 
-### **Built with [Material UI <sup>V9</sup>](https://mui.com) and [TanStack Table <sup>V8</sup>](https://tanstack.com/table/v8)**
+### **Built with [Material UI <sup>V9</sup>](https://mui.com) and [TanStack Table <sup>V9</sup>](https://tanstack.com/table/v9)**
 
 <img src="https://material-react-table.com/banner.png" alt="MRT" height="50" />
 

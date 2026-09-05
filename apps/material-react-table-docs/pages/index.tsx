@@ -116,7 +116,7 @@ const HomePage = () => {
             </MuiLink>
           </Link>{' '}
           and&nbsp;
-          <Link href="https://tanstack.com/table/v8" passHref legacyBehavior>
+          <Link href="https://tanstack.com/table/v9" passHref legacyBehavior>
             <MuiLink
               target="_blank"
               rel="noopener"
