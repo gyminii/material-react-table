@@ -14,7 +14,7 @@ import Tooltip from '@mui/material/Tooltip';
 import { debounce } from '@mui/material/utils';
 import { MRT_FilterOptionMenu } from '../menus/MRT_FilterOptionMenu';
 import { type MRT_RowData, type MRT_TableInstance } from '../../types';
-import { parseFromValuesOrFunc } from '../../utils/utils';
+import { parseFromValuesOrFunc, parseSlotProps } from '../../utils/utils';
 
 export interface MRT_GlobalFilterTextFieldProps<TData extends MRT_RowData>
   extends TextFieldProps<'standard'> {
@@ -45,6 +45,10 @@ export const MRT_GlobalFilterTextField = <TData extends MRT_RowData>({
     }),
     ...rest,
   };
+  const inputSlotProps = parseSlotProps(textFieldProps.slotProps?.input);
+  const htmlInputSlotProps = parseSlotProps(
+    textFieldProps.slotProps?.htmlInput,
+  );
 
   const isMounted = useRef(false);
   const [anchorEl, setAnchorEl] = useState<HTMLElement | null>(null);
@@ -106,6 +110,11 @@ export const MRT_GlobalFilterTextField = <TData extends MRT_RowData>({
           }
         }}
         slotProps={{
+          ...textFieldProps.slotProps,
+          htmlInput: {
+            autoComplete: 'off',
+            ...htmlInputSlotProps,
+          },
           input: {
             endAdornment: (
               <InputAdornment position="end">
@@ -139,19 +148,11 @@ export const MRT_GlobalFilterTextField = <TData extends MRT_RowData>({
             ) : (
               <SearchIcon style={{ marginRight: '4px' }} />
             ),
-            ...textFieldProps.InputProps,
+            ...inputSlotProps,
             sx: (theme) => ({
               mb: 0,
-              ...(parseFromValuesOrFunc(
-                textFieldProps?.InputProps?.sx,
-                theme,
-              ) as any),
+              ...(parseFromValuesOrFunc(inputSlotProps?.sx, theme) as any),
             }),
-          },
-
-          htmlInput: {
-            autoComplete: 'off',
-            ...textFieldProps.inputProps,
           },
         }}
       />
