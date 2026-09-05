@@ -43,7 +43,7 @@ export const BreadCrumbs = () => {
         link === '/'
           ? 'Home'
           : link.split('/').pop()?.replaceAll('-', ' ') || '',
-      item: `https://www.material-react-table.com${link}`,
+      item: `https://mini7-material-react-table.vercel.app${link}`,
     })),
   };
 

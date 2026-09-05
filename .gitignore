@@ -44,3 +44,4 @@ yarn-error.log*
 # AI agent config and generated planning docs, never committed
 .claude/
 CLAUDE.md
+.vercel

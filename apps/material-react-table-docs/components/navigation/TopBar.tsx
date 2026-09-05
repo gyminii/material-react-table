@@ -50,6 +50,11 @@ export const TopBar = ({ navOpen, setNavOpen }: Props) => {
         apiKey: '680b219eaef484622046bf76cef8544a',
         indexName: 'material-react-table',
         container: '#docsearch',
+        transformItems: (items) =>
+          items.map((item) => ({
+            ...item,
+            url: item.url.replace('https://www.material-react-table.com', ''),
+          })),
       });
     }
   }, []);
@@ -151,7 +156,7 @@ export const TopBar = ({ navOpen, setNavOpen }: Props) => {
               <Select
                 onOpen={() => plausible('version-select')}
                 MenuProps={{ disableScrollLock: true }}
-                value="v3"
+                value="v4"
                 size="small"
                 sx={{ m: '8px', height: '30px' }}
               >
@@ -171,8 +176,16 @@ export const TopBar = ({ navOpen, setNavOpen }: Props) => {
                     V2
                   </MenuItem>
                 </Link>
-                <MenuItem sx={{ m: 0 }} value="v3">
-                  V3
+                <Link
+                  legacyBehavior
+                  href={`https://www.material-react-table.com/${pathname}`}
+                >
+                  <MenuItem sx={{ m: 0 }} value="v3">
+                    V3
+                  </MenuItem>
+                </Link>
+                <MenuItem sx={{ m: 0 }} value="v4">
+                  V4
                 </MenuItem>
               </Select>
             </ThemeProvider>
@@ -194,7 +207,7 @@ export const TopBar = ({ navOpen, setNavOpen }: Props) => {
           >
             <Tooltip arrow title="Github">
               <a
-                href="https://github.com/KevinVandy/material-react-table"
+                href="https://github.com/gyminii/material-react-table"
                 rel="noopener"
                 target="_blank"
               >

@@ -144,7 +144,7 @@ export const SourceCodeSnippet = ({
                     <Button
                       color="success"
                       endIcon={<LaunchIcon />}
-                      href={`https://stackblitz.com/github/KevinVandy/material-react-table/tree/v3/apps/material-react-table-docs/examples/${tableId}/sandbox?file=src/TS.tsx`}
+                      href={`https://stackblitz.com/github/gyminii/material-react-table/tree/v4/apps/material-react-table-docs/examples/${tableId}/sandbox?file=src/TS.tsx`}
                       onClick={() => plausible('open-stackblitz')}
                       rel="noopener"
                       startIcon={<ElectricBoltIcon />}
@@ -157,7 +157,7 @@ export const SourceCodeSnippet = ({
                     <Button
                       color="warning"
                       endIcon={<LaunchIcon />}
-                      href={`https://codesandbox.io/s/github/KevinVandy/material-react-table/tree/v3/apps/material-react-table-docs/examples/${tableId}/sandbox?file=/src/TS.tsx`}
+                      href={`https://codesandbox.io/s/github/gyminii/material-react-table/tree/v4/apps/material-react-table-docs/examples/${tableId}/sandbox?file=/src/TS.tsx`}
                       onClick={() => plausible('open-code-sandbox')}
                       rel="noopener"
                       startIcon={<CodeIcon />}
@@ -170,7 +170,7 @@ export const SourceCodeSnippet = ({
                     <Button
                       color="info"
                       endIcon={<LaunchIcon />}
-                      href={`https://github.com/KevinVandy/material-react-table/tree/v3/apps/material-react-table-docs/examples/${tableId}/sandbox/src/${
+                      href={`https://github.com/gyminii/material-react-table/tree/v4/apps/material-react-table-docs/examples/${tableId}/sandbox/src/${
                         codeTab === 'ts' ? 'TS.tsx' : 'API.ts'
                       }`}
                       onClick={() => plausible('open-on-github')}
@@ -245,10 +245,10 @@ export const SourceCodeSnippet = ({
             variant="outlined"
             closeText="Don't show again"
           >
-            <AlertTitle>This example is written for MRT V3.</AlertTitle>
+            <AlertTitle>This example is written for MRT V4.</AlertTitle>
             If your app is still using MRT V1, either{' '}
             <Link href="/migrating-to-v2" passHref legacyBehavior>
-              <MuiLink>Upgrade to MRT V3</MuiLink>
+              <MuiLink>Upgrade to MRT V4</MuiLink>
             </Link>{' '}
             or use the{' '}
             <MuiLink
@@ -259,7 +259,7 @@ export const SourceCodeSnippet = ({
             >
               V1 Docs
             </MuiLink>{' '}
-            instead. (useMaterialReactTable only exists in V2 and V3)
+            instead. (useMaterialReactTable only exists in V2 and later)
           </Alert>
         </Collapse>
         <Box
@@ -326,7 +326,7 @@ export const SourceCodeSnippet = ({
         </Box>
         <Collapse mountOnEnter in={codeTab === 'stackblitz'}>
           <iframe
-            src={`https://stackblitz.com/github/KevinVandy/material-react-table/tree/v3/apps/material-react-table-docs/examples/${tableId}/sandbox?file=src/TS.tsx`}
+            src={`https://stackblitz.com/github/gyminii/material-react-table/tree/v4/apps/material-react-table-docs/examples/${tableId}/sandbox?file=src/TS.tsx`}
             style={{
               width: '100%',
               height: '1000px',
@@ -342,7 +342,7 @@ export const SourceCodeSnippet = ({
         </Collapse>
         <Collapse mountOnEnter in={codeTab === 'sandbox'}>
           <iframe
-            src={`https://codesandbox.io/s/github/KevinVandy/material-react-table/tree/v3/apps/material-react-table-docs/examples/${tableId}/sandbox?fontsize=14&hidenavigation=1&theme=${
+            src={`https://codesandbox.io/s/github/gyminii/material-react-table/tree/v4/apps/material-react-table-docs/examples/${tableId}/sandbox?fontsize=14&hidenavigation=1&theme=${
               isLightTheme ? 'light' : 'dark'
             }&file=src/TS.tsx`}
             style={{

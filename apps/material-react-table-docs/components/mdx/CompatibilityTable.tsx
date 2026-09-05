@@ -60,7 +60,7 @@ const data = [
     pigmentCSS: '-',
   },
   {
-    mrtVersion: '3.x (This Version)',
+    mrtVersion: '3.x',
     muiVersion: '6.0+',
     muiXDatePickers: '7.15.0+',
     reactVersion: '18.0+',
@@ -69,13 +69,13 @@ const data = [
     pigmentCSS: 'Optional',
   },
   {
-    mrtVersion: '4.x (Next Version)',
-    muiVersion: '6.0+',
-    muiXDatePickers: '7.15.0+',
+    mrtVersion: '4.x (This Version)',
+    muiVersion: '9.0+',
+    muiXDatePickers: '9.0+',
     reactVersion: '18.0+',
-    muiIconsVersion: '6.0+',
-    emotionVersion: 'Optional',
-    pigmentCSS: 'Optional',
+    muiIconsVersion: '9.0+',
+    emotionVersion: '11.13+',
+    pigmentCSS: '-',
   },
 ];
 

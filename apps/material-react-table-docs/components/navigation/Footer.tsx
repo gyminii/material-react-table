@@ -32,7 +32,7 @@ export const Footer = () => {
         color="secondary"
         endIcon={<GitHub />}
         startIcon={<Edit />}
-        href={`https://github.com/KevinVandy/material-react-table/edit/v3/apps/material-react-table-docs/pages${pathname}${
+        href={`https://github.com/gyminii/material-react-table/edit/v4/apps/material-react-table-docs/pages${pathname}${
           ['/'].includes(pathname)
             ? 'index.tsx'
             : ['/docs', '/docs/api', '/docs/examples', '/docs/guides'].includes(
@@ -92,24 +92,6 @@ export const Footer = () => {
         </MuiLink>
       </Typography>
       <EthicalAd id="footer" text />
-      <Typography
-        sx={{
-          mt: '2rem',
-          textAlign: 'center',
-        }}
-        variant="subtitle2"
-      >
-        <MuiLink
-          sx={{ color: '#6366f1' }}
-          target="_blank"
-          href={`https://plausible.io/material-react-table.com?${new URLSearchParams(
-            { page: pathname },
-          ).toString()}`}
-        >
-          Plausible Analytics
-        </MuiLink>{' '}
-        for this page
-      </Typography>
       <Paper
         elevation={3}
         sx={{
@@ -126,7 +108,9 @@ export const Footer = () => {
             textAlign: 'center',
           }}
         >
-          © {new Date().getFullYear()} Kevin&nbsp;Van&nbsp;Cott
+          Material React Table © Kevin&nbsp;Van&nbsp;Cott
+          <br />
+          V4 fork maintained by Tyler&nbsp;Lee
         </Typography>
         <Box
           sx={{
@@ -137,7 +121,7 @@ export const Footer = () => {
           }}
         >
           <MuiLink
-            href="https://www.npmjs.com/package/material-react-table"
+            href="https://www.npmjs.com/package/@mini_7/material-react-table"
             target="_blank"
             rel="noopener"
             sx={{
@@ -147,7 +131,7 @@ export const Footer = () => {
             NPM
           </MuiLink>
           <MuiLink
-            href="https://github.com/KevinVandy/material-react-table"
+            href="https://github.com/gyminii/material-react-table"
             target="_blank"
             rel="noopener"
             sx={{
@@ -157,7 +141,7 @@ export const Footer = () => {
             Source Code
           </MuiLink>
           <MuiLink
-            href="https://github.com/KevinVandy/material-react-table/issues"
+            href="https://github.com/gyminii/material-react-table/issues"
             target="_blank"
             rel="noopener"
             sx={{
@@ -175,16 +159,6 @@ export const Footer = () => {
             }}
           >
             Join&nbsp;the&nbsp;Discord!
-          </MuiLink>
-          <MuiLink
-            href="https://twitter.com/kevinvancott"
-            target="_blank"
-            rel="noopener"
-            sx={{
-              color: 'text.secondary',
-            }}
-          >
-            Twitter
           </MuiLink>
         </Box>
         <Divider sx={{ m: '2rem 0' }} />

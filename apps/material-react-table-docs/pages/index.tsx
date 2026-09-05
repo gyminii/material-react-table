@@ -27,12 +27,13 @@ const HomePage = () => {
     <>
       <Stack sx={{ maxWidth: '1200px', m: 'auto' }}>
         <Alert severity="success" variant="outlined" sx={{}}>
-          <AlertTitle>
-            Material React Table V3 was released September 5th, 2024!
-          </AlertTitle>
-          <Typography>Upgrade to MRT V3 and Material UI V6 Today!</Typography>
-          <MuiLink href="/docs/getting-started/migrating-to-v3">
-            View the V3 Migration Guide here.
+          <AlertTitle>Material React Table V4 is out!</AlertTitle>
+          <Typography>
+            Material UI V9 and TanStack Table V9, published as{' '}
+            <code>@mini_7/material-react-table</code>.
+          </Typography>
+          <MuiLink href="/docs/getting-started/migrating-to-v4">
+            View the V4 Migration Guide here.
           </MuiLink>
         </Alert>
         <Typography
@@ -79,7 +80,7 @@ const HomePage = () => {
                 },
               }}
             >
-              V3
+              V4
             </Box>
           </Box>
         </Typography>
@@ -112,7 +113,7 @@ const HomePage = () => {
               target="_blank"
               rel="noopener"
             >
-              Material&nbsp;UI<sup>V6</sup>
+              Material&nbsp;UI<sup>V9</sup>
             </MuiLink>
           </Link>{' '}
           and&nbsp;
@@ -126,7 +127,7 @@ const HomePage = () => {
                 '&:hover': { textDecoration: 'underline' },
               }}
             >
-              TanStack&nbsp;Table<sup>V8</sup>
+              TanStack&nbsp;Table<sup>V9</sup>
             </MuiLink>
           </Link>
         </Typography>

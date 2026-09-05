@@ -44,6 +44,11 @@ export const routes: Array<RouteItem> = [
         keywords: ['beginner', 'guide'],
       },
       {
+        href: '/docs/getting-started/migrating-to-v4',
+        label: 'Migrating to V4',
+        keywords: ['migration', 'upgrade', 'v4', 'fork', 'mui 9', 'tanstack 9'],
+      },
+      {
         href: '/docs/getting-started/migrating-to-v3',
         label: 'Migrating to V3',
         keywords: ['migration', 'upgrade', 'v3'],
@@ -638,7 +643,7 @@ export const routes: Array<RouteItem> = [
         external: true,
       },
       {
-        href: 'https://www.github.com/kevinvandy/material-react-table',
+        href: 'https://github.com/gyminii/material-react-table',
         label: 'GitHub',
         external: true,
       },

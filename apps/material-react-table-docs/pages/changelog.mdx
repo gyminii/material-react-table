@@ -1,11 +1,24 @@
 import Head from 'next/head';
 
 <Head>
-  <title>{'MRT V3 Changelog - Material React Table V3 Docs'}</title>
-  <meta name="description" content="Material React Table V3 Changelog" />
+  <title>{'MRT V4 Changelog - Material React Table V4 Docs'}</title>
+  <meta name="description" content="Material React Table V4 Changelog" />
 </Head>
 
-## MRT V3 Changelog
+## MRT V4 Changelog
+
+### Version 4.0.0 - 2026-09-05
+
+- First release of the `@mini_7/material-react-table` fork
+- Upgraded to Material UI V9 and Material UI X Date Pickers V9
+- Upgraded to TanStack Table V9 (`@tanstack/react-table` 9.2.4) and TanStack Virtual 3.14
+- Added an `exports` map with separate ESM and CommonJS builds; deep imports into `dist/` are no longer resolvable
+- `muiEditTextFieldProps`, `muiFilterTextFieldProps` and `muiSearchTextFieldProps` take Material UI V9 `slotProps` instead of the removed `InputProps`, `inputProps` and `InputLabelProps`
+- Date filter pickers render the section based `PickersTextField`
+- Rows with a detail panel report `getCanExpand()` as `true` unless `getRowCanExpand` says otherwise
+- See the [V4 migration guide](/docs/getting-started/migrating-to-v4) for every rename and behaviour change
+
+## MRT V3 Changelog (Upstream)
 
 ### Version 3.2.1 - 2025-03-02
 

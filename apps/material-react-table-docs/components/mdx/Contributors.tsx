@@ -3,8 +3,14 @@ import Image from 'next/image';
 
 const cardData = [
   {
+    name: 'Tyler Lee',
+    role: 'V4 Fork Maintainer',
+    image: '/contributors/tylerlee.png',
+    href: 'https://github.com/gyminii',
+  },
+  {
     name: 'Kevin Van Cott',
-    role: 'Maintainer, Developer',
+    role: 'Original Author, Upstream Maintainer',
     image: '/contributors/kevinvancott.jpg',
     href: 'https://github.com/KevinVandy',
   },
@@ -94,13 +100,13 @@ export const Contributors = () => {
       </Box>
       <div style={{ textAlign: 'center' }}>
         <a
-          href="https://github.com/kevinvandy/material-react-table/graphs/contributors"
+          href="https://github.com/gyminii/material-react-table/graphs/contributors"
           target="_blank"
           rel="noopener"
         >
           <img
             alt="GitHub Contributors"
-            src="https://contrib.rocks/image?repo=kevinvandy/material-react-table"
+            src="https://contrib.rocks/image?repo=gyminii/material-react-table"
           />
         </a>
       </div>

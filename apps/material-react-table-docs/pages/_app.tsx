@@ -14,20 +14,20 @@ function App({ Component, pageProps }: AppProps) {
   return (
     <>
       <Head>
-        <title>Material React Table V3</title>
+        <title>Material React Table V4</title>
         <meta
           name="description"
           content="Material React Table, a fully featured Material UI V9 implementation of TanStack React Table V9. Written from the ground up in TypeScript."
         />
         <link
           rel="canonical"
-          href={`https://www.material-react-table.com${pathname}`}
+          href={`https://mini7-material-react-table.vercel.app${pathname}`}
         />
         <link rel="icon" href="/mrt_logo.png" />
         <meta property="og:image" content="/mrt_logo.png" />
         <meta
           property="og:url"
-          content={`https://www.material-react-table.com${pathname}`}
+          content={`https://mini7-material-react-table.vercel.app${pathname}`}
         />
         {process.env.NODE_ENV === 'production' && (
           <>
@@ -44,8 +44,8 @@ function App({ Component, pageProps }: AppProps) {
         )}
       </Head>
       <PlausibleProvider
-        domain="material-react-table.com"
-        enabled={process.env.NODE_ENV === 'production'}
+        domain="mini7-material-react-table.vercel.app"
+        enabled={false}
       >
         <ThemeContextProvider>
           <MDXProvider components={mdxComponents}>

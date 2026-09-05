@@ -5,17 +5,17 @@ const cardData = [
   {
     text: 'NPM',
     image: '/npm.svg',
-    href: 'https://www.npmjs.com/package/material-react-table',
+    href: 'https://www.npmjs.com/package/@mini_7/material-react-table',
   },
   {
     text: 'Source Code',
     image: '/source-code.svg',
-    href: 'https://github.com/kevinvandy/material-react-table',
+    href: 'https://github.com/gyminii/material-react-table',
   },
   {
     text: 'GitHub Issues',
     image: '/github-issues.svg',
-    href: 'https://github.com/kevinvandy/material-react-table/issues',
+    href: 'https://github.com/gyminii/material-react-table/issues',
   },
   {
     text: 'Discord',
