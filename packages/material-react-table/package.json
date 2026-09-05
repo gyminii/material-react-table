@@ -65,7 +65,7 @@
     }
   ],
   "engines": {
-    "node": ">=20.10"
+    "node": ">=22.12"
   },
   "scripts": {
     "build": "pnpm lib:build",
@@ -136,9 +136,9 @@
     "react-dom": ">=18.0"
   },
   "dependencies": {
-    "@tanstack/match-sorter-utils": "8.19.4",
-    "@tanstack/react-table": "8.20.6",
-    "@tanstack/react-virtual": "3.11.2",
+    "@tanstack/match-sorter-utils": "9.1.2",
+    "@tanstack/react-table": "9.2.4",
+    "@tanstack/react-virtual": "3.14.10",
     "highlight-words": "2.0.0"
   }
 }

@@ -30,7 +30,6 @@
     "@next/mdx": "^15.1.2",
     "@tanstack/react-query": "^5.62.8",
     "@tanstack/react-query-devtools": "^5.62.8",
-    "@tanstack/react-table-devtools": "^8.20.6",
     "@types/mdx": "^2.0.13",
     "dayjs": "^1.11.13",
     "export-to-csv": "^1.4.0",
