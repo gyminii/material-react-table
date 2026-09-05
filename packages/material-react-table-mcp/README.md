@@ -46,6 +46,12 @@ npx @tanstack/intent@latest list
 npx @tanstack/intent@latest load @mini_7/material-react-table#getting-started
 ```
 
+Any other harness can install them with the [skills CLI](https://github.com/vercel-labs/skills):
+
+```bash
+npx skills add https://github.com/gyminii/material-react-table/tree/v4/packages/material-react-table/skills -a codex
+```
+
 ## Development
 
 From this directory in the monorepo:

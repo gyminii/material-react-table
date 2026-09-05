@@ -199,12 +199,18 @@ _Open in [Code Sandbox](https://codesandbox.io/s/simple-material-react-table-exa
 
 ## AI Agents
 
-The package ships [TanStack Intent](https://www.npmjs.com/package/@tanstack/intent) skills that teach coding agents the MRT API, the `table` prop pattern, state management, and the V3 to V4 migration.
+The package ships [TanStack Intent](https://www.npmjs.com/package/@tanstack/intent) skills that teach coding agents the MRT API, the `table` prop pattern, customization, state management, editing, filtering, virtualization, localization, drag and drop ordering, and the V3 to V4 migration.
 In a project with `@mini_7/material-react-table` installed:
 
 ```bash
 npx @tanstack/intent@latest list
 npx @tanstack/intent@latest load @mini_7/material-react-table#getting-started
+```
+
+The skills follow the Agent Skills `SKILL.md` format, so any harness can install them from the repository with the [skills CLI](https://github.com/vercel-labs/skills) (pass `-a codex`, `-a cursor`, `--all`, or another agent):
+
+```bash
+npx skills add https://github.com/gyminii/material-react-table/tree/v4/packages/material-react-table/skills -a claude-code
 ```
 
 For exact option lookups, add the MCP server [`@mini_7/material-react-table-mcp`](https://github.com/gyminii/material-react-table/tree/v4/packages/material-react-table-mcp):
