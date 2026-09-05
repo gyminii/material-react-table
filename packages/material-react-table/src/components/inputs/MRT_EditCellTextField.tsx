@@ -139,23 +139,6 @@ export const MRT_EditCellTextField = <TData extends MRT_RowData>({
       value={value ?? ''}
       variant="standard"
       {...textFieldProps}
-      InputProps={{
-        ...(textFieldProps.variant !== 'outlined'
-          ? { disableUnderline: editDisplayMode === 'table' }
-          : {}),
-        ...textFieldProps.InputProps,
-        sx: (theme) => ({
-          mb: 0,
-          ...(parseFromValuesOrFunc(
-            textFieldProps?.InputProps?.sx,
-            theme,
-          ) as any),
-        }),
-      }}
-      inputProps={{
-        autoComplete: 'off',
-        ...textFieldProps.inputProps,
-      }}
       onBlur={handleBlur}
       onChange={handleChange}
       onClick={(e) => {
@@ -165,9 +148,30 @@ export const MRT_EditCellTextField = <TData extends MRT_RowData>({
       onCompositionEnd={() => setCompletesComposition(true)}
       onCompositionStart={() => setCompletesComposition(false)}
       onKeyDown={handleEnterKeyDown}
-      SelectProps={{
-        MenuProps: { disableScrollLock: true },
-        ...textFieldProps.SelectProps,
+      slotProps={{
+        input: {
+          ...(textFieldProps.variant !== 'outlined'
+            ? { disableUnderline: editDisplayMode === 'table' }
+            : {}),
+          ...textFieldProps.InputProps,
+          sx: (theme) => ({
+            mb: 0,
+            ...(parseFromValuesOrFunc(
+              textFieldProps?.InputProps?.sx,
+              theme,
+            ) as any),
+          }),
+        },
+
+        htmlInput: {
+          autoComplete: 'off',
+          ...textFieldProps.inputProps,
+        },
+
+        select: {
+          MenuProps: { disableScrollLock: true },
+          ...textFieldProps.SelectProps,
+        },
       }}
     >
       {textFieldProps.children ??

@@ -114,7 +114,13 @@ export const CustomHeadCellRenders = () => (
       {
         accessorKey: 'age',
         Header: ({ column }) => (
-          <Box color="primary.main">{column.columnDef.header}</Box>
+          <Box
+            sx={{
+              color: 'primary.main',
+            }}
+          >
+            {column.columnDef.header}
+          </Box>
         ),
         header: 'Current Age',
       },

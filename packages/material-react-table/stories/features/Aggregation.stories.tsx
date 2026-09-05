@@ -56,7 +56,13 @@ const columns = [
     Footer: () => (
       <Stack>
         Average Age:
-        <Box color="warning.main">{Math.round(averageAge)}</Box>
+        <Box
+          sx={{
+            color: 'warning.main',
+          }}
+        >
+          {Math.round(averageAge)}
+        </Box>
       </Stack>
     ),
     header: 'Age',
@@ -103,7 +109,11 @@ const columns = [
     Footer: () => (
       <Stack>
         Average Salary:
-        <Box color="warning.main">
+        <Box
+          sx={{
+            color: 'warning.main',
+          }}
+        >
           {averageSalary?.toLocaleString?.('en-US', {
             currency: 'USD',
             maximumFractionDigits: 0,
@@ -232,7 +242,13 @@ export const MultiAggregationPerColumn = () => (
         Footer: () => (
           <Stack>
             Average Age:
-            <Box color="warning.main">{Math.round(averageAge)}</Box>
+            <Box
+              sx={{
+                color: 'warning.main',
+              }}
+            >
+              {Math.round(averageAge)}
+            </Box>
           </Stack>
         ),
         header: 'Age',
@@ -288,7 +304,11 @@ export const MultiAggregationPerColumn = () => (
         Footer: () => (
           <Stack>
             Average Salary:
-            <Box color="warning.main">
+            <Box
+              sx={{
+                color: 'warning.main',
+              }}
+            >
               {averageSalary?.toLocaleString?.('en-US', {
                 currency: 'USD',
                 maximumFractionDigits: 0,

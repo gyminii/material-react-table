@@ -160,14 +160,6 @@ export const MRT_ShowHideColumnsMenuItems = <TData extends MRT_RowData>({
           {enableHiding ? (
             <FormControlLabel
               checked={switchChecked}
-              componentsProps={{
-                typography: {
-                  sx: {
-                    mb: 0,
-                    opacity: columnDefType !== 'display' ? 1 : 0.5,
-                  },
-                },
-              }}
               control={
                 <Tooltip
                   {...getCommonTooltipProps()}
@@ -179,6 +171,14 @@ export const MRT_ShowHideColumnsMenuItems = <TData extends MRT_RowData>({
               disabled={!column.getCanHide()}
               label={columnDef.header}
               onChange={() => handleToggleColumnHidden(column)}
+              slotProps={{
+                typography: {
+                  sx: {
+                    mb: 0,
+                    opacity: columnDefType !== 'display' ? 1 : 0.5,
+                  },
+                },
+              }}
             />
           ) : (
             <Typography sx={{ alignSelf: 'center' }}>

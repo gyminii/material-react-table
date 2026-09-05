@@ -8,7 +8,7 @@ import {
   type MRT_Column,
   type MRT_RowData,
   type MRT_TableInstance,
-  type MRT_VisibilityState
+  type MRT_VisibilityState,
 } from '../../types';
 import { getDefaultColumnOrderIds } from '../../utils/displayColumn.utils';
 
@@ -48,13 +48,12 @@ export const MRT_ShowHideColumnsMenu = <TData extends MRT_RowData>({
   const { columnOrder, columnPinning, density } = getState();
 
   const handleToggleAllColumns = (value?: boolean) => {
-    const updates =
-      getAllLeafColumns()
-        .filter((column) => column.columnDef.enableHiding !== false)
-        .reduce((acc, column) => {
-          acc[column.id] = value ?? !column.getIsVisible()
-          return acc;
-        }, {} as MRT_VisibilityState);
+    const updates = getAllLeafColumns()
+      .filter((column) => column.columnDef.enableHiding !== false)
+      .reduce((acc, column) => {
+        acc[column.id] = value ?? !column.getIsVisible();
+        return acc;
+      }, {} as MRT_VisibilityState);
 
     table.setColumnVisibility((old) => ({ ...old, ...updates }));
   };
@@ -105,15 +104,17 @@ export const MRT_ShowHideColumnsMenu = <TData extends MRT_RowData>({
     <Menu
       anchorEl={anchorEl}
       disableScrollLock
-      MenuListProps={{
-        dense: density === 'compact',
-        sx: {
-          backgroundColor: menuBackgroundColor,
-        },
-      }}
       onClose={() => setAnchorEl(null)}
       open={!!anchorEl}
       {...rest}
+      slotProps={{
+        list: {
+          dense: density === 'compact',
+          sx: {
+            backgroundColor: menuBackgroundColor,
+          },
+        },
+      }}
     >
       <Box
         sx={{
