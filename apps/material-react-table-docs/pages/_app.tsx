@@ -21,13 +21,13 @@ function App({ Component, pageProps }: AppProps) {
         />
         <link
           rel="canonical"
-          href={`https://mini7-material-react-table.vercel.app${pathname}`}
+          href={`https://mini7-material-react-table.tyler7688.workers.dev${pathname}`}
         />
         <link rel="icon" href="/mrt_logo.png" />
         <meta property="og:image" content="/mrt_logo.png" />
         <meta
           property="og:url"
-          content={`https://mini7-material-react-table.vercel.app${pathname}`}
+          content={`https://mini7-material-react-table.tyler7688.workers.dev${pathname}`}
         />
         {process.env.NODE_ENV === 'production' && (
           <>
@@ -44,7 +44,7 @@ function App({ Component, pageProps }: AppProps) {
         )}
       </Head>
       <PlausibleProvider
-        domain="mini7-material-react-table.vercel.app"
+        domain="mini7-material-react-table.tyler7688.workers.dev"
         enabled={false}
       >
         <ThemeContextProvider>
