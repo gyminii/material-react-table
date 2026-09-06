@@ -44,60 +44,18 @@ The TanStack Table V9 packages ship skills the same way, and the `requires` fiel
 Any harness that reads `SKILL.md` files can install this folder straight from GitHub with the [skills CLI](https://github.com/vercel-labs/skills).
 Pick the command for your agent.
 
-Claude Code:
-
-```bash
-npx skills add https://github.com/gyminii/material-react-table/tree/v4/packages/material-react-table/skills -a claude-code
-```
-
-Cursor:
-
-```bash
-npx skills add https://github.com/gyminii/material-react-table/tree/v4/packages/material-react-table/skills -a cursor
-```
-
-Codex:
-
-```bash
-npx skills add https://github.com/gyminii/material-react-table/tree/v4/packages/material-react-table/skills -a codex
-```
-
-GitHub Copilot:
-
-```bash
-npx skills add https://github.com/gyminii/material-react-table/tree/v4/packages/material-react-table/skills -a github-copilot
-```
-
-Gemini CLI:
-
-```bash
-npx skills add https://github.com/gyminii/material-react-table/tree/v4/packages/material-react-table/skills -a gemini-cli
-```
-
-Windsurf:
-
-```bash
-npx skills add https://github.com/gyminii/material-react-table/tree/v4/packages/material-react-table/skills -a windsurf
-```
-
-OpenCode:
-
-```bash
-npx skills add https://github.com/gyminii/material-react-table/tree/v4/packages/material-react-table/skills -a opencode
-```
-
-Cline:
-
-```bash
-npx skills add https://github.com/gyminii/material-react-table/tree/v4/packages/material-react-table/skills -a cline
-```
-
-Repeat `-a` to target several agents at once, or pass `--all` to install into every agent the CLI detects on your machine.
-
-```bash
-npx skills add https://github.com/gyminii/material-react-table/tree/v4/packages/material-react-table/skills -a claude-code -a cursor
-npx skills add https://github.com/gyminii/material-react-table/tree/v4/packages/material-react-table/skills --all
-```
+| Agent | Command |
+| --- | --- |
+| Claude Code | `npx skills add https://github.com/gyminii/material-react-table/tree/v4/packages/material-react-table/skills -a claude-code` |
+| Cursor | `npx skills add https://github.com/gyminii/material-react-table/tree/v4/packages/material-react-table/skills -a cursor` |
+| Codex | `npx skills add https://github.com/gyminii/material-react-table/tree/v4/packages/material-react-table/skills -a codex` |
+| GitHub Copilot | `npx skills add https://github.com/gyminii/material-react-table/tree/v4/packages/material-react-table/skills -a github-copilot` |
+| Gemini CLI | `npx skills add https://github.com/gyminii/material-react-table/tree/v4/packages/material-react-table/skills -a gemini-cli` |
+| Windsurf | `npx skills add https://github.com/gyminii/material-react-table/tree/v4/packages/material-react-table/skills -a windsurf` |
+| OpenCode | `npx skills add https://github.com/gyminii/material-react-table/tree/v4/packages/material-react-table/skills -a opencode` |
+| Cline | `npx skills add https://github.com/gyminii/material-react-table/tree/v4/packages/material-react-table/skills -a cline` |
+| Several agents | `npx skills add https://github.com/gyminii/material-react-table/tree/v4/packages/material-react-table/skills -a claude-code -a cursor` |
+| Every detected agent | `npx skills add https://github.com/gyminii/material-react-table/tree/v4/packages/material-react-table/skills --all` |
 
 The CLI supports many more agents, including Amp, Antigravity, Augment, Continue, Devin, Droid, Goose, Junie, Kilo Code, Kiro, OpenHands, Qwen Code, Roo Code, Trae, and Zed.
 The full list of `-a` values is in the [Supported Agents](https://github.com/vercel-labs/skills#supported-agents) table.
