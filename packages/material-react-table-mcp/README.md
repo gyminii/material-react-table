@@ -15,7 +15,7 @@ It serves the same data as the docs site: the API pages, every feature guide, th
 | `search_mrt_docs` | Find which guide, reference page, skill, or example covers a topic, and which tool returns it. |
 | `get_mrt_guide` | One of the 38 feature guides as Markdown, with its relevant options expanded and its live examples named. Call without a name to list them. |
 | `get_mrt_reference` | The MRT components or MRT hooks reference page. |
-| `get_mrt_example` | The full TypeScript source of one of the 113 docs examples. Call without an id to list them with the guides that embed each one. |
+| `get_mrt_example` | The source of one of the 113 docs examples, as TypeScript or JavaScript. Call without an id to list them with the guides that embed each one. |
 
 ## Setup
 

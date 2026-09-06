@@ -112,7 +112,8 @@ const toolData: ToolRow[] = [
   },
   {
     tool: 'get_mrt_example',
-    returns: 'The full TypeScript source of any example on this site.',
+    returns:
+      'The TypeScript or JavaScript source of any example on this site.',
   },
   {
     tool: 'get_mrt_migration_guide',

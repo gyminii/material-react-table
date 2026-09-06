@@ -89,8 +89,14 @@ export const loadReference = (name: string): string | undefined => {
   return readFileSync(file, 'utf8');
 };
 
-export const loadExample = (id: string): string | undefined => {
-  const file = join(dataDir, 'examples', `${id}.tsx`);
+export type ExampleLanguage = 'ts' | 'js';
+
+export const loadExample = (
+  id: string,
+  language: ExampleLanguage = 'ts',
+): string | undefined => {
+  const ext = language === 'js' ? 'js' : 'tsx';
+  const file = join(dataDir, 'examples', `${id}.${ext}`);
   if (!safeName.test(id) || !existsSync(file)) return undefined;
   return readFileSync(file, 'utf8');
 };
@@ -102,6 +108,22 @@ export interface SearchHit extends ApiEntry {
 
 const tokenize = (query: string): string[] =>
   query.toLowerCase().split(/\s+/).filter(Boolean);
+
+const STEM_SUFFIXES = ['ings', 'ing', 'ed', 'es', 's'];
+const MIN_STEM_LENGTH = 3;
+
+/**
+ * Strips a common English suffix so e.g. "filtering" and "filters" meet in the
+ * middle at "filter". Leaves words too short to keep a meaningful stem
+ * untouched (e.g. "is", "us").
+ */
+const stem = (word: string): string => {
+  for (const suffix of STEM_SUFFIXES) {
+    if (word.length - suffix.length >= MIN_STEM_LENGTH && word.endsWith(suffix))
+      return word.slice(0, -suffix.length);
+  }
+  return word;
+};
 
 /** Ranks name matches above description matches; exact and prefix matches first. */
 export const searchApi = (
@@ -145,14 +167,17 @@ export interface DocsHit {
   score: number;
 }
 
-/** Every term must match the name, title, headings, or description of a document. */
+/**
+ * Every term must match the name, title, headings, or description of a document.
+ * Terms and indexed text are lightly stemmed so e.g. "filters" matches "filtering".
+ */
 export const searchDocs = (
   index: DocsIndex,
   query: string,
   limit = 20,
   kinds: readonly DocKind[] = ['guide', 'reference', 'skill', 'example'],
 ): DocsHit[] => {
-  const terms = tokenize(query);
+  const terms = tokenize(query).map((term) => ({ term, termStem: stem(term) }));
   if (terms.length === 0) return [];
   const docs: Array<{
     kind: DocKind;
@@ -188,12 +213,18 @@ export const searchDocs = (
   for (const doc of docs) {
     if (!kinds.includes(doc.kind)) continue;
     const name = doc.name.toLowerCase();
+    const nameParts = name.split('-');
+    const nameStem = stem(name);
+    const namePartStems = nameParts.map(stem);
+    const textStem = doc.text.split(/\s+/).map(stem).join(' ');
     let score = 0;
-    for (const term of terms) {
-      if (name === term) score += 100;
-      else if (name.split('-').includes(term)) score += 60;
-      else if (name.includes(term)) score += 40;
-      else if (doc.text.includes(term)) score += 10;
+    for (const { term, termStem } of terms) {
+      if (name === term || nameStem === termStem) score += 100;
+      else if (nameParts.includes(term) || namePartStems.includes(termStem))
+        score += 60;
+      else if (name.includes(term) || nameStem.includes(termStem)) score += 40;
+      else if (doc.text.includes(term) || textStem.includes(termStem))
+        score += 10;
       else {
         score = 0;
         break;

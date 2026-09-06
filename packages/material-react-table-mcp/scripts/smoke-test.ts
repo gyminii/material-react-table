@@ -42,6 +42,24 @@ assert.match(docsSearch, /- guide `editing` \(get_mrt_guide\)/);
 assert.match(docsSearch, /- example `editing-crud-modal` \(get_mrt_example\)/);
 assert.match(docsSearch, /- skill `editing` \(get_mrt_skill\)/);
 
+const stemmedSearch = textOf(
+  await client.callTool({
+    name: 'search_mrt_docs',
+    arguments: { query: 'filters' },
+  }),
+);
+assert.match(stemmedSearch, /- guide `column-filtering` \(get_mrt_guide\)/);
+const virtualizationSearch = textOf(
+  await client.callTool({
+    name: 'search_mrt_docs',
+    arguments: { query: 'virtualizing' },
+  }),
+);
+assert.match(
+  virtualizationSearch,
+  /- guide `virtualization` \(get_mrt_guide\)/,
+);
+
 const guides = textOf(
   await client.callTool({ name: 'get_mrt_guide', arguments: {} }),
 );
@@ -85,6 +103,14 @@ const example = textOf(
 );
 assert.match(example, /^\/\/ examples\/basic\/sandbox\/src\/TS\.tsx\n/);
 assert.match(example, /useMaterialReactTable/);
+const exampleJs = textOf(
+  await client.callTool({
+    name: 'get_mrt_example',
+    arguments: { id: 'basic', language: 'js' },
+  }),
+);
+assert.match(exampleJs, /const columns = useMemo\(/);
+assert.doesNotMatch(exampleJs, /useMemo</);
 const unknownExample = textOf(
   await client.callTool({
     name: 'get_mrt_example',

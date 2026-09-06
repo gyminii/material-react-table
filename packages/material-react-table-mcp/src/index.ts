@@ -311,7 +311,7 @@ server.registerTool(
   'get_mrt_example',
   {
     title: 'Get a Material React Table example',
-    description: `Return the full TypeScript source of one of the ${docs.examples.length} runnable docs examples. Call without an id to list every example with the guides that embed it.`,
+    description: `Return the source of one of the ${docs.examples.length} runnable docs examples, as TypeScript or JavaScript. Call without an id to list every example with the guides that embed it.`,
     inputSchema: {
       id: z
         .string()
@@ -319,9 +319,15 @@ server.registerTool(
         .describe(
           'Example id, e.g. "basic", "editing-crud-modal", "virtualized", "remote". Omit to list all examples.',
         ),
+      language: z
+        .enum(['ts', 'js'])
+        .optional()
+        .describe(
+          'Source language to return, "ts" or "js". Defaults to "ts".',
+        ),
     },
   },
-  async ({ id }) => {
+  async ({ id, language }) => {
     if (!id) {
       const lines = docs.examples.map((example) => {
         const where = [
@@ -334,16 +340,25 @@ server.registerTool(
       });
       return text(`Examples:\n${lines.join('\n')}`);
     }
-    const source = loadExample(id);
+    const lang = language ?? 'ts';
+    const source = loadExample(id, lang);
     if (!source) {
-      const suggestions = searchDocs(docs, id, 5, ['example']).map(
-        (hit) => hit.name,
-      );
-      return text(
-        `Unknown example "${id}".${suggestions.length ? ` Did you mean: ${suggestions.join(', ')}?` : ''} Call get_mrt_example without an id to list them.`,
-      );
+      const known = docs.examples.some((example) => example.id === id);
+      if (!known) {
+        const suggestions = searchDocs(docs, id, 5, ['example']).map(
+          (hit) => hit.name,
+        );
+        return text(
+          `Unknown example "${id}".${suggestions.length ? ` Did you mean: ${suggestions.join(', ')}?` : ''} Call get_mrt_example without an id to list them.`,
+        );
+      }
+      return text(`No ${lang} source is available for example "${id}".`);
     }
-    return text(`// examples/${id}/sandbox/src/TS.tsx\n${source}`);
+    const sourceNote =
+      lang === 'js'
+        ? `// examples/${id}/sandbox/src/TS.tsx (JavaScript, types stripped)`
+        : `// examples/${id}/sandbox/src/TS.tsx`;
+    return text(`${sourceNote}\n${source}`);
   },
 );
 

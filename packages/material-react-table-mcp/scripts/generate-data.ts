@@ -13,6 +13,7 @@ import {
 } from 'node:fs';
 import { basename, dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import ts from 'typescript';
 
 import { cellInstanceAPIs } from '../../../apps/material-react-table-docs/components/prop-tables/cellInstanceAPIs';
 import { columnInstanceAPIs } from '../../../apps/material-react-table-docs/components/prop-tables/columnInstanceAPIs';
@@ -287,13 +288,27 @@ cpSync(
   { recursive: true },
 );
 
+// The docs sandboxes only author a TS.tsx source, so the JS variant is derived
+// by stripping types with the TypeScript compiler rather than copied.
+const toJs = (source: string): string =>
+  ts.transpileModule(source, {
+    compilerOptions: {
+      jsx: ts.JsxEmit.Preserve,
+      module: ts.ModuleKind.ESNext,
+      target: ts.ScriptTarget.ES2020,
+    },
+    fileName: 'TS.tsx',
+  }).outputText;
+
 const exampleUsage = new Map<string, ExampleEntry>(
   exampleIds.map((id) => [id, { id, guides: [], pages: [] }]),
 );
 for (const id of exampleIds) {
-  cpSync(
-    join(examplesDir, id, 'sandbox/src/TS.tsx'),
-    join(dataDir, 'examples', `${id}.tsx`),
+  const tsFile = join(examplesDir, id, 'sandbox/src/TS.tsx');
+  cpSync(tsFile, join(dataDir, 'examples', `${id}.tsx`));
+  writeFileSync(
+    join(dataDir, 'examples', `${id}.js`),
+    toJs(readFileSync(tsFile, 'utf8')),
   );
 }
 
