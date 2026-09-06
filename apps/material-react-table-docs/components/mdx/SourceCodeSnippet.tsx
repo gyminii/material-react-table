@@ -144,7 +144,7 @@ export const SourceCodeSnippet = ({
                     <Button
                       color="success"
                       endIcon={<LaunchIcon />}
-                      href={`https://stackblitz.com/github/gyminii/material-react-table/tree/v4/apps/material-react-table-docs/examples/${tableId}/sandbox?file=src/TS.tsx`}
+                      href={`https://stackblitz.com/github/lminii/material-react-table/tree/v4/apps/material-react-table-docs/examples/${tableId}/sandbox?file=src/TS.tsx`}
                       onClick={() => plausible('open-stackblitz')}
                       rel="noopener"
                       startIcon={<ElectricBoltIcon />}
@@ -157,7 +157,7 @@ export const SourceCodeSnippet = ({
                     <Button
                       color="warning"
                       endIcon={<LaunchIcon />}
-                      href={`https://codesandbox.io/s/github/gyminii/material-react-table/tree/v4/apps/material-react-table-docs/examples/${tableId}/sandbox?file=/src/TS.tsx`}
+                      href={`https://codesandbox.io/s/github/lminii/material-react-table/tree/v4/apps/material-react-table-docs/examples/${tableId}/sandbox?file=/src/TS.tsx`}
                       onClick={() => plausible('open-code-sandbox')}
                       rel="noopener"
                       startIcon={<CodeIcon />}
@@ -170,7 +170,7 @@ export const SourceCodeSnippet = ({
                     <Button
                       color="info"
                       endIcon={<LaunchIcon />}
-                      href={`https://github.com/gyminii/material-react-table/tree/v4/apps/material-react-table-docs/examples/${tableId}/sandbox/src/${
+                      href={`https://github.com/lminii/material-react-table/tree/v4/apps/material-react-table-docs/examples/${tableId}/sandbox/src/${
                         codeTab === 'ts' ? 'TS.tsx' : 'API.ts'
                       }`}
                       onClick={() => plausible('open-on-github')}
@@ -326,7 +326,7 @@ export const SourceCodeSnippet = ({
         </Box>
         <Collapse mountOnEnter in={codeTab === 'stackblitz'}>
           <iframe
-            src={`https://stackblitz.com/github/gyminii/material-react-table/tree/v4/apps/material-react-table-docs/examples/${tableId}/sandbox?file=src/TS.tsx`}
+            src={`https://stackblitz.com/github/lminii/material-react-table/tree/v4/apps/material-react-table-docs/examples/${tableId}/sandbox?file=src/TS.tsx`}
             style={{
               width: '100%',
               height: '1000px',
@@ -342,7 +342,7 @@ export const SourceCodeSnippet = ({
         </Collapse>
         <Collapse mountOnEnter in={codeTab === 'sandbox'}>
           <iframe
-            src={`https://codesandbox.io/s/github/gyminii/material-react-table/tree/v4/apps/material-react-table-docs/examples/${tableId}/sandbox?fontsize=14&hidenavigation=1&theme=${
+            src={`https://codesandbox.io/s/github/lminii/material-react-table/tree/v4/apps/material-react-table-docs/examples/${tableId}/sandbox?fontsize=14&hidenavigation=1&theme=${
               isLightTheme ? 'light' : 'dark'
             }&file=src/TS.tsx`}
             style={{

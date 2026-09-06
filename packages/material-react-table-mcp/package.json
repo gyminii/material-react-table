@@ -21,12 +21,12 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/gyminii/material-react-table.git",
+    "url": "git+https://github.com/lminii/material-react-table.git",
     "directory": "packages/material-react-table-mcp"
   },
-  "homepage": "https://github.com/gyminii/material-react-table/tree/v4/packages/material-react-table-mcp",
+  "homepage": "https://github.com/lminii/material-react-table/tree/v4/packages/material-react-table-mcp",
   "bugs": {
-    "url": "https://github.com/gyminii/material-react-table/issues"
+    "url": "https://github.com/lminii/material-react-table/issues"
   },
   "engines": {
     "node": ">=22.12"

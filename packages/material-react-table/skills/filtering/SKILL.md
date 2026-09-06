@@ -12,12 +12,12 @@ requires:
   - '@tanstack/table-core#column-filtering'
   - '@tanstack/table-core#global-filtering'
 sources:
-  - 'gyminii/material-react-table:apps/material-react-table-docs/pages/docs/guides/column-filtering.mdx'
-  - 'gyminii/material-react-table:apps/material-react-table-docs/pages/docs/guides/global-filtering.mdx'
-  - 'gyminii/material-react-table:apps/material-react-table-docs/examples/customize-filter-variants/sandbox/src/TS.tsx'
-  - 'gyminii/material-react-table:packages/material-react-table/src/fns/filterFns.ts'
-  - 'gyminii/material-react-table:packages/material-react-table/src/utils/column.utils.ts'
-  - 'gyminii/material-react-table:packages/material-react-table/src/types.ts'
+  - 'lminii/material-react-table:apps/material-react-table-docs/pages/docs/guides/column-filtering.mdx'
+  - 'lminii/material-react-table:apps/material-react-table-docs/pages/docs/guides/global-filtering.mdx'
+  - 'lminii/material-react-table:apps/material-react-table-docs/examples/customize-filter-variants/sandbox/src/TS.tsx'
+  - 'lminii/material-react-table:packages/material-react-table/src/fns/filterFns.ts'
+  - 'lminii/material-react-table:packages/material-react-table/src/utils/column.utils.ts'
+  - 'lminii/material-react-table:packages/material-react-table/src/types.ts'
 ---
 
 This skill builds on `getting-started`, `@tanstack/table-core#column-filtering`, and `@tanstack/table-core#global-filtering`. Client-side column filters and the global search are on by default. MRT adds filter inputs, filter variants, fuzzy matching, and filter mode menus on top of the TanStack filtering model; server-side filtering is covered by `state-and-server-data`.

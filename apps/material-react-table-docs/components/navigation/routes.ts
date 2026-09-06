@@ -656,7 +656,7 @@ export const routes: Array<RouteItem> = [
         external: true,
       },
       {
-        href: 'https://github.com/gyminii/material-react-table',
+        href: 'https://github.com/lminii/material-react-table',
         label: 'GitHub',
         external: true,
       },

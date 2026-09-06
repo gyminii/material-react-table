@@ -207,7 +207,7 @@ export const TopBar = ({ navOpen, setNavOpen }: Props) => {
           >
             <Tooltip arrow title="Github">
               <a
-                href="https://github.com/gyminii/material-react-table"
+                href="https://github.com/lminii/material-react-table"
                 rel="noopener"
                 target="_blank"
               >

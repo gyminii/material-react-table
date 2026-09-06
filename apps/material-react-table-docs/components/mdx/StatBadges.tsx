@@ -49,22 +49,22 @@ export const StatBadges = () => {
       </a>
       <a
         aria-label="GitHub Stars"
-        href="https://star-history.com/#gyminii/material-react-table&Date"
+        href="https://star-history.com/#lminii/material-react-table&Date"
         target="_blank_"
       >
         <img
           alt="GitHub Stars"
-          src="https://badgen.net/github/stars/gyminii/material-react-table?color=blue"
+          src="https://badgen.net/github/stars/lminii/material-react-table?color=blue"
         />
       </a>
       <a
-        href="https://github.com/gyminii/material-react-table/blob/v4/LICENSE"
+        href="https://github.com/lminii/material-react-table/blob/v4/LICENSE"
         target="_blank"
         rel="noopener"
       >
         <img
           alt=""
-          src="https://badgen.net/github/license/gyminii/material-react-table?color=blue"
+          src="https://badgen.net/github/license/lminii/material-react-table?color=blue"
         />
       </a>
     </Box>

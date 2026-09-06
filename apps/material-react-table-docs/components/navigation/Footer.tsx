@@ -32,7 +32,7 @@ export const Footer = () => {
         color="secondary"
         endIcon={<GitHub />}
         startIcon={<Edit />}
-        href={`https://github.com/gyminii/material-react-table/edit/v4/apps/material-react-table-docs/pages${pathname}${
+        href={`https://github.com/lminii/material-react-table/edit/v4/apps/material-react-table-docs/pages${pathname}${
           ['/'].includes(pathname)
             ? 'index.tsx'
             : ['/docs', '/docs/api', '/docs/examples', '/docs/guides'].includes(
@@ -131,7 +131,7 @@ export const Footer = () => {
             NPM
           </MuiLink>
           <MuiLink
-            href="https://github.com/gyminii/material-react-table"
+            href="https://github.com/lminii/material-react-table"
             target="_blank"
             rel="noopener"
             sx={{
@@ -141,7 +141,7 @@ export const Footer = () => {
             Source Code
           </MuiLink>
           <MuiLink
-            href="https://github.com/gyminii/material-react-table/issues"
+            href="https://github.com/lminii/material-react-table/issues"
             target="_blank"
             rel="noopener"
             sx={{

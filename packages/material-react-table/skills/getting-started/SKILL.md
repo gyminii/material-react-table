@@ -10,11 +10,11 @@ metadata:
 requires:
   - '@tanstack/table-core#core'
 sources:
-  - 'gyminii/material-react-table:apps/material-react-table-docs/pages/docs/getting-started/install.mdx'
-  - 'gyminii/material-react-table:apps/material-react-table-docs/pages/docs/getting-started/usage.mdx'
-  - 'gyminii/material-react-table:apps/material-react-table-docs/pages/docs/guides/best-practices.mdx'
-  - 'gyminii/material-react-table:packages/material-react-table/src/hooks/useMaterialReactTable.ts'
-  - 'gyminii/material-react-table:packages/material-react-table/src/types.ts'
+  - 'lminii/material-react-table:apps/material-react-table-docs/pages/docs/getting-started/install.mdx'
+  - 'lminii/material-react-table:apps/material-react-table-docs/pages/docs/getting-started/usage.mdx'
+  - 'lminii/material-react-table:apps/material-react-table-docs/pages/docs/guides/best-practices.mdx'
+  - 'lminii/material-react-table:packages/material-react-table/src/hooks/useMaterialReactTable.ts'
+  - 'lminii/material-react-table:packages/material-react-table/src/types.ts'
 ---
 
 This skill builds on `@tanstack/table-core#core` for the headless model and stable inputs. Material React Table (MRT) owns the TanStack Table instance, feature registration, and all Material UI rendering. Application code never calls `useTable` or `tableFeatures`; it configures MRT options and renders MRT components.

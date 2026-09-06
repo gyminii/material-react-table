@@ -10,11 +10,11 @@ metadata:
 requires:
   - getting-started
 sources:
-  - 'gyminii/material-react-table:apps/material-react-table-docs/pages/docs/guides/customize-components.mdx'
-  - 'gyminii/material-react-table:apps/material-react-table-docs/pages/docs/guides/display-columns.mdx'
-  - 'gyminii/material-react-table:apps/material-react-table-docs/pages/docs/guides/toolbar-customization.mdx'
-  - 'gyminii/material-react-table:apps/material-react-table-docs/pages/docs/guides/row-actions.mdx'
-  - 'gyminii/material-react-table:MIGRATION.md'
+  - 'lminii/material-react-table:apps/material-react-table-docs/pages/docs/guides/customize-components.mdx'
+  - 'lminii/material-react-table:apps/material-react-table-docs/pages/docs/guides/display-columns.mdx'
+  - 'lminii/material-react-table:apps/material-react-table-docs/pages/docs/guides/toolbar-customization.mdx'
+  - 'lminii/material-react-table:apps/material-react-table-docs/pages/docs/guides/row-actions.mdx'
+  - 'lminii/material-react-table:MIGRATION.md'
 ---
 
 This skill builds on `getting-started`. MRT renders Material UI components and forwards props to each of them through a matching `mui<Component>Props` option, so customization means passing Material UI props, not overriding MRT internals.

@@ -46,23 +46,23 @@ Pick the command for your agent.
 
 | Agent | Command |
 | --- | --- |
-| Claude Code | `npx skills add https://github.com/gyminii/material-react-table/tree/v4/packages/material-react-table/skills -a claude-code` |
-| Cursor | `npx skills add https://github.com/gyminii/material-react-table/tree/v4/packages/material-react-table/skills -a cursor` |
-| Codex | `npx skills add https://github.com/gyminii/material-react-table/tree/v4/packages/material-react-table/skills -a codex` |
-| GitHub Copilot | `npx skills add https://github.com/gyminii/material-react-table/tree/v4/packages/material-react-table/skills -a github-copilot` |
-| Gemini CLI | `npx skills add https://github.com/gyminii/material-react-table/tree/v4/packages/material-react-table/skills -a gemini-cli` |
-| Windsurf | `npx skills add https://github.com/gyminii/material-react-table/tree/v4/packages/material-react-table/skills -a windsurf` |
-| OpenCode | `npx skills add https://github.com/gyminii/material-react-table/tree/v4/packages/material-react-table/skills -a opencode` |
-| Cline | `npx skills add https://github.com/gyminii/material-react-table/tree/v4/packages/material-react-table/skills -a cline` |
-| Several agents | `npx skills add https://github.com/gyminii/material-react-table/tree/v4/packages/material-react-table/skills -a claude-code -a cursor` |
-| Every detected agent | `npx skills add https://github.com/gyminii/material-react-table/tree/v4/packages/material-react-table/skills --all` |
+| Claude Code | `npx skills add https://github.com/lminii/material-react-table/tree/v4/packages/material-react-table/skills -a claude-code` |
+| Cursor | `npx skills add https://github.com/lminii/material-react-table/tree/v4/packages/material-react-table/skills -a cursor` |
+| Codex | `npx skills add https://github.com/lminii/material-react-table/tree/v4/packages/material-react-table/skills -a codex` |
+| GitHub Copilot | `npx skills add https://github.com/lminii/material-react-table/tree/v4/packages/material-react-table/skills -a github-copilot` |
+| Gemini CLI | `npx skills add https://github.com/lminii/material-react-table/tree/v4/packages/material-react-table/skills -a gemini-cli` |
+| Windsurf | `npx skills add https://github.com/lminii/material-react-table/tree/v4/packages/material-react-table/skills -a windsurf` |
+| OpenCode | `npx skills add https://github.com/lminii/material-react-table/tree/v4/packages/material-react-table/skills -a opencode` |
+| Cline | `npx skills add https://github.com/lminii/material-react-table/tree/v4/packages/material-react-table/skills -a cline` |
+| Several agents | `npx skills add https://github.com/lminii/material-react-table/tree/v4/packages/material-react-table/skills -a claude-code -a cursor` |
+| Every detected agent | `npx skills add https://github.com/lminii/material-react-table/tree/v4/packages/material-react-table/skills --all` |
 
 The CLI supports many more agents, including Amp, Antigravity, Augment, Continue, Devin, Droid, Goose, Junie, Kilo Code, Kiro, OpenHands, Qwen Code, Roo Code, Trae, and Zed.
 The full list of `-a` values is in the [Supported Agents](https://github.com/vercel-labs/skills#supported-agents) table.
 
 ### MCP Server
 
-The [`@mini_7/material-react-table-mcp`](https://github.com/gyminii/material-react-table/tree/v4/packages/material-react-table-mcp) server bundles a copy of these skills.
+The [`@mini_7/material-react-table-mcp`](https://github.com/lminii/material-react-table/tree/v4/packages/material-react-table-mcp) server bundles a copy of these skills.
 Its `get_mrt_skill` tool lists them or returns one by name, and `search_mrt_docs` searches them alongside the guides and examples.
 
 ```bash

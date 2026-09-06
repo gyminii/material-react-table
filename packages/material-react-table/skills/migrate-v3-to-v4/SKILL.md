@@ -10,10 +10,10 @@ metadata:
 requires:
   - getting-started
 sources:
-  - 'gyminii/material-react-table:MIGRATION.md'
-  - 'gyminii/material-react-table:apps/material-react-table-docs/pages/docs/getting-started/migrating-to-v4.mdx'
-  - 'gyminii/material-react-table:packages/material-react-table/src/types.ts'
-  - 'gyminii/material-react-table:packages/material-react-table/src/hooks/useMRT_TableOptions.ts'
+  - 'lminii/material-react-table:MIGRATION.md'
+  - 'lminii/material-react-table:apps/material-react-table-docs/pages/docs/getting-started/migrating-to-v4.mdx'
+  - 'lminii/material-react-table:packages/material-react-table/src/types.ts'
+  - 'lminii/material-react-table:packages/material-react-table/src/hooks/useMRT_TableOptions.ts'
 ---
 
 This skill builds on `getting-started`. V4 keeps the V3 API: `useMaterialReactTable`, the `table` prop, every `mui*Props`, `render*`, and `enable*` option. Breaking changes come from three sources only: the package rename, Material UI V9, and TanStack Table V9. Do them in that order.

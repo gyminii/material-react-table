@@ -1,6 +1,6 @@
 # @mini_7/material-react-table-mcp
 
-An [MCP](https://modelcontextprotocol.io) server that gives AI coding agents an exact reference for [Material React Table V4](https://github.com/gyminii/material-react-table) (`@mini_7/material-react-table`).
+An [MCP](https://modelcontextprotocol.io) server that gives AI coding agents an exact reference for [Material React Table V4](https://github.com/lminii/material-react-table) (`@mini_7/material-react-table`).
 It serves the same data as the docs site: the API pages, every feature guide, the components and hooks reference, the source of every runnable example, the V3 to V4 migration guide, and the agent skills bundled with the library.
 
 ## Tools
@@ -53,7 +53,7 @@ npx @tanstack/intent@latest load @mini_7/material-react-table#getting-started
 Any other harness can install them with the [skills CLI](https://github.com/vercel-labs/skills):
 
 ```bash
-npx skills add https://github.com/gyminii/material-react-table/tree/v4/packages/material-react-table/skills -a codex
+npx skills add https://github.com/lminii/material-react-table/tree/v4/packages/material-react-table/skills -a codex
 ```
 
 ## Development

@@ -11,11 +11,11 @@ requires:
   - getting-started
   - '@tanstack/table-core#client-vs-server'
 sources:
-  - 'gyminii/material-react-table:apps/material-react-table-docs/pages/docs/guides/state-management.mdx'
-  - 'gyminii/material-react-table:apps/material-react-table-docs/pages/docs/guides/pagination.mdx'
-  - 'gyminii/material-react-table:apps/material-react-table-docs/pages/docs/guides/async-loading.mdx'
-  - 'gyminii/material-react-table:apps/material-react-table-docs/examples/react-query/sandbox/src/TS.tsx'
-  - 'gyminii/material-react-table:packages/material-react-table/src/types.ts'
+  - 'lminii/material-react-table:apps/material-react-table-docs/pages/docs/guides/state-management.mdx'
+  - 'lminii/material-react-table:apps/material-react-table-docs/pages/docs/guides/pagination.mdx'
+  - 'lminii/material-react-table:apps/material-react-table-docs/pages/docs/guides/async-loading.mdx'
+  - 'lminii/material-react-table:apps/material-react-table-docs/examples/react-query/sandbox/src/TS.tsx'
+  - 'lminii/material-react-table:packages/material-react-table/src/types.ts'
 ---
 
 This skill builds on `getting-started` and `@tanstack/table-core#client-vs-server`. MRT manages every state slice internally by default. Take over only the slices you need to read or persist, and only through the `state` option paired with the matching `on*Change` callback.

@@ -17,11 +17,11 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/gyminii/material-react-table.git"
+    "url": "git+https://github.com/lminii/material-react-table.git"
   },
-  "homepage": "https://github.com/gyminii/material-react-table",
+  "homepage": "https://github.com/lminii/material-react-table",
   "bugs": {
-    "url": "https://github.com/gyminii/material-react-table/issues"
+    "url": "https://github.com/lminii/material-react-table/issues"
   },
   "sideEffects": false,
   "main": "dist/index.js",

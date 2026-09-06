@@ -11,11 +11,11 @@ requires:
   - getting-started
   - customization
 sources:
-  - 'gyminii/material-react-table:apps/material-react-table-docs/pages/docs/guides/editing.mdx'
-  - 'gyminii/material-react-table:apps/material-react-table-docs/examples/editing-crud-modal/sandbox/src/TS.tsx'
-  - 'gyminii/material-react-table:apps/material-react-table-docs/examples/editing-crud-cell/sandbox/src/TS.tsx'
-  - 'gyminii/material-react-table:packages/material-react-table/src/components/inputs/MRT_EditCellTextField.tsx'
-  - 'gyminii/material-react-table:packages/material-react-table/src/types.ts'
+  - 'lminii/material-react-table:apps/material-react-table-docs/pages/docs/guides/editing.mdx'
+  - 'lminii/material-react-table:apps/material-react-table-docs/examples/editing-crud-modal/sandbox/src/TS.tsx'
+  - 'lminii/material-react-table:apps/material-react-table-docs/examples/editing-crud-cell/sandbox/src/TS.tsx'
+  - 'lminii/material-react-table:packages/material-react-table/src/components/inputs/MRT_EditCellTextField.tsx'
+  - 'lminii/material-react-table:packages/material-react-table/src/types.ts'
 ---
 
 This skill builds on `getting-started` and `customization`. MRT renders the editing inputs and tracks which row or cell is being edited; persisting the values is always application code, wired through the save callbacks or the text field events.

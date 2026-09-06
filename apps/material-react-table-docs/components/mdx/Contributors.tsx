@@ -6,7 +6,7 @@ const cardData = [
     name: 'Tyler Lee',
     role: 'V4 Fork Maintainer',
     image: '/contributors/tylerlee.png',
-    href: 'https://github.com/gyminii',
+    href: 'https://github.com/lminii',
   },
   {
     name: 'Kevin Van Cott',
@@ -100,13 +100,13 @@ export const Contributors = () => {
       </Box>
       <div style={{ textAlign: 'center' }}>
         <a
-          href="https://github.com/gyminii/material-react-table/graphs/contributors"
+          href="https://github.com/lminii/material-react-table/graphs/contributors"
           target="_blank"
           rel="noopener"
         >
           <img
             alt="GitHub Contributors"
-            src="https://contrib.rocks/image?repo=gyminii/material-react-table"
+            src="https://contrib.rocks/image?repo=lminii/material-react-table"
           />
         </a>
       </div>

@@ -10,11 +10,11 @@ metadata:
 requires:
   - getting-started
 sources:
-  - 'gyminii/material-react-table:apps/material-react-table-docs/pages/docs/api/mrt-components.mdx'
-  - 'gyminii/material-react-table:apps/material-react-table-docs/examples/custom-headless/sandbox/src/TS.tsx'
-  - 'gyminii/material-react-table:apps/material-react-table-docs/examples/custom-top-toolbar/sandbox/src/TS.tsx'
-  - 'gyminii/material-react-table:apps/material-react-table-docs/examples/external-toolbar/sandbox/src/TS.tsx'
-  - 'gyminii/material-react-table:packages/material-react-table/src/index.ts'
+  - 'lminii/material-react-table:apps/material-react-table-docs/pages/docs/api/mrt-components.mdx'
+  - 'lminii/material-react-table:apps/material-react-table-docs/examples/custom-headless/sandbox/src/TS.tsx'
+  - 'lminii/material-react-table:apps/material-react-table-docs/examples/custom-top-toolbar/sandbox/src/TS.tsx'
+  - 'lminii/material-react-table:apps/material-react-table-docs/examples/external-toolbar/sandbox/src/TS.tsx'
+  - 'lminii/material-react-table:packages/material-react-table/src/index.ts'
 ---
 
 This skill builds on `getting-started`. `MaterialReactTable` is a thin composition of exported sub-components. Because every sub-component takes the same `table` instance as a prop, you can render any subset of them anywhere in your tree while MRT keeps managing state.

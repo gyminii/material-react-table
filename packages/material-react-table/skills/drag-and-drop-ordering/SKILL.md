@@ -12,12 +12,12 @@ requires:
   - state-and-server-data
   - '@tanstack/table-core#column-ordering'
 sources:
-  - 'gyminii/material-react-table:apps/material-react-table-docs/pages/docs/guides/column-ordering-dnd.mdx'
-  - 'gyminii/material-react-table:apps/material-react-table-docs/pages/docs/guides/row-ordering-dnd.mdx'
-  - 'gyminii/material-react-table:apps/material-react-table-docs/examples/enable-row-ordering/sandbox/src/TS.tsx'
-  - 'gyminii/material-react-table:apps/material-react-table-docs/examples/enable-row-dragging/sandbox/src/TS.tsx'
-  - 'gyminii/material-react-table:packages/material-react-table/src/components/body/MRT_TableBodyRowGrabHandle.tsx'
-  - 'gyminii/material-react-table:packages/material-react-table/src/utils/column.utils.ts'
+  - 'lminii/material-react-table:apps/material-react-table-docs/pages/docs/guides/column-ordering-dnd.mdx'
+  - 'lminii/material-react-table:apps/material-react-table-docs/pages/docs/guides/row-ordering-dnd.mdx'
+  - 'lminii/material-react-table:apps/material-react-table-docs/examples/enable-row-ordering/sandbox/src/TS.tsx'
+  - 'lminii/material-react-table:apps/material-react-table-docs/examples/enable-row-dragging/sandbox/src/TS.tsx'
+  - 'lminii/material-react-table:packages/material-react-table/src/components/body/MRT_TableBodyRowGrabHandle.tsx'
+  - 'lminii/material-react-table:packages/material-react-table/src/utils/column.utils.ts'
 ---
 
 This skill builds on `getting-started`, `state-and-server-data`, and `@tanstack/table-core#column-ordering`. MRT uses native HTML drag events with a grab handle button. Column ordering is fully built in; row ordering exposes the drag state and leaves the reorder of `data` to you.

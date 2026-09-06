@@ -13,11 +13,11 @@ View [Documentation](https://www.material-react-table.com/)
 <a href="https://bundlephobia.com/result?p=@mini_7/material-react-table" target="_blank">
   <img alt="" src="https://badgen.net/bundlephobia/minzip/@mini_7/material-react-table@latest?color=blue" />
 </a>
-<a href="https://star-history.com/#gyminii/material-react-table&Date" target="_blank">
-  <img alt="" src="https://badgen.net/github/stars/gyminii/material-react-table?color=blue" />
+<a href="https://star-history.com/#lminii/material-react-table&Date" target="_blank">
+  <img alt="" src="https://badgen.net/github/stars/lminii/material-react-table?color=blue" />
 </a>
-<a href="https://github.com/gyminii/material-react-table/blob/v4/LICENSE" target="_blank">
-  <img alt="" src="https://badgen.net/github/license/gyminii/material-react-table?color=blue" />
+<a href="https://github.com/lminii/material-react-table/blob/v4/LICENSE" target="_blank">
+  <img alt="" src="https://badgen.net/github/license/lminii/material-react-table?color=blue" />
 </a>
 <a
   href="https://discord.gg/5wqyRx6fnm"
@@ -210,10 +210,10 @@ npx @tanstack/intent@latest load @mini_7/material-react-table#getting-started
 The skills follow the Agent Skills `SKILL.md` format, so any harness can install them from the repository with the [skills CLI](https://github.com/vercel-labs/skills) (pass `-a codex`, `-a cursor`, `--all`, or another agent):
 
 ```bash
-npx skills add https://github.com/gyminii/material-react-table/tree/v4/packages/material-react-table/skills -a claude-code
+npx skills add https://github.com/lminii/material-react-table/tree/v4/packages/material-react-table/skills -a claude-code
 ```
 
-For exact option lookups, the feature guides, and the source of every docs example, add the MCP server [`@mini_7/material-react-table-mcp`](https://github.com/gyminii/material-react-table/tree/v4/packages/material-react-table-mcp):
+For exact option lookups, the feature guides, and the source of every docs example, add the MCP server [`@mini_7/material-react-table-mcp`](https://github.com/lminii/material-react-table/tree/v4/packages/material-react-table-mcp):
 
 ```bash
 claude mcp add material-react-table -- npx -y @mini_7/material-react-table-mcp
@@ -223,12 +223,12 @@ The [AI Agents](https://material-react-table.minii.dev/docs/getting-started/ai-a
 
 ## Contributors
 
-<a href="https://github.com/gyminii/material-react-table/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=gyminii/material-react-table" />
+<a href="https://github.com/lminii/material-react-table/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=lminii/material-react-table" />
 </a>
 
-PRs are Welcome, but please discuss in [GitHub Issues](https://github.com/gyminii/material-react-table/issues) or the [Discord Server](https://discord.gg/5wqyRx6fnm) first if it is a large change!
+PRs are Welcome, but please discuss in [GitHub Issues](https://github.com/lminii/material-react-table/issues) or the [Discord Server](https://discord.gg/5wqyRx6fnm) first if it is a large change!
 
-Read the [Contributing Guide](https://github.com/gyminii/material-react-table/blob/v4/CONTRIBUTING.md) to learn how to run this project locally.
+Read the [Contributing Guide](https://github.com/lminii/material-react-table/blob/v4/CONTRIBUTING.md) to learn how to run this project locally.
 
 <!-- Use the FORCE, Luke! -->

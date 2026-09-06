@@ -10,11 +10,11 @@ metadata:
 requires:
   - getting-started
 sources:
-  - 'gyminii/material-react-table:apps/material-react-table-docs/pages/docs/guides/localization.mdx'
-  - 'gyminii/material-react-table:apps/material-react-table-docs/examples/localization-i18n-de/sandbox/src/TS.tsx'
-  - 'gyminii/material-react-table:packages/material-react-table/src/locales/en.ts'
-  - 'gyminii/material-react-table:packages/material-react-table/src/hooks/useMRT_TableOptions.ts'
-  - 'gyminii/material-react-table:packages/material-react-table/src/types.ts'
+  - 'lminii/material-react-table:apps/material-react-table-docs/pages/docs/guides/localization.mdx'
+  - 'lminii/material-react-table:apps/material-react-table-docs/examples/localization-i18n-de/sandbox/src/TS.tsx'
+  - 'lminii/material-react-table:packages/material-react-table/src/locales/en.ts'
+  - 'lminii/material-react-table:packages/material-react-table/src/hooks/useMRT_TableOptions.ts'
+  - 'lminii/material-react-table:packages/material-react-table/src/types.ts'
 ---
 
 This skill builds on `getting-started`. Every user-facing string MRT renders comes from one `MRT_Localization` object. The `localization` option takes a partial object that is merged over the English defaults, so a locale file or a handful of overrides both work.

@@ -10,12 +10,12 @@ const cardData = [
   {
     text: 'Source Code',
     image: '/source-code.svg',
-    href: 'https://github.com/gyminii/material-react-table',
+    href: 'https://github.com/lminii/material-react-table',
   },
   {
     text: 'GitHub Issues',
     image: '/github-issues.svg',
-    href: 'https://github.com/gyminii/material-react-table/issues',
+    href: 'https://github.com/lminii/material-react-table/issues',
   },
   {
     text: 'Discord',

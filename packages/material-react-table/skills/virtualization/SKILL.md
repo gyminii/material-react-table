@@ -10,11 +10,11 @@ metadata:
 requires:
   - getting-started
 sources:
-  - 'gyminii/material-react-table:apps/material-react-table-docs/pages/docs/guides/virtualization.mdx'
-  - 'gyminii/material-react-table:apps/material-react-table-docs/examples/enable-row-virtualization/sandbox/src/TS.tsx'
-  - 'gyminii/material-react-table:packages/material-react-table/src/hooks/useMRT_RowVirtualizer.ts'
-  - 'gyminii/material-react-table:packages/material-react-table/src/hooks/useMRT_TableOptions.ts'
-  - 'gyminii/material-react-table:packages/material-react-table/src/types.ts'
+  - 'lminii/material-react-table:apps/material-react-table-docs/pages/docs/guides/virtualization.mdx'
+  - 'lminii/material-react-table:apps/material-react-table-docs/examples/enable-row-virtualization/sandbox/src/TS.tsx'
+  - 'lminii/material-react-table:packages/material-react-table/src/hooks/useMRT_RowVirtualizer.ts'
+  - 'lminii/material-react-table:packages/material-react-table/src/hooks/useMRT_TableOptions.ts'
+  - 'lminii/material-react-table:packages/material-react-table/src/types.ts'
 ---
 
 This skill builds on `getting-started`. MRT wraps `@tanstack/react-virtual` so only the rows and columns inside the scroll container render. Enable it when a table shows more than about 50 rows without pagination or more than about a dozen columns; below that it adds overhead without benefit.
