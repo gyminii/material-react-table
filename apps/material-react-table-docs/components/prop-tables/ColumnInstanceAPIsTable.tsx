@@ -25,7 +25,7 @@ const ColumnInstanceAPIsTable = ({ onlyOptions }: Props) => {
       {
         accessorKey: 'columnInstanceAPI',
         enableClickToCopy: true,
-        header: 'State Option',
+        header: 'Column Instance API',
         muiCopyButtonProps: ({ cell }) => ({
           className: 'column-instance-api',
           id: `${cell.getValue<string>()}-column-instance-api`,
