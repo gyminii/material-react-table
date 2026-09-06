@@ -44,6 +44,19 @@ export const routes: Array<RouteItem> = [
         keywords: ['beginner', 'guide'],
       },
       {
+        href: '/docs/getting-started/ai-agents',
+        label: 'AI Agents',
+        keywords: [
+          'ai',
+          'agent',
+          'skills',
+          'mcp',
+          'claude',
+          'cursor',
+          'copilot',
+        ],
+      },
+      {
         href: '/docs/getting-started/migrating-to-v4',
         label: 'Migrating to V4',
         keywords: ['migration', 'upgrade', 'v4', 'fork', 'mui 9', 'tanstack 9'],

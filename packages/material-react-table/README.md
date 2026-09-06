@@ -213,11 +213,13 @@ The skills follow the Agent Skills `SKILL.md` format, so any harness can install
 npx skills add https://github.com/gyminii/material-react-table/tree/v4/packages/material-react-table/skills -a claude-code
 ```
 
-For exact option lookups, add the MCP server [`@mini_7/material-react-table-mcp`](https://github.com/gyminii/material-react-table/tree/v4/packages/material-react-table-mcp):
+For exact option lookups, the feature guides, and the source of every docs example, add the MCP server [`@mini_7/material-react-table-mcp`](https://github.com/gyminii/material-react-table/tree/v4/packages/material-react-table-mcp):
 
 ```bash
 claude mcp add material-react-table -- npx -y @mini_7/material-react-table-mcp
 ```
+
+The [AI Agents](https://material-react-table.minii.dev/docs/getting-started/ai-agents) docs page covers every tool and install path.
 
 ## Contributors
 

@@ -22,11 +22,76 @@ const textOf = (result: Awaited<ReturnType<Client['callTool']>>): string => {
 const tools = (await client.listTools()).tools.map((tool) => tool.name).sort();
 assert.deepEqual(tools, [
   'get_mrt_api',
+  'get_mrt_example',
+  'get_mrt_guide',
   'get_mrt_migration_guide',
+  'get_mrt_reference',
   'get_mrt_skill',
   'list_mrt_api',
   'search_mrt_api',
+  'search_mrt_docs',
 ]);
+
+const docsSearch = textOf(
+  await client.callTool({
+    name: 'search_mrt_docs',
+    arguments: { query: 'editing' },
+  }),
+);
+assert.match(docsSearch, /- guide `editing` \(get_mrt_guide\)/);
+assert.match(docsSearch, /- example `editing-crud-modal` \(get_mrt_example\)/);
+assert.match(docsSearch, /- skill `editing` \(get_mrt_skill\)/);
+
+const guides = textOf(
+  await client.callTool({ name: 'get_mrt_guide', arguments: {} }),
+);
+assert.match(guides, /- column-filtering: /);
+const guide = textOf(
+  await client.callTool({
+    name: 'get_mrt_guide',
+    arguments: { name: 'editing' },
+  }),
+);
+assert.match(guide, /^## Editing Feature Guide/);
+assert.match(guide, /- `editDisplayMode` - type `/);
+assert.match(guide, /Live examples: `editing-crud-modal`/);
+assert.doesNotMatch(guide, /^import |<Head>|<TableOptionsTable/m);
+const unknownGuide = textOf(
+  await client.callTool({
+    name: 'get_mrt_guide',
+    arguments: { name: 'filter' },
+  }),
+);
+assert.match(unknownGuide, /Unknown guide "filter"\. Did you mean: /);
+
+const reference = textOf(
+  await client.callTool({
+    name: 'get_mrt_reference',
+    arguments: { page: 'mrt-hooks' },
+  }),
+);
+assert.match(reference, /^## MRT Hooks/);
+assert.match(reference, /### useMaterialReactTable/);
+
+const examples = textOf(
+  await client.callTool({ name: 'get_mrt_example', arguments: {} }),
+);
+assert.match(examples, /- editing-crud-modal \(guides: editing; pages: /);
+const example = textOf(
+  await client.callTool({
+    name: 'get_mrt_example',
+    arguments: { id: 'basic' },
+  }),
+);
+assert.match(example, /^\/\/ examples\/basic\/sandbox\/src\/TS\.tsx\n/);
+assert.match(example, /useMaterialReactTable/);
+const unknownExample = textOf(
+  await client.callTool({
+    name: 'get_mrt_example',
+    arguments: { id: 'crud' },
+  }),
+);
+assert.match(unknownExample, /Unknown example "crud"\. Did you mean: /);
 
 const search = textOf(
   await client.callTool({

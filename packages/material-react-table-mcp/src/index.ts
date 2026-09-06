@@ -9,12 +9,18 @@ import {
   type Category,
   listSkills,
   loadApi,
+  loadDocsIndex,
+  loadExample,
+  loadGuide,
   loadMigrationGuide,
+  loadReference,
   loadSkill,
   searchApi,
+  searchDocs,
 } from './data.js';
 
 const api = loadApi();
+const docs = loadDocsIndex();
 
 const categoryDescriptions: Record<Category, string> = {
   tableOptions:
@@ -201,6 +207,143 @@ server.registerTool(
         `Unknown skill "${name}". Available: ${listSkills().join(', ')}.`,
       );
     return text(skill);
+  },
+);
+
+const REFERENCE_PAGES = docs.reference.map((page) => page.name) as [
+  string,
+  ...string[],
+];
+
+const toolFor: Record<string, string> = {
+  guide: 'get_mrt_guide',
+  reference: 'get_mrt_reference',
+  skill: 'get_mrt_skill',
+  example: 'get_mrt_example',
+};
+
+server.registerTool(
+  'search_mrt_docs',
+  {
+    title: 'Search the Material React Table guides, examples, and skills',
+    description:
+      'Find which guide, reference page, skill, or example covers a topic. Matches names, titles, headings, and descriptions, and tells you which tool to call next. Use search_mrt_api instead for a specific option or method name.',
+    inputSchema: {
+      query: z
+        .string()
+        .min(1)
+        .describe(
+          'Words to match, e.g. "row selection", "virtualization", "detail panel", "export csv".',
+        ),
+      limit: z
+        .number()
+        .int()
+        .min(1)
+        .max(100)
+        .optional()
+        .describe('Maximum hits to return. Defaults to 20.'),
+    },
+  },
+  async ({ query, limit }) => {
+    const hits = searchDocs(docs, query, limit ?? 20);
+    if (hits.length === 0) {
+      return text(
+        `Nothing in the Material React Table docs matches "${query}". Try a shorter term, or list everything with get_mrt_guide or get_mrt_example.`,
+      );
+    }
+    return text(
+      hits
+        .map(
+          (hit) =>
+            `- ${hit.kind} \`${hit.name}\` (${toolFor[hit.kind]}): ${hit.summary}`,
+        )
+        .join('\n'),
+    );
+  },
+);
+
+server.registerTool(
+  'get_mrt_guide',
+  {
+    title: 'Get a Material React Table feature guide',
+    description: `Return one of the ${docs.guides.length} docs guides as Markdown, with its relevant options expanded and its live examples named (fetch those with get_mrt_example). Call without a name to list the guides.`,
+    inputSchema: {
+      name: z
+        .string()
+        .optional()
+        .describe(
+          'Guide name, e.g. "editing", "column-filtering", "virtualization". Omit to list all guides.',
+        ),
+    },
+  },
+  async ({ name }) => {
+    if (!name) {
+      return text(
+        `Guides:\n${docs.guides.map((guide) => `- ${guide.name}: ${guide.description || guide.title}`).join('\n')}`,
+      );
+    }
+    const guide = loadGuide(name);
+    if (!guide) {
+      const suggestions = searchDocs(docs, name, 5, ['guide']).map(
+        (hit) => hit.name,
+      );
+      return text(
+        `Unknown guide "${name}".${suggestions.length ? ` Did you mean: ${suggestions.join(', ')}?` : ''} Call get_mrt_guide without a name to list them.`,
+      );
+    }
+    return text(guide);
+  },
+);
+
+server.registerTool(
+  'get_mrt_reference',
+  {
+    title: 'Get the Material React Table components or hooks reference',
+    description: `Return a reference page as Markdown: ${docs.reference.map((page) => `"${page.name}" (${page.description})`).join(', ')}.`,
+    inputSchema: {
+      page: z.enum(REFERENCE_PAGES),
+    },
+  },
+  async ({ page }) => text(loadReference(page) ?? `Unknown page "${page}".`),
+);
+
+server.registerTool(
+  'get_mrt_example',
+  {
+    title: 'Get a Material React Table example',
+    description: `Return the full TypeScript source of one of the ${docs.examples.length} runnable docs examples. Call without an id to list every example with the guides that embed it.`,
+    inputSchema: {
+      id: z
+        .string()
+        .optional()
+        .describe(
+          'Example id, e.g. "basic", "editing-crud-modal", "virtualized", "remote". Omit to list all examples.',
+        ),
+    },
+  },
+  async ({ id }) => {
+    if (!id) {
+      const lines = docs.examples.map((example) => {
+        const where = [
+          example.guides.length ? `guides: ${example.guides.join(', ')}` : '',
+          example.pages.length ? `pages: ${example.pages.join(', ')}` : '',
+        ]
+          .filter(Boolean)
+          .join('; ');
+        return `- ${example.id}${where ? ` (${where})` : ''}`;
+      });
+      return text(`Examples:\n${lines.join('\n')}`);
+    }
+    const source = loadExample(id);
+    if (!source) {
+      const suggestions = searchDocs(docs, id, 5, ['example']).map(
+        (hit) => hit.name,
+      );
+      return text(
+        `Unknown example "${id}".${suggestions.length ? ` Did you mean: ${suggestions.join(', ')}?` : ''} Call get_mrt_example without an id to list them.`,
+      );
+    }
+    return text(`// examples/${id}/sandbox/src/TS.tsx\n${source}`);
   },
 );
 

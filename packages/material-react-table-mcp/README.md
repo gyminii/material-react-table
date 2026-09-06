@@ -1,7 +1,7 @@
 # @mini_7/material-react-table-mcp
 
 An [MCP](https://modelcontextprotocol.io) server that gives AI coding agents an exact reference for [Material React Table V4](https://github.com/gyminii/material-react-table) (`@mini_7/material-react-table`).
-It serves the same data as the docs site's API pages, the V3 to V4 migration guide, and the agent skills bundled with the library.
+It serves the same data as the docs site: the API pages, every feature guide, the components and hooks reference, the source of every runnable example, the V3 to V4 migration guide, and the agent skills bundled with the library.
 
 ## Tools
 
@@ -12,6 +12,10 @@ It serves the same data as the docs site's API pages, the V3 to V4 migration gui
 | `list_mrt_api` | List one category, optionally filtered by a name prefix such as `mui`, `render`, `enable`, or `on`. |
 | `get_mrt_migration_guide` | The full `MIGRATION.md` for moving from `material-react-table` V3 to V4. |
 | `get_mrt_skill` | The `SKILL.md` guides shipped in `@mini_7/material-react-table/skills`. |
+| `search_mrt_docs` | Find which guide, reference page, skill, or example covers a topic, and which tool returns it. |
+| `get_mrt_guide` | One of the 38 feature guides as Markdown, with its relevant options expanded and its live examples named. Call without a name to list them. |
+| `get_mrt_reference` | The MRT components or MRT hooks reference page. |
+| `get_mrt_example` | The full TypeScript source of one of the 113 docs examples. Call without an id to list them with the guides that embed each one. |
 
 ## Setup
 
@@ -61,4 +65,4 @@ pnpm build   # regenerates data/ from the docs prop tables, MIGRATION.md and ski
 pnpm test    # starts the built server and exercises every tool
 ```
 
-`data/` is generated; edit the docs prop tables under `apps/material-react-table-docs/components/prop-tables` instead.
+`data/` is generated; edit the docs prop tables under `apps/material-react-table-docs/components/prop-tables`, the MDX pages under `apps/material-react-table-docs/pages/docs`, or the examples under `apps/material-react-table-docs/examples` instead. Guides are rendered from MDX to Markdown at build time: imports and the `Head` block are dropped, `*OptionsTable` components become option lists, and embedded examples become pointers to `get_mrt_example`.
